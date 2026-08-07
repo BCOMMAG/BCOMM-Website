@@ -53,7 +53,7 @@ export function Contact() {
       const digits = telefone.replace(/\D/g, "");
       if (countryCode === "+55") {
         if (digits.length < 10 || digits.length > 11) {
-          e.telefone = " telefone BR: DDD + 9 + 8 dígitos";
+          e.telefone = "BR: DDD + 9 + 8 dígitos (ex: 41 9 9999-0000)";
         }
       } else if (digits.length < 7 || digits.length > 15) {
         e.telefone = "Telefone inválido";
