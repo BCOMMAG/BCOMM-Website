@@ -10,20 +10,20 @@ const ConstellationGrid = dynamic(
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-bcomm-black px-[24px] pt-[80px] md:px-[48px] lg:px-[80px]">
-      <ConstellationGrid className="opacity-40" />
+    <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-void-black px-[24px] pt-[80px] md:px-[48px] lg:px-[80px]">
+      <ConstellationGrid className="opacity-30" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <AnimatedSection>
-          <h1 className="font-inter-tight text-[36px] font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-[48px] md:text-[56px] md:tracking-[-0.02em] lg:text-[64px] xl:text-[80px]">
+          <h1 className="font-playfair text-[48px] font-normal leading-[1] tracking-[-0.01em] text-white sm:text-[64px] md:text-[77px] lg:text-[96px]">
             Tecnologia que comunica.
             <br />
-            <span className="text-bcomm-secondary">Soluções que funcionam.</span>
+            <span className="text-bone">Soluções que funcionam.</span>
           </h1>
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
-          <p className="mt-[24px] max-w-[560px] text-[17px] font-normal leading-[1.47] tracking-[-0.022em] text-bcomm-secondary md:mt-[32px] md:text-[19px]">
+          <p className="mt-[24px] max-w-[560px] text-[18px] font-normal leading-[1.5] text-ash md:mt-[32px]">
             Automação, integrações e agentes de IA construídos com engenharia de
             verdade, para empresas que precisam de resultados, não de promessas.
           </p>
@@ -33,15 +33,18 @@ export function Hero() {
           <div className="mt-[40px] flex flex-col gap-[12px] sm:flex-row md:mt-[48px]">
             <a
               href="#contato"
-              className="inline-flex items-center justify-center rounded-[980px] bg-bcomm-action px-[20px] py-[12px] text-[15px] font-medium text-white transition-colors hover:bg-bcomm-action/90 md:px-[24px] md:py-[14px]"
+              className="inline-flex items-center justify-center rounded-[6px] border border-graphite bg-transparent px-[16px] py-[12px] text-[16px] font-normal text-white transition-colors hover:border-white/30 md:px-[20px] md:py-[14px]"
             >
               Agende uma conversa
             </a>
             <a
               href="#solucoes"
-              className="inline-flex items-center justify-center rounded-[980px] bg-bcomm-ink px-[20px] py-[12px] text-[15px] font-medium text-white transition-colors hover:bg-bcomm-surface-1 md:px-[24px] md:py-[14px]"
+              className="inline-flex items-center gap-[6px] text-[16px] font-normal text-bone transition-colors hover:text-white"
             >
               Conheça as soluções
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </a>
           </div>
         </AnimatedSection>

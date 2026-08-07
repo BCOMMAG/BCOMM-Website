@@ -1,65 +1,71 @@
 export const colors = {
-  black: "#000000",
-  gray: "#f5f5f7",
+  voidBlack: "#000000",
+  graphite: "#292d30",
   white: "#ffffff",
-  ink: "#1d1d1f",
-  action: "#0071e3",
-  link: "#0066cc",
-  bright: "#2997ff",
-  secondary: "#6e6e73",
-  borderSoft: "#d2d2d7",
-  borderMed: "#86868b",
-  surface1: "#272729",
-  surface2: "#262629",
-  surface3: "#28282b",
-  surface4: "#2a2a2c",
+  bone: "#f0f0f0",
+  ash: "#a1a4a5",
+  smoke: "#abafb4",
+  iron: "#6e727a",
+  charcoal: "#464a4d",
+  iris: "#9281f7",
+  irisGlow: "#baa7ff",
+  signal: "#3b9eff",
+  sky: "#70b8ff",
+  pulse: "#3ad389",
+  alarm: "#ff9592",
+  crimson: "#ff6465",
+  amber: "#ffca16",
+  amberGlow: "#ffd60a",
+  surfaceLift: "#0b0e14",
 } as const;
 
 export const typography = {
-  heroHeadline: {
-    size: "text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[80px]",
-    weight: "font-semibold",
-    leading: "leading-[1.05]",
-    tracking: "tracking-[-0.02em]",
+  display: {
+    size: "text-[48px] sm:text-[64px] md:text-[77px] lg:text-[96px]",
+    weight: "font-normal",
+    leading: "leading-[1]",
+    tracking: "tracking-[-0.01em]",
+    font: "font-playfair",
   },
-  sectionTitle: {
-    size: "text-[32px] sm:text-[40px] md:text-[48px]",
-    weight: "font-medium",
-    leading: "leading-[1.1]",
-    tracking: "tracking-[-0.015em]",
-  },
-  cardTitle: {
-    size: "text-[24px] md:text-[28px]",
-    weight: "font-semibold",
+  heading: {
+    size: "text-[36px] sm:text-[44px] md:text-[56px]",
+    weight: "font-normal",
     leading: "leading-[1.2]",
+    tracking: "tracking-[-0.05em]",
+  },
+  "heading-sm": {
+    size: "text-[20px] sm:text-[24px]",
+    weight: "font-medium",
+    leading: "leading-[1.5]",
+  },
+  subheading: {
+    size: "text-[20px]",
+    weight: "font-normal",
+    leading: "leading-[1]",
   },
   body: {
-    size: "text-[17px]",
+    size: "text-[16px]",
     weight: "font-normal",
-    leading: "leading-[1.47]",
-    tracking: "tracking-[-0.022em]",
+    leading: "leading-[1.5]",
   },
-  label: {
-    size: "text-[12px] md:text-[14px]",
-    weight: "font-medium",
-    leading: "leading-[1.3]",
+  "body-sm": {
+    size: "text-[14px]",
+    weight: "font-normal",
+    leading: "leading-[1.43]",
+  },
+  caption: {
+    size: "text-[12px]",
+    weight: "font-normal",
+    leading: "leading-[1.33]",
   },
 } as const;
 
 export const radii = {
-  control: "8px",
-  card: "16px",
-  module: "28px",
-  pill: "980px",
-  circle: "50%",
-} as const;
-
-export const spacing = {
-  sectionLarge: "py-[80px] md:py-[120px] lg:py-[160px]",
-  sectionMedium: "py-[60px] md:py-[80px] lg:py-[100px]",
-  sectionDense: "py-[48px] md:py-[64px]",
-  containerLarge: "px-[24px] md:px-[48px] lg:px-[80px]",
-  containerMedium: "px-[24px] md:px-[40px] lg:px-[64px]",
+  md: "6px",
+  lg: "10px",
+  "2xl": "16px",
+  "3xl": "24px",
+  pill: "9999px",
 } as const;
 
 export const nav = [
@@ -91,7 +97,7 @@ export const solutions = [
   {
     title: "Plataformas SaaS sob Medida",
     description:
-      "Soluções sob medida que escalam com o seu negócio, do MVP ao enterprise, com arquitetura pensada para crescer.",
+      "Soluções sob medida que escalam com o negócio, do MVP ao enterprise, com arquitetura pensada para crescer.",
     icon: "⚙️",
   },
 ] as const;
@@ -122,13 +128,13 @@ export const processSteps = [
     step: "01",
     title: "Diagnóstico",
     description:
-      "Mapeamos seu fluxo atual, identificamos gargalos e definimos exatamente onde a tecnologia gera impacto real.",
+      "Mapeamos o fluxo atual, identificamos gargalos e definimos exatamente onde a tecnologia gera impacto real.",
   },
   {
     step: "02",
     title: "Arquitetura",
     description:
-      "Projetamos a solução com as tecnologias certas: escalável, segura e alinhada com sua infraestrutura existente.",
+      "Projetamos a solução com as tecnologias certas: escalável, segura e alinhada com a infraestrutura existente.",
   },
   {
     step: "03",
@@ -140,7 +146,7 @@ export const processSteps = [
     step: "04",
     title: "Evolução contínua",
     description:
-      "Após o deploy, monitoramos performance, coletamos feedbacks e iteramos, sua solução nunca fica parada.",
+      "Após o deploy, monitoramos performance, coletamos feedbacks e iteramos, a solução nunca fica parada.",
   },
 ] as const;
 
@@ -149,7 +155,7 @@ export const cases = [
     metric: "73%",
     label: "Redução no tempo de atendimento",
     description:
-      "Automatização inteligente que transformou o fluxo de suporte de um operador logístico.",
+      "Automação inteligente que transformou o fluxo de suporte de um operador logístico.",
     client: "Operador Logístico / LogTech",
   },
   {

@@ -113,7 +113,7 @@ export default function ConstellationGrid({ className = "" }: ConstellationGridP
       ctx.fillRect(0, 0, width, height);
 
       const nodeColor = "255, 255, 255";
-      const accentColor = "0, 113, 227"; // #0071e3
+      const accentColor = "146, 129, 247"; // #9281f7 iris violet
 
       const SPRING_K = 18;
       const DAMPING = 0.82;

@@ -16,16 +16,14 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-black/90 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.08)]"
-          : "bg-black/0"
+        scrolled ? "backdrop-blur-[25px] bg-[#000000f2]" : "bg-transparent"
       }`}
     >
       <nav
         className="mx-auto flex max-w-[1200px] items-center justify-between px-[24px] py-[16px] md:px-[48px]"
         aria-label="Navegação principal"
       >
-        <a href="#" className="font-inter-tight text-[20px] font-semibold tracking-[-0.03em] text-white">
+        <a href="#" className="text-[16px] font-semibold tracking-[-0.02em] text-white">
           BCOMM
         </a>
 
@@ -34,7 +32,7 @@ export function Header() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-[14px] font-medium text-white/70 transition-colors hover:text-white"
+                className="text-[14px] font-normal text-bone transition-colors hover:text-white"
               >
                 {item.label}
               </a>
@@ -45,14 +43,14 @@ export function Header() {
         <div className="hidden md:block">
           <a
             href="#contato"
-            className="inline-block rounded-[980px] bg-bcomm-action px-[15px] py-[8px] text-[14px] font-medium text-white transition-colors hover:bg-bcomm-action/90"
+            className="inline-block rounded-[6px] border border-graphite bg-transparent px-[16px] py-[12px] text-[14px] font-normal text-white transition-colors hover:border-white/30"
           >
             Fale com a gente
           </a>
         </div>
 
         <button
-          className="flex h-[36px] w-[36px] items-center justify-center rounded-[8px] text-white md:hidden"
+          className="flex h-[36px] w-[36px] items-center justify-center rounded-[6px] text-white md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={mobileOpen}
@@ -72,13 +70,13 @@ export function Header() {
       </nav>
 
       {mobileOpen && (
-        <div className="border-t border-white/10 bg-black/95 backdrop-blur-xl md:hidden">
+        <div className="border-t border-graphite backdrop-blur-[25px] bg-[#000000f2] md:hidden">
           <ul className="flex flex-col gap-[4px] px-[24px] py-[16px]">
             {nav.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="block rounded-[8px] px-[12px] py-[10px] text-[16px] font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-white"
+                  className="block rounded-[6px] px-[12px] py-[10px] text-[16px] font-normal text-bone transition-colors hover:text-white"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -89,7 +87,7 @@ export function Header() {
           <div className="px-[24px] pb-[20px]">
             <a
               href="#contato"
-              className="block rounded-[980px] bg-bcomm-action px-[15px] py-[10px] text-center text-[14px] font-medium text-white transition-colors hover:bg-bcomm-action/90"
+              className="block rounded-[6px] border border-graphite bg-transparent px-[16px] py-[10px] text-center text-[14px] font-normal text-white transition-colors hover:border-white/30"
               onClick={() => setMobileOpen(false)}
             >
               Fale com a gente

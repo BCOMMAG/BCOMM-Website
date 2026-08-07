@@ -3,31 +3,31 @@ import { AnimatedSection } from "./AnimatedSection";
 
 export function Cases() {
   return (
-    <section id="cases" className="bg-bcomm-gray px-[24px] py-[80px] md:px-[48px] md:py-[120px] lg:px-[80px]">
+    <section id="cases" className="bg-void-black px-[24px] py-[80px] md:px-[48px] md:py-[96px] lg:px-[80px]">
       <div className="mx-auto max-w-[1200px]">
         <AnimatedSection>
-          <p className="text-[12px] font-medium uppercase tracking-[0.1em] text-bcomm-secondary md:text-[14px]">
+          <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
             Cases
           </p>
-          <h2 className="mt-[8px] font-inter-tight text-[32px] font-medium leading-[1.1] tracking-[-0.015em] text-bcomm-ink sm:text-[40px] md:text-[48px]">
+          <h2 className="mt-[8px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
             Resultados que falam por si.
           </h2>
         </AnimatedSection>
 
-        <div className="mt-[48px] grid grid-cols-1 gap-[20px] md:grid-cols-3 md:gap-[24px]">
+        <div className="mt-[48px] grid grid-cols-1 gap-[16px] md:grid-cols-3">
           {cases.map((c, i) => (
             <AnimatedSection key={c.client} delay={i * 0.1}>
-              <div className="rounded-[16px] bg-white p-[28px] transition-shadow duration-300 hover:shadow-[0_2px_12px_rgba(0,0,0,0.06)] md:p-[32px]">
-                <span className="font-inter-tight text-[48px] font-semibold leading-[1] tracking-[-0.03em] text-bcomm-action md:text-[56px]">
+              <div className="rounded-[16px] border border-graphite bg-void-black p-[32px] transition-colors hover:border-iron">
+                <span className="font-mono text-[48px] font-normal leading-[1] text-iris md:text-[56px]">
                   {c.metric}
                 </span>
-                <h3 className="mt-[16px] font-inter-tight text-[20px] font-semibold leading-[1.3] text-bcomm-ink md:text-[22px]">
+                <h3 className="mt-[16px] text-[20px] font-medium leading-[1] text-bone">
                   {c.label}
                 </h3>
-                <p className="mt-[8px] text-[15px] leading-[1.5] text-bcomm-secondary">
+                <p className="mt-[8px] text-[16px] leading-[1.5] text-ash">
                   {c.description}
                 </p>
-                <p className="mt-[20px] border-t border-bcomm-border-soft pt-[16px] text-[13px] font-medium uppercase tracking-[0.05em] text-bcomm-border-med">
+                <p className="mt-[20px] border-t border-graphite pt-[16px] font-mono text-[12px] uppercase tracking-[0.025em] text-charcoal">
                   {c.client}
                 </p>
               </div>
