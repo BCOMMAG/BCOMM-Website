@@ -91,7 +91,7 @@ export function Header() {
         aria-label="Navegação principal"
       >
         <a href="#" className="flex items-center">
-          <img src="/logo.png" alt="" className="h-[64px] w-auto md:h-[72px]" aria-hidden="true" />
+          <img src="/logo.png" alt="" className="h-[80px] w-auto md:h-[96px]" aria-hidden="true" />
           <span className="sr-only">BCOMM</span>
         </a>
 
