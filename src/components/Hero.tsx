@@ -33,7 +33,7 @@ export function Hero() {
           <div className="mt-[40px] flex flex-col gap-[12px] sm:flex-row md:mt-[48px]">
             <a
               href="#contato"
-              className="inline-flex items-center gap-[8px] rounded-[9999px] border border-graphite bg-transparent px-[20px] py-[12px] text-[16px] font-normal text-white transition-all duration-300 [cubic-bezier(0.16,1,0.3,1)] hover:border-white hover:bg-white hover:text-black md:px-[24px] md:py-[14px]"
+              className="btn-slide inline-flex items-center gap-[8px] rounded-[9999px] border border-graphite bg-transparent px-[20px] py-[12px] text-[16px] font-normal text-white md:px-[24px] md:py-[14px]"
             >
               Agende uma conversa
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

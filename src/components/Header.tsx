@@ -43,7 +43,7 @@ export function Header() {
         <div className="hidden md:block">
           <a
             href="#contato"
-            className="inline-flex items-center gap-[6px] rounded-[9999px] border border-graphite bg-transparent px-[18px] py-[10px] text-[14px] font-normal text-white transition-all duration-300 [cubic-bezier(0.16,1,0.3,1)] hover:border-white hover:bg-white hover:text-black"
+            className="btn-slide inline-flex items-center gap-[6px] rounded-[9999px] border border-graphite bg-transparent px-[18px] py-[10px] text-[14px] font-normal text-white"
           >
             Fale Conosco
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -90,7 +90,7 @@ export function Header() {
           <div className="px-[24px] pb-[20px]">
             <a
               href="#contato"
-              className="flex items-center justify-center gap-[6px] rounded-[9999px] border border-graphite bg-transparent px-[18px] py-[10px] text-[14px] font-normal text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
+              className="btn-slide flex items-center justify-center gap-[6px] rounded-[9999px] border border-graphite bg-transparent px-[18px] py-[10px] text-[14px] font-normal text-white"
               onClick={() => setMobileOpen(false)}
             >
               Fale Conosco

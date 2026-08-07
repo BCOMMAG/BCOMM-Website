@@ -18,7 +18,7 @@ export function Cta() {
           <div className="mt-[40px] md:mt-[48px]">
             <a
               href="mailto:contato@bcomm.com.br"
-              className="inline-flex items-center gap-[8px] rounded-[9999px] border border-graphite bg-transparent px-[28px] py-[14px] text-[16px] font-normal text-white transition-all duration-300 [cubic-bezier(0.16,1,0.3,1)] hover:border-white hover:bg-white hover:text-black md:px-[36px] md:py-[16px]"
+              className="btn-slide inline-flex items-center gap-[8px] rounded-[9999px] border border-graphite bg-transparent px-[28px] py-[14px] text-[16px] font-normal text-white md:px-[36px] md:py-[16px]"
             >
               Fale Conosco
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
