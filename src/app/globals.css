@@ -141,3 +141,42 @@ button:focus-visible {
 .btn-slide:hover::before {
   right: 0;
 }
+
+.input-field {
+  background: transparent;
+  border: 1px solid #292d30;
+  border-radius: 6px;
+  color: #f0f0f0;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-family: var(--font-inter);
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+.input-field:focus {
+  border-color: #3b9eff;
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: #6e727a;
+}
+
+.select-field {
+  background: transparent;
+  border: 1px solid #292d30;
+  border-radius: 6px;
+  color: #f0f0f0;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-family: var(--font-mono);
+  transition: border-color 0.2s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.select-field:focus {
+  border-color: #3b9eff;
+  outline: none;
+}
