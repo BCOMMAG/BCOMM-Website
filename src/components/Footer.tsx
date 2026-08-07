@@ -6,7 +6,7 @@ export function Footer() {
           <img
             src="/logo.png"
             alt=""
-            className="h-[40px] w-auto opacity-60"
+            className="h-[48px] w-auto opacity-60"
             aria-hidden="true"
           />
           <span className="text-[14px] font-normal text-iron">
