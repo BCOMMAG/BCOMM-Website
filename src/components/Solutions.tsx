@@ -41,7 +41,7 @@ export function Solutions() {
                   </p>
                   <a
                     href={s.ctaHref}
-                    className="mt-[20px] inline-flex items-center gap-[6px] text-[14px] font-normal text-bone transition-colors duration-200 hover:text-white"
+                    className="mt-[20px] inline-flex items-center gap-[6px] text-[14px] font-normal text-iris transition-colors duration-200 hover:text-iris-glow"
                   >
                     {s.cta}
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
