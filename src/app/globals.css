@@ -90,3 +90,23 @@ button:focus-visible {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+.solution-bg-automation {
+  background: radial-gradient(circle at 30% 40%, #292d30 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.solution-bg-integration {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 30%, #292d30 31%, transparent 32%),
+    radial-gradient(circle at 70% 60%, transparent 25%, #292d30 26%, transparent 27%);
+  background-size: 80px 80px;
+}
+
+.solution-bg-support {
+  background: repeating-linear-gradient(0deg, transparent, transparent 14px, #292d30 14px, #292d30 15px);
+}
+
+.solution-bg-saas {
+  background: radial-gradient(circle at 80% 80%, #292d30 0%, transparent 50%);
+}

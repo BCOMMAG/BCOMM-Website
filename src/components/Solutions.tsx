@@ -1,6 +1,13 @@
 import { solutions } from "@/lib/constants";
 import { AnimatedSection } from "./AnimatedSection";
 
+const bgClass: Record<string, string> = {
+  automation: "solution-bg-automation",
+  integration: "solution-bg-integration",
+  support: "solution-bg-support",
+  saas: "solution-bg-saas",
+};
+
 export function Solutions() {
   return (
     <section id="solucoes" className="bg-void-black px-[24px] py-[80px] md:px-[48px] md:py-[96px] lg:px-[80px]">
@@ -17,19 +24,22 @@ export function Solutions() {
           </p>
         </AnimatedSection>
 
-        <div className="mt-[48px] grid grid-cols-1 gap-[16px] sm:grid-cols-2 lg:grid-cols-4 lg:gap-[16px]">
+        <div className="mt-[48px] grid grid-cols-1 gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
           {solutions.map((s, i) => (
             <AnimatedSection key={s.title} delay={i * 0.08}>
-              <div className="rounded-[16px] border border-graphite bg-void-black p-[32px] transition-colors hover:border-iron">
-                <div className="flex h-[48px] w-[48px] items-center justify-center rounded-[16px] text-[24px]">
-                  {s.icon}
+              <div className="group relative min-h-[320px] overflow-hidden rounded-[16px] border border-graphite bg-[#0b0b0c] transition-all duration-500 hover:-translate-y-2 hover:border-iron">
+                <div
+                  className={`absolute inset-0 opacity-30 transition-opacity duration-500 group-hover:opacity-60 ${bgClass[s.variant]}`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0c] via-[#0b0b0c]/80 to-transparent" />
+                <div className="relative z-10 flex flex-col justify-end p-[32px]">
+                  <h3 className="text-[22px] font-semibold leading-[1.3] tracking-[-0.02em] text-white transition-colors duration-300 group-hover:text-iris-glow">
+                    {s.title}
+                  </h3>
+                  <p className="mt-[12px] text-[14px] leading-[1.6] text-ash">
+                    {s.description}
+                  </p>
                 </div>
-                <h3 className="mt-[20px] text-[24px] font-medium leading-[1.5] text-bone">
-                  {s.title}
-                </h3>
-                <p className="mt-[8px] text-[16px] leading-[1.5] text-ash">
-                  {s.description}
-                </p>
               </div>
             </AnimatedSection>
           ))}

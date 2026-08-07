@@ -80,25 +80,25 @@ export const solutions = [
     title: "Automação com IA",
     description:
       "Agentes inteligentes que automatizam processos repetitivos, reduzem erros operacionais e liberam seu time para tarefas estratégicas.",
-    icon: "🤖",
+    variant: "automation",
   },
   {
     title: "Integrações de Sistemas",
     description:
       "Conectamos seus sistemas, APIs e ferramentas em um fluxo único, dados movem-se sem atrito entre departamentos.",
-    icon: "🔗",
+    variant: "integration",
   },
   {
     title: "Atendimento Inteligente",
     description:
       "Chatbots e canais de suporte que resolvem, aprendem e escalam, sem perder a qualidade humana na comunicação.",
-    icon: "💬",
+    variant: "support",
   },
   {
     title: "Plataformas SaaS sob Medida",
     description:
       "Soluções sob medida que escalam com o negócio, do MVP ao enterprise, com arquitetura pensada para crescer.",
-    icon: "⚙️",
+    variant: "saas",
   },
 ] as const;
 
