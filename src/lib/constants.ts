@@ -101,24 +101,32 @@ export const solutions = [
     description:
       "Agentes inteligentes que automatizam processos repetitivos, reduzem erros operacionais e liberam seu time para tarefas estratégicas.",
     variant: "automation",
+    cta: "Ver como funciona",
+    ctaHref: "#contato",
   },
   {
     title: "Integrações de Sistemas",
     description:
       "Conectamos seus sistemas, APIs e ferramentas em um fluxo único, dados movem-se sem atrito entre departamentos.",
     variant: "integration",
+    cta: "Conheça as integrações",
+    ctaHref: "#contato",
   },
   {
     title: "Atendimento Inteligente",
     description:
       "Chatbots e canais de suporte que resolvem, aprendem e escalam, sem perder a qualidade humana na comunicação.",
     variant: "support",
+    cta: "Ver demo de atendimento",
+    ctaHref: "#contato",
   },
   {
     title: "Plataformas SaaS sob Medida",
     description:
       "Soluções sob medida que escalam com o negócio, do MVP ao enterprise, com arquitetura pensada para crescer.",
     variant: "saas",
+    cta: "Solicitar proposta",
+    ctaHref: "#contato",
   },
 ] as const;
 
