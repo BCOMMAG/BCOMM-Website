@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bcomm-black: #000000;
+  --color-bcomm-gray: #f5f5f7;
+  --color-bcomm-white: #ffffff;
+  --color-bcomm-ink: #1d1d1f;
+  --color-bcomm-action: #0071e3;
+  --color-bcomm-link: #0066cc;
+  --color-bcomm-bright: #2997ff;
+  --color-bcomm-secondary: #6e6e73;
+  --color-bcomm-border-soft: #d2d2d7;
+  --color-bcomm-border-med: #86868b;
+  --color-bcomm-surface-1: #272729;
+  --color-bcomm-surface-2: #262629;
+  --color-bcomm-surface-3: #28282b;
+  --color-bcomm-surface-4: #2a2a2c;
+
+  --font-inter-tight: "Inter Tight", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --radius-card: 16px;
+  --radius-module: 28px;
+  --radius-pill: 980px;
+  --radius-control: 8px;
+
+  --animate-fade-up: fade-up 0.6s ease-out both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter);
+  color: var(--color-bcomm-ink);
+  background: var(--color-bcomm-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-inter-tight);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-bcomm-action);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
