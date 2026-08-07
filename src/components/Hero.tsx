@@ -1,13 +1,21 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import { AnimatedSection } from "./AnimatedSection";
+
+const ConstellationGrid = dynamic(
+  () => import("@/components/ui/constellation-grid"),
+  { ssr: false }
+);
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100dvh] items-center bg-bcomm-black px-[24px] pt-[80px] md:px-[48px] lg:px-[80px]">
-      <div className="mx-auto w-full max-w-[1200px]">
+    <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-bcomm-black px-[24px] pt-[80px] md:px-[48px] lg:px-[80px]">
+      <ConstellationGrid className="opacity-40" />
+
+      <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <AnimatedSection>
-          <h1
-            className="font-inter-tight text-[36px] font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-[48px] md:text-[56px] md:tracking-[-0.02em] lg:text-[64px] xl:text-[80px]"
-          >
+          <h1 className="font-inter-tight text-[36px] font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-[48px] md:text-[56px] md:tracking-[-0.02em] lg:text-[64px] xl:text-[80px]">
             Tecnologia que comunica.
             <br />
             <span className="text-bcomm-secondary">Soluções que funcionam.</span>
@@ -16,7 +24,8 @@ export function Hero() {
 
         <AnimatedSection delay={0.1}>
           <p className="mt-[24px] max-w-[560px] text-[17px] font-normal leading-[1.47] tracking-[-0.022em] text-bcomm-secondary md:mt-[32px] md:text-[19px]">
-            Automação, integrações e agentes de IA construídos com engenharia de verdade — para empresas que precisam de resultados, não de promessas.
+            Automação, integrações e agentes de IA construídos com engenharia de
+            verdade — para empresas que precisam de resultados, não de promessas.
           </p>
         </AnimatedSection>
 
