@@ -2,7 +2,7 @@ import { AnimatedSection } from "./AnimatedSection";
 
 export function Cta() {
   return (
-    <section id="contato" className="bg-void-black px-[24px] py-[80px] md:px-[48px] md:py-[96px] lg:py-[144px]">
+    <section id="contato" className="border-t border-graphite bg-void-black px-[24px] py-[96px] md:px-[48px] md:py-[144px] lg:py-[192px]">
       <div className="mx-auto max-w-[800px] text-center">
         <AnimatedSection>
           <h2 className="text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">

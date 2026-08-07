@@ -68,12 +68,32 @@ export const radii = {
   pill: "9999px",
 } as const;
 
-export const nav = [
+interface NavItem {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}
+
+export const nav: NavItem[] = [
   { label: "Soluções", href: "#solucoes" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Cases", href: "#cases" },
+  {
+    label: "Sobre",
+    href: "#sobre",
+    children: [
+      { label: "Sobre a BCOMM", href: "#sobre" },
+      { label: "Como Trabalhamos", href: "#processo" },
+    ],
+  },
+  {
+    label: "Cases",
+    href: "#cases",
+    children: [
+      { label: "Cases", href: "#cases" },
+      { label: "Depoimentos", href: "#depoimentos" },
+    ],
+  },
   { label: "Contato", href: "#contato" },
-] as const;
+];
 
 export const solutions = [
   {
