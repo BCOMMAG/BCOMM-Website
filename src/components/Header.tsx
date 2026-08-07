@@ -90,8 +90,8 @@ export function Header() {
         className="mx-auto flex max-w-[1200px] items-center justify-between px-[24px] py-[16px] md:px-[48px]"
         aria-label="Navegação principal"
       >
-        <a href="#" className="text-[16px] font-semibold tracking-[-0.02em] text-white">
-          BCOMM
+        <a href="#" className="flex items-center">
+          <img src="/logo.png" alt="BCOMM Comunicação Inteligente" className="h-[24px] w-auto md:h-[28px]" />
         </a>
 
         <ul className="hidden items-center gap-[8px] md:flex">
