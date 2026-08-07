@@ -79,13 +79,13 @@ export const solutions = [
   {
     title: "Integrações de Sistemas",
     description:
-      "Conectamos seus sistemas, APIs e ferramentas em um fluxo único — dados movem-se sem atrito entre departamentos.",
+      "Conectamos seus sistemas, APIs e ferramentas em um fluxo único, dados movem-se sem atrito entre departamentos.",
     icon: "🔗",
   },
   {
     title: "Atendimento Inteligente",
     description:
-      "Chatbots e canais de suporte que resolvem, aprendem e escalam — sem perder a qualidade humana na comunicação.",
+      "Chatbots e canais de suporte que resolvem, aprendem e escalam, sem perder a qualidade humana na comunicação.",
     icon: "💬",
   },
   {
@@ -101,7 +101,7 @@ export const differentials = [
     number: "01",
     title: "Time técnico especializado",
     description:
-      "Engenheiros de software e especialistas em IA trabalhando diretamente com você — sem intermediários, sem ruído.",
+      "Engenheiros de software e especialistas em IA trabalhando diretamente com você, sem intermediários, sem ruído.",
   },
   {
     number: "02",
@@ -128,7 +128,7 @@ export const processSteps = [
     step: "02",
     title: "Arquitetura",
     description:
-      "Projetamos a solução com as tecnologias certas — escalável, segura e alinhada com sua infraestrutura existente.",
+      "Projetamos a solução com as tecnologias certas: escalável, segura e alinhada com sua infraestrutura existente.",
   },
   {
     step: "03",
@@ -140,7 +140,7 @@ export const processSteps = [
     step: "04",
     title: "Evolução contínua",
     description:
-      "Após o deploy, monitoramos performance, coletamos feedbacks e iteramos — sua solução nunca fica parada.",
+      "Após o deploy, monitoramos performance, coletamos feedbacks e iteramos, sua solução nunca fica parada.",
   },
 ] as const;
 
@@ -150,20 +150,20 @@ export const cases = [
     label: "Redução no tempo de atendimento",
     description:
       "Automatização inteligente que transformou o fluxo de suporte de um operador logístico.",
-    client: "Operador Logístico — LogTech",
+    client: "Operador Logístico / LogTech",
   },
   {
     metric: "4x",
     label: "Velocidade na integração de dados",
     description:
       "Pipeline de dados conectando ERP, CRM e ferramentas internas em tempo real.",
-    client: "Empresa de Varejo — Grupo Norte",
+    client: "Empresa de Varejo / Grupo Norte",
   },
   {
     metric: "92%",
     label: "Taxa de resolução automática",
     description:
       "Agente de IA que resolve dúvidas técnicas antes de acionar o time humano.",
-    client: "Fintech — Portal Financeiro",
+    client: "Fintech / Portal Financeiro",
   },
 ] as const;

@@ -25,7 +25,7 @@ export function Hero() {
         <AnimatedSection delay={0.1}>
           <p className="mt-[24px] max-w-[560px] text-[17px] font-normal leading-[1.47] tracking-[-0.022em] text-bcomm-secondary md:mt-[32px] md:text-[19px]">
             Automação, integrações e agentes de IA construídos com engenharia de
-            verdade — para empresas que precisam de resultados, não de promessas.
+            verdade, para empresas que precisam de resultados, não de promessas.
           </p>
         </AnimatedSection>
 
