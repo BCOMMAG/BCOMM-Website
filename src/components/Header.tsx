@@ -27,12 +27,12 @@ export function Header() {
           BCOMM
         </a>
 
-        <ul className="hidden items-center gap-[32px] md:flex">
+        <ul className="hidden items-center gap-[8px] md:flex">
           {nav.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-[14px] font-normal text-bone transition-colors hover:text-white"
+                className="rounded-[9999px] border border-transparent px-[14px] py-[8px] text-[14px] font-normal text-bone transition-all duration-200 ease-out hover:border-graphite hover:bg-white hover:text-black"
               >
                 {item.label}
               </a>
@@ -43,14 +43,17 @@ export function Header() {
         <div className="hidden md:block">
           <a
             href="#contato"
-            className="inline-block rounded-[6px] border border-graphite bg-transparent px-[16px] py-[12px] text-[14px] font-normal text-white transition-colors hover:border-white/30"
+            className="inline-flex items-center gap-[6px] rounded-[9999px] border border-graphite bg-transparent px-[18px] py-[10px] text-[14px] font-normal text-white transition-all duration-300 [cubic-bezier(0.16,1,0.3,1)] hover:border-white hover:bg-white hover:text-black"
           >
-            Fale com a gente
+            Fale Conosco
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </a>
         </div>
 
         <button
-          className="flex h-[36px] w-[36px] items-center justify-center rounded-[6px] text-white md:hidden"
+          className="flex h-[36px] w-[36px] items-center justify-center rounded-[9999px] border border-transparent text-white transition-all duration-200 hover:border-graphite hover:bg-white hover:text-black md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={mobileOpen}
@@ -76,7 +79,7 @@ export function Header() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="block rounded-[6px] px-[12px] py-[10px] text-[16px] font-normal text-bone transition-colors hover:text-white"
+                  className="block rounded-[9999px] border border-transparent px-[16px] py-[10px] text-[16px] font-normal text-bone transition-all duration-200 hover:border-graphite hover:bg-white hover:text-black"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -87,10 +90,13 @@ export function Header() {
           <div className="px-[24px] pb-[20px]">
             <a
               href="#contato"
-              className="block rounded-[6px] border border-graphite bg-transparent px-[16px] py-[10px] text-center text-[14px] font-normal text-white transition-colors hover:border-white/30"
+              className="flex items-center justify-center gap-[6px] rounded-[9999px] border border-graphite bg-transparent px-[18px] py-[10px] text-[14px] font-normal text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
               onClick={() => setMobileOpen(false)}
             >
-              Fale com a gente
+              Fale Conosco
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </a>
           </div>
         </div>
