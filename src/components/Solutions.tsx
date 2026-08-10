@@ -27,7 +27,7 @@ export function Solutions() {
         <div className="mt-[48px] grid grid-cols-1 gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
           {solutions.map((s, i) => (
             <AnimatedSection key={s.title} delay={i * 0.08}>
-              <div className="group relative flex min-h-[320px] flex-col overflow-hidden rounded-[16px] border border-graphite bg-[#0b0b0c] transition-all duration-500 hover:-translate-y-2 hover:border-iron">
+              <div className="group relative flex min-h-[320px] flex-col overflow-hidden rounded-[16px] border border-graphite bg-[#0b0b0c] transition-all duration-500 hover:-translate-y-2 hover:border-iron hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]">
                 <div
                   className={`absolute inset-0 opacity-30 transition-opacity duration-500 group-hover:opacity-60 ${bgClass[s.variant]}`}
                 />
