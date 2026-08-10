@@ -17,7 +17,7 @@ export function Cases() {
         <div className="mt-[48px] grid grid-cols-1 gap-[16px] md:grid-cols-3">
           {cases.map((c, i) => (
             <AnimatedSection key={c.client} delay={i * 0.1}>
-              <div className="rounded-[16px] border border-graphite bg-void-black p-[32px] transition-colors hover:border-iron">
+              <div className="rounded-[16px] border border-graphite bg-void-black p-[32px] transition-all duration-500 hover:-translate-y-2 hover:border-iron hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]">
                 <span className="font-mono text-[48px] font-normal leading-[1] text-iris md:text-[56px]">
                   {c.metric}
                 </span>
