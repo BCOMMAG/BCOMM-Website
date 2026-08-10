@@ -16,6 +16,8 @@ const countries = [
   { code: "+52", label: "MX +52" },
 ];
 
+const N8N_WEBHOOK_URL = "https://SEU-N8N.COM/webhook/bcomm-contato";
+
 interface FormErrors {
   nome?: string;
   email?: string;
@@ -31,6 +33,7 @@ export function Contact() {
   const [mensagem, setMensagem] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const validate = (): FormErrors => {
     const e: FormErrors = {};
@@ -41,7 +44,9 @@ export function Contact() {
       e.nome = "Máximo de 100 caracteres";
     }
 
-    if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+    if (!email.trim()) {
+      e.email = "Email é obrigatório";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
       e.email = "Email inválido";
     } else if (email.trim().length > 254) {
       e.email = "Máximo de 254 caracteres";
@@ -69,26 +74,40 @@ export function Contact() {
     return e;
   };
 
-  const handleSubmit = (ev: React.FormEvent) => {
+  const handleSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) return;
 
-    const body = [
-      `Nome: ${nome.trim()}`,
-      email.trim() ? `Email: ${email.trim()}` : null,
-      `Telefone: ${countryCode} ${telefone.trim()}`,
-      ``,
-      `Mensagem: ${mensagem.trim()}`,
-    ]
-      .filter(Boolean)
-      .join("%0A");
+    setSending(true);
 
-    const subject = encodeURIComponent(`Contato via Website - ${nome.trim()}`);
-    window.open(`mailto:contato@agent-bcomm.space?subject=${subject}&body=${body}`, "_blank");
-    setSubmitted(true);
+    try {
+      const payload = {
+        nome: nome.trim(),
+        email: email.trim(),
+        telefone: `${countryCode} ${telefone.trim()}`,
+        mensagem: mensagem.trim(),
+        data: new Date().toISOString(),
+      };
+
+      const res = await fetch(N8N_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setErrors({ mensagem: "Erro ao enviar. Tente novamente." });
+      }
+    } catch {
+      setErrors({ mensagem: "Erro de conexão. Tente novamente." });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -141,7 +160,7 @@ export function Contact() {
                     Obrigado!
                   </p>
                   <p className="mt-[12px] text-[16px] text-ash">
-                    Seu email client deve abrir em instantes.
+                    Recebemos sua mensagem. Em breve entraremos em contato.
                   </p>
                   <button
                     onClick={() => {
@@ -178,7 +197,7 @@ export function Contact() {
                   {/* Email */}
                   <div>
                     <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                      Email
+                      Email *
                     </label>
                     <input
                       type="email"
@@ -249,9 +268,10 @@ export function Contact() {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="btn-slide mt-[8px] w-full rounded-[9999px] border border-graphite bg-transparent px-[24px] py-[12px] text-[16px] font-normal text-white"
+                    disabled={sending}
+                    className="btn-slide mt-[8px] w-full rounded-[9999px] border border-graphite bg-transparent px-[24px] py-[12px] text-[16px] font-normal text-white disabled:opacity-50"
                   >
-                    Enviar mensagem
+                    {sending ? "Enviando..." : "Enviar mensagem"}
                   </button>
                 </form>
               )}
