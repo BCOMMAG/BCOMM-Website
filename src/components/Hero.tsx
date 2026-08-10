@@ -16,9 +16,9 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <AnimatedSection>
           <h1 className="font-playfair text-[48px] font-normal leading-[1] tracking-[-0.01em] text-white sm:text-[64px] md:text-[77px] lg:text-[96px]">
-            Tecnologia que comunica.
+            Tecnologia que comunica
             <br />
-            <span className="text-bone">Soluções que funcionam.</span>
+            <span className="text-bone">Soluções que funcionam</span>
           </h1>
         </AnimatedSection>
 

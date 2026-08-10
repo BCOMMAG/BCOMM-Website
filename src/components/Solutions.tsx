@@ -17,7 +17,7 @@ export function Solutions() {
             Soluções
           </p>
           <h2 className="mt-[8px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
-            Construídas para resolver.
+            Construídas para resolver
           </h2>
           <p className="mt-[16px] max-w-[480px] text-[16px] leading-[1.5] text-ash">
             Cada frente de atuação é um conjunto de ferramentas, métodos e expertise que se conectam para gerar resultado.

@@ -122,7 +122,7 @@ export function Contact() {
                   Contato
                 </p>
                 <h2 className="mt-[8px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
-                  Fale Conosco.
+                  Fale Conosco
                 </h2>
                 <p className="mt-[16px] max-w-[480px] text-[18px] leading-[1.5] text-ash">
                   Preencha o formulário ao lado ou entre em contato diretamente pelo email. Respondemos em até 1 dia útil.

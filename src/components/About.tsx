@@ -10,7 +10,7 @@ export function About() {
             Por que a BCOMM
           </p>
           <h2 className="mt-[8px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
-            Engenharia com propósito.
+            Engenharia com propósito
           </h2>
         </AnimatedSection>
 
