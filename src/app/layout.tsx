@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | BCOMM Comunicação Inteligente",
   },
   description:
-    "Automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida. Soluções empresariais de tecnologia construídas com engenharia de verdade para empresas que precisam de resultados.",
+    "Automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida para empresas.",
   keywords: [
     "automação com IA",
     "integração de sistemas",
@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     siteName: "BCOMM Comunicação Inteligente",
     title: "BCOMM Comunicação Inteligente | Automação, IA e Integrações",
     description:
-      "Automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida. Soluções empresariais de tecnologia construídas com engenharia de verdade.",
+      "Automação com IA, integrações e agentes inteligentes para empresas. Soluções de tecnologia com resultado mensurável.",
   },
   twitter: {
     card: "summary_large_image",
     title: "BCOMM Comunicação Inteligente | Automação, IA e Integrações",
     description:
-      "Automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida.",
+      "Automação com IA, integrações e agentes inteligentes para empresas. Resultado mensurável.",
   },
   robots: {
     index: true,
@@ -109,7 +109,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     name: "BCOMM Comunicação Inteligente",
     url: siteUrl,
     description:
-      "Automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida.",
+      "Automação com IA, integrações e agentes inteligentes para empresas. Resultado mensurável.",
     inLanguage: "pt-BR",
   };
 

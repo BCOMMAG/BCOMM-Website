@@ -13,7 +13,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "BCOMM Comunicação Inteligente | Automação, IA e Integrações",
   description:
-    "Automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida. Soluções empresariais de tecnologia para empresas que precisam de resultados em Curitiba e todo o Brasil.",
+    "Automação com IA, integrações e agentes inteligentes para empresas. Soluções de tecnologia com resultado mensurável. Fale conosco.",
   keywords: [
     "automação com IA",
     "integração de sistemas",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BCOMM Comunicação Inteligente | Automação, IA e Integrações",
     description:
-      "Automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida. Engenharia de software com resultado mensurável.",
+      "Automação com IA, integrações e agentes inteligentes para empresas. Soluções de tecnologia com resultado mensurável.",
     url: "https://agent-bcomm.space",
     siteName: "BCOMM Comunicação Inteligente",
     locale: "pt_BR",
