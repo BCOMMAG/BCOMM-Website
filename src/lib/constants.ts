@@ -84,14 +84,7 @@ export const nav: NavItem[] = [
       { label: "Como Trabalhamos", href: "#processo" },
     ],
   },
-  {
-    label: "Cases",
-    href: "#cases",
-    children: [
-      { label: "Cases", href: "#cases" },
-      { label: "Depoimentos", href: "#depoimentos" },
-    ],
-  },
+  { label: "Cases", href: "#cases" },
   { label: "Contato", href: "#contato" },
 ];
 

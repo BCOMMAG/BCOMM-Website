@@ -5,7 +5,6 @@ import { Solutions } from "@/components/Solutions";
 import { About } from "@/components/About";
 import { Process } from "@/components/Process";
 import { Cases } from "@/components/Cases";
-import { Testimonials } from "@/components/Testimonials";
 import { Contact } from "@/components/Contact";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
@@ -114,7 +113,6 @@ export default function Home() {
         <About />
         <Process />
         <Cases />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />

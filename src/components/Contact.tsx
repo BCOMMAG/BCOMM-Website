@@ -16,7 +16,7 @@ const countries = [
   { code: "+52", label: "MX +52" },
 ];
 
-const N8N_WEBHOOK_URL = "https://n8n.agent-bcomm.space/webhook/bcomm-contato";
+const API_URL = "/api/send-email";
 
 interface FormErrors {
   nome?: string;
@@ -92,7 +92,7 @@ export function Contact() {
         data: new Date().toISOString(),
       };
 
-      const res = await fetch(N8N_WEBHOOK_URL, {
+      const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
