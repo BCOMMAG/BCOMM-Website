@@ -125,7 +125,7 @@ export function Contact() {
                   Fale Conosco
                 </h2>
                 <p className="mt-[16px] max-w-[480px] text-[18px] leading-[1.5] text-ash">
-                  Preencha o formulário ao lado ou entre em contato diretamente pelo email. Respondemos em até 1 dia útil.
+                  Preencha o formulário ao lado ou nos chame no WhatsApp. Respondemos em até 1 dia útil.
                 </p>
               </div>
 
@@ -141,14 +141,7 @@ export function Contact() {
                     contato@agent-bcomm.space
                   </a>
                 </div>
-                <div>
-                  <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                    Localização
-                  </p>
-                  <p className="mt-[4px] font-mono text-[16px] text-bone">
-                    Curitiba, PR — Brasil
-                  </p>
-                </div>
+
               </div>
             </div>
 
