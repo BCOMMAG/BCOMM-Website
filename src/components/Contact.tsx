@@ -151,7 +151,7 @@ export function Contact() {
                   <textarea
                     value={mensagem}
                     onChange={(e) => setMensagem(e.target.value.slice(0, 500))}
-                    placeholder="Conte o que precisa. Quanto mais detalhes, melhor a gente te atende."
+                    placeholder="Conte o que precisa. Quanto mais detalhes, melhor te atendemos."
                     rows={5}
                     className="input-field resize-y"
                   />
