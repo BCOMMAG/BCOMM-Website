@@ -9,6 +9,15 @@ const ConstellationGrid = dynamic(
   { ssr: false }
 );
 
+const glowByIcon: Record<string, string> = {
+  globe: "animate-[sequential-glow_16s_ease-in-out_infinite]",
+  whatsapp: "animate-[sequential-glow-green_16s_ease-in-out_infinite]",
+  instagram: "animate-[sequential-glow-pink_16s_ease-in-out_infinite]",
+  facebook: "animate-[sequential-glow-blue_16s_ease-in-out_infinite]",
+};
+
+const serviceGlow = "animate-[sequential-glow_16s_ease-in-out_infinite]";
+
 export function LinktreeDesktop() {
   return (
     <main className="relative flex h-[100dvh] items-center justify-center overflow-hidden bg-void-black px-[24px]">
@@ -70,13 +79,14 @@ export function LinktreeDesktop() {
           </p>
 
           <div className="mt-[16px] flex flex-col gap-[8px]">
-            {linktreeLinks.map((link) => (
+            {linktreeLinks.map((link, i) => (
               <a
                 key={link.label}
                 href={link.href}
                 target={link.href.startsWith("http") ? "_blank" : undefined}
                 rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-[10px] rounded-[8px] border border-graphite bg-void-black px-[12px] py-[10px] transition-all duration-200 hover:border-iron hover:bg-[#111418]"
+                className={`flex items-center gap-[10px] rounded-[8px] border border-graphite bg-void-black px-[12px] py-[10px] transition-all duration-200 hover:border-iron hover:bg-[#111418] ${glowByIcon[link.icon] || "animate-[sequential-glow_16s_ease-in-out_infinite]"}`}
+                style={{ animationDelay: `${i * 2}s` }}
               >
                 <LinktreeIcon name={link.icon} className="!h-[16px] !w-[16px] text-iris" />
                 <div className="min-w-0 flex-1">
@@ -95,11 +105,12 @@ export function LinktreeDesktop() {
               Serviços
             </p>
             <div className="grid grid-cols-2 gap-[6px]">
-              {linktreeServices.map((srv) => (
+              {linktreeServices.map((srv, i) => (
                 <a
                   key={srv.label}
                   href={srv.href}
-                  className="rounded-[6px] border border-graphite bg-void-black px-[8px] py-[6px] text-center text-[11px] font-medium text-bone transition-all duration-200 hover:border-iron"
+                  className={`rounded-[6px] border border-graphite bg-void-black px-[8px] py-[6px] text-center text-[11px] font-medium text-bone transition-all duration-200 hover:border-iron ${serviceGlow}`}
+                  style={{ animationDelay: `${(linktreeLinks.length + i) * 2}s` }}
                 >
                   {srv.label}
                 </a>
