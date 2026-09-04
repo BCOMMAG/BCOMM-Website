@@ -35,15 +35,15 @@ export function LinktreeMobile() {
         />
       </div>
 
-      <div className="relative z-10 flex flex-1 flex-col justify-center px-[20px] py-[20px]">
+      <div className="relative z-10 flex flex-1 flex-col justify-center px-[20px] py-[24px]">
         <div className="flex flex-col items-center">
-          <div className="relative h-[105px] w-[105px] overflow-hidden rounded-full border-2 border-iris">
+          <div className="relative h-[150px] w-[150px] overflow-hidden rounded-full border-2 border-iris">
             <Image
               src="/logo.png"
               alt="BCOMM"
               fill
-              className="object-contain p-[10px]"
-              sizes="105px"
+              className="object-contain p-[14px]"
+              sizes="150px"
               priority
             />
           </div>
@@ -58,7 +58,7 @@ export function LinktreeMobile() {
           </p>
         </div>
 
-        <div className="mt-[8px] overflow-hidden">
+        <div className="mt-[16px] overflow-hidden">
           <Marquee pauseOnHover repeat={5} className="[--duration:25s]">
             {marqueeItems.map((item) => (
               <span
@@ -71,7 +71,7 @@ export function LinktreeMobile() {
           </Marquee>
         </div>
 
-        <div className="mt-[12px] grid grid-cols-2 gap-[6px]">
+        <div className="mt-[16px] grid grid-cols-2 gap-[6px]">
           {linktreeServices.map((srv, i) => (
             <a
               key={srv.label}
@@ -84,7 +84,7 @@ export function LinktreeMobile() {
           ))}
         </div>
 
-        <div className="mt-[20px] flex flex-col gap-[8px] overflow-hidden">
+        <div className="mt-[24px] flex flex-col gap-[8px] overflow-hidden">
           {linktreeLinks.map((link) => (
             <a
               key={link.label}
