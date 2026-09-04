@@ -11,7 +11,7 @@ const ConstellationGrid = dynamic(
 
 export function LinktreeDesktop() {
   return (
-    <main className="relative flex h-[100dvh] items-center justify-start overflow-hidden bg-void-black pl-[8%] pr-[24px] lg:pl-[10%]">
+    <main className="relative flex h-[100dvh] items-center justify-center overflow-hidden bg-void-black px-[24px]">
       <ConstellationGrid className="absolute inset-0 opacity-20" />
 
       <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-[5] hidden w-[45%] lg:block">
@@ -25,7 +25,7 @@ export function LinktreeDesktop() {
         />
       </div>
 
-      <div className="relative z-10 grid w-full max-w-[700px] grid-cols-[auto_1fr] gap-[20px]">
+      <div className="relative z-10 grid w-full max-w-[700px] grid-cols-[auto_1fr] gap-[20px] -translate-x-[10%]">
         <div className="flex flex-col items-center rounded-[16px] border border-graphite bg-surface-lift p-[20px]">
           <div className="relative h-[100px] w-[100px] overflow-hidden rounded-full border-2 border-iris">
             <Image
