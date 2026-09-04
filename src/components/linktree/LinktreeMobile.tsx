@@ -19,6 +19,13 @@ const marqueeItems = [
   "Criação de Linktree",
 ];
 
+const linkShadow: Record<string, string> = {
+  globe: "0 4px 16px rgba(146, 129, 247, 0.35)",
+  whatsapp: "0 4px 16px rgba(37, 211, 102, 0.35)",
+  instagram: "0 4px 16px rgba(225, 48, 108, 0.35)",
+  facebook: "0 4px 16px rgba(24, 119, 242, 0.35)",
+};
+
 export function LinktreeMobile() {
   return (
     <main className="relative flex h-[100dvh] flex-col overflow-hidden bg-void-black">
@@ -81,7 +88,7 @@ export function LinktreeMobile() {
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className="flex items-center gap-[10px] self-center rounded-[10px] border border-graphite bg-surface-lift px-[8px] py-[10px] transition-all duration-200 hover:border-iron hover:bg-[#111418]"
-              style={{ width: "min(320px, 85vw)" }}
+              style={{ width: "min(320px, 85vw)", boxShadow: linkShadow[link.icon] || "none" }}
             >
               <LinktreeIcon name={link.icon} className="!h-[16px] !w-[16px] text-iris" />
               <div className="min-w-0 flex-1">
