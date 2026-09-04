@@ -17,7 +17,7 @@ export function Solutions() {
             Nossos Serviços
           </p>
           <h2 className="mt-[8px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
-            O que a gente faz
+            O que fazemos
           </h2>
           <p className="mt-[16px] max-w-[560px] text-[16px] leading-[1.5] text-ash">
             Do website à automação completa. Cada serviço é construído para resolver um problema específico.

@@ -55,7 +55,7 @@ export default function ServicosPage() {
               Do website à automação completa
             </h1>
             <p className="mt-[16px] max-w-[600px] text-[18px] leading-[1.5] text-ash">
-              Cada serviço resolve um problema específico. Conheça o que a gente faz.
+              Cada serviço resolve um problema específico. Conheça o que fazemos.
             </p>
           </div>
 

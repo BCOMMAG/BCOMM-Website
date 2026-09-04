@@ -265,7 +265,7 @@ export const processSteps = [
     step: "04",
     title: "Evolução contínua",
     description:
-      "Depois do deploy, a gente monitora performance, coleta feedbacks e itera. A solução nunca fica parada.",
+      "Depois do deploy, monitoramos performance, coletamos feedbacks e iteramos. A solução nunca fica parada.",
   },
 ] as const;
 
