@@ -17,15 +17,15 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <AnimatedSection>
           <h1 className="font-playfair text-[36px] font-normal leading-[1] tracking-[-0.01em] text-white sm:text-[48px] md:text-[77px] lg:text-[96px]">
-            Websites, Landing Pages
+            Tecnologia que comunica
             <br />
-            <span className="text-bone">e Automação com IA</span>
+            <span className="text-bone">Soluções que funcionam</span>
           </h1>
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
           <p className="mt-[24px] max-w-[600px] text-[18px] font-normal leading-[1.5] text-ash md:mt-[32px]">
-            Criamos websites que convertem, landing pages que vendem, e-commerces que escalam e automações com inteligência artificial que eliminam tarefas repetitivas.
+            Websites, landing pages, e-commerces e automações com IA. Tudo construído com engenharia de verdade para empresas que precisam de resultado.
           </p>
         </AnimatedSection>
 

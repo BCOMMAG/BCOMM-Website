@@ -9,7 +9,7 @@ import { blogPosts } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Blog | Dicas de Websites, Landing Pages, E-commerce e Automação com IA",
   description:
-    "Artigos sobre criação de websites, landing pages que convertem, e-commerce que vende mais e automação com IA para empresas.",
+    "Artigos sobre criação de websites, landing pages, e-commerce e automação com IA. Dicas práticas para empresas.",
   keywords: [
     "blog tecnologia",
     "dicas landing page",

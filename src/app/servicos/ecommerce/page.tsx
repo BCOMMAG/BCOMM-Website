@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 export const metadata: Metadata = {
   title: "E-commerce Personalizado | Loja Virtual Sob Medida | BCOMM",
   description:
-    "Criamos e-commerces personalizados com checkout otimizado, integração de pagamento e gestão completa. Loja virtual que escala com seu negócio.",
+    "E-commerces personalizados com checkout otimizado, integração de pagamento e gestão completa. Loja virtual que cresce com seu negócio.",
   keywords: [
     "e-commerce",
     "loja virtual",
@@ -22,30 +22,30 @@ export const metadata: Metadata = {
   openGraph: {
     title: "E-commerce Personalizado | BCOMM",
     description:
-      "Lojas virtuais que escalam com o negócio. Catálogo, checkout, pagamentos e gestão integrados.",
+      "Lojas virtuais que crescem com o negócio. Catálogo, checkout, pagamentos e gestão integrados.",
   },
 };
 
 const features = [
   {
     title: "Catálogo Inteligente",
-    description: "Filtros, busca, categorias e fichas técnicas detalhadas. O cliente encontra o que quer em segundos.",
+    description: "Filtros, busca, categorias e fichas técnicas. O cliente encontra o que quer em segundos.",
   },
   {
     title: "Checkout de Alta Conversão",
-    description: "Processo de compra simplificado em uma página. Menos etapas = mais vendas.",
+    description: "Processo de compra simplificado em uma página. Menos etapas, mais vendas.",
   },
   {
     title: "Pagamentos Integrados",
-    description: "Stripe, PagSeguro, Mercado Pago, PIX, boleto — múltiplas opções para o cliente escolher.",
+    description: "Stripe, PagSeguro, Mercado Pago, PIX, boleto. Múltiplas opções para o cliente escolher.",
   },
   {
     title: "Gestão em Tempo Real",
-    description: "Estoque, pedidos, financeiro — tudo atualizado instantaneamente. Painel completo para gestão.",
+    description: "Estoque, pedidos, financeiro. Tudo atualizado instantaneamente. Painel completo para gestão.",
   },
   {
     title: "WhatsApp Commerce",
-    description: "Integração direta com WhatsApp para confirmação de pedidos, suporte pós-venda e recuperação de carrinho.",
+    description: "Integração direta com WhatsApp para confirmação de pedidos, suporte e recuperação de carrinho.",
   },
   {
     title: "Performance para Vender",
@@ -88,10 +88,10 @@ export default function EcommercePage() {
               E-commerce
             </p>
             <h1 className="mt-[8px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
-              Loja virtual que escala com seu negócio
+              Loja virtual que cresce com seu negócio
             </h1>
             <p className="mt-[16px] max-w-[600px] text-[18px] leading-[1.5] text-ash">
-              Criamos e-commerces personalizados com catálogo inteligente, checkout de alta conversão e gestão completa. Do produto ao entrega — tudo integrado.
+              E-commerces personalizados com catálogo inteligente, checkout de alta conversão e gestão completa. Do produto à entrega, tudo integrado.
             </p>
           </div>
 

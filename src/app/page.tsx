@@ -13,7 +13,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
   description:
-    "Criamos websites, landing pages e e-commerces que convertem. Automação com IA, integrações e atendimento inteligente para empresas que precisam de resultado.",
+    "Websites, landing pages, e-commerces e automações com IA para empresas que precisam de resultado. Fale com a BCOMM.",
   keywords: [
     "criação de site",
     "criação de website",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
     description:
-      "Criamos websites, landing pages e e-commerces que convertem. Automação com IA e integrações para empresas.",
+      "Websites, landing pages, e-commerces e automações com IA. Fale com a BCOMM.",
     url: "https://agent-bcomm.space",
     siteName: "BCOMM Comunicação Inteligente",
     locale: "pt_BR",
@@ -59,7 +59,7 @@ export default function Home() {
     "@type": "ProfessionalService",
     name: "BCOMM Comunicação Inteligente",
     description:
-      "Criação de websites, landing pages, e-commerces e automação com IA para empresas. Soluções de tecnologia com resultado mensurável.",
+      "Criação de websites, landing pages, e-commerces e automação com IA para empresas.",
     url: "https://agent-bcomm.space",
     email: "contato@agent-bcomm.space",
     telephone: "+554196398023",
@@ -87,7 +87,7 @@ export default function Home() {
           itemOffered: {
             "@type": "Service",
             name: "Criação de Websites Institucionais",
-            description: "Sites modernos, rápidos e otimizados para converter visitantes em clientes.",
+            description: "Sites modernos, rápidos e feitos para converter visitantes em clientes.",
           },
         },
         {
@@ -103,7 +103,7 @@ export default function Home() {
           itemOffered: {
             "@type": "Service",
             name: "E-commerce Personalizado",
-            description: "Lojas virtuais que escalam com o negócio, do catálogo ao checkout.",
+            description: "Lojas virtuais que crescem com o negócio, do catálogo ao checkout.",
           },
         },
         {
@@ -127,7 +127,7 @@ export default function Home() {
           itemOffered: {
             "@type": "Service",
             name: "Atendimento Inteligente",
-            description: "Chatbots e canais de suporte que resolvem, aprendem e escalam.",
+            description: "Chatbots e canais de suporte que resolvem, aprendem e crescem.",
           },
         },
       ],

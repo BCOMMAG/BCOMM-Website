@@ -102,7 +102,7 @@ export const solutions = [
   {
     title: "Websites Institucionais",
     description:
-      "Sites institucionais rápidos, modernos e otimizados para converter visitantes em clientes. Design sob medida com performance e SEO.",
+      "Sites modernos, rápidos e feitos para converter visitantes em clientes. Design sob medida, performance e SEO.",
     variant: "automation",
     cta: "Ver como funciona",
     ctaHref: "/servicos/websites",
@@ -110,7 +110,7 @@ export const solutions = [
   {
     title: "Landing Pages de Alta Conversão",
     description:
-      "Páginas focadas em resultado: captação de leads, lançamentos e campanhas. Copy + design + dados trabalhando juntos.",
+      "Páginas com foco em resultado: captação de leads, lançamentos e campanhas. Copy, design e dados trabalhando juntos.",
     variant: "integration",
     cta: "Ver exemplos",
     ctaHref: "/servicos/websites",
@@ -118,7 +118,7 @@ export const solutions = [
   {
     title: "E-commerce Personalizado",
     description:
-      "Lojas virtuais que escalam com o negócio. Catálogo, checkout, pagamentos e gestão integrados em uma plataforma sob medida.",
+      "Lojas virtuais que crescem com o negócio. Catálogo, checkout, pagamentos e gestão integrados em uma plataforma sob medida.",
     variant: "support",
     cta: "Conhecer e-commerce",
     ctaHref: "/servicos/ecommerce",
@@ -126,7 +126,7 @@ export const solutions = [
   {
     title: "Automação com IA",
     description:
-      "Agentes inteligentes que automatizam processos repetitivos, reduzem erros operacionais e liberam seu time para tarefas estratégicas.",
+      "Agentes inteligentes que automatizam tarefas repetitivas, reduzem erros e liberam seu time para o que importa.",
     variant: "saas",
     cta: "Ver automação",
     ctaHref: "/servicos/automacao",
@@ -139,7 +139,7 @@ export const allServices = [
     title: "Websites & Landing Pages",
     shortTitle: "Websites",
     description:
-      "Criamos websites institucionais e landing pages que convertem. Design moderno, performance otimizada e SEO técnico impecável.",
+      "Websites institucionais e landing pages que convertem. Design moderno, performance boa e SEO técnico.",
     features: [
       "Design responsivo sob medida",
       "Otimização para mecanismos de busca (SEO)",
@@ -156,7 +156,7 @@ export const allServices = [
     title: "E-commerce Personalizado",
     shortTitle: "E-commerce",
     description:
-      "Lojas virtuais que escalam com o negócio. Catálogo de produtos, checkout otimizado, gateway de pagamento e gestão de pedidos — tudo integrado.",
+      "Lojas virtuais que crescem com o negócio. Catálogo de produtos, checkout simples, gateway de pagamento e gestão de pedidos, tudo junto.",
     features: [
       "Catálogo de produtos com filtros e busca",
       "Checkout otimizado para alta conversão",
@@ -173,7 +173,7 @@ export const allServices = [
     title: "Automação com IA",
     shortTitle: "Automação",
     description:
-      "Agentes inteligentes que automatizam processos repetitivos, reduzem erros operacionais e liberam seu time para tarefas estratégicas.",
+      "Agentes inteligentes que fazem o trabalho repetitivo. Reduzem erros, aceleram processos e liberam o time para tarefas mais estratégicas.",
     features: [
       "Chatbots e assistentes virtuais com IA",
       "Automação de processos internos (RPA + IA)",
@@ -190,7 +190,7 @@ export const allServices = [
     title: "Integrações de Sistemas",
     shortTitle: "Integrações",
     description:
-      "Conectamos seus sistemas, APIs e ferramentas em um fluxo único. Dados movem-se sem atrito entre departamentos.",
+      "Conecta seus sistemas, APIs e ferramentas em um fluxo só. Dados fluindo entre departamentos sem atrito.",
     features: [
       "Integração entre ERP, CRM e ferramentas internas",
       "APIs customizadas para comunicação entre sistemas",
@@ -207,7 +207,7 @@ export const allServices = [
     title: "Atendimento Inteligente",
     shortTitle: "Atendimento",
     description:
-      "Chatbots e canais de suporte que resolvem, aprendem e escalam, sem perder a qualidade humana na comunicação.",
+      "Chatbots e canais de suporte que resolvem, aprendem e crescem com o volume, sem perder a qualidade humana.",
     features: [
       "Chatbots multicanal (WhatsApp, web, Telegram)",
       "Resolução automática de dúvidas frequentes",
@@ -226,7 +226,7 @@ export const differentials = [
     number: "01",
     title: "Time técnico especializado",
     description:
-      "Engenheiros de software e especialistas em IA trabalhando diretamente com você, sem intermediários, sem ruído.",
+      "Engenheiros de software e especialistas em IA trabalhando direto com você. Sem intermediários, sem ruído.",
   },
   {
     number: "02",
@@ -238,7 +238,7 @@ export const differentials = [
     number: "03",
     title: "Suporte contínuo",
     description:
-      "O projeto não termina no deploy. Monitoramos, evoluimos e garantimos que a solução continue performando.",
+      "O projeto não termina no deploy. A gente monitora, evolui e garante que a solução continue performando.",
   },
 ] as const;
 
@@ -247,25 +247,25 @@ export const processSteps = [
     step: "01",
     title: "Diagnóstico",
     description:
-      "Mapeamos o fluxo atual, identificamos gargalos e definimos exatamente onde a tecnologia gera impacto real.",
+      "Mapeamos o fluxo atual, identificamos gargalos e definimos onde a tecnologia faz diferença de verdade.",
   },
   {
     step: "02",
     title: "Arquitetura",
     description:
-      "Projetamos a solução com as tecnologias certas: escalável, segura e alinhada com a infraestrutura existente.",
+      "Projetamos a solução com as tecnologias certas: escalável, segura e alinhada com a infraestrutura que já existe.",
   },
   {
     step: "03",
     title: "Implementação",
     description:
-      "Desenvolvemos, testamos e entregamos em ciclos curtos. Cada sprint resulta em algo funcional e mensurável.",
+      "Desenvolvemos, testamos e entregamos em ciclos curtos. Cada sprint gera algo funcional e mensurável.",
   },
   {
     step: "04",
     title: "Evolução contínua",
     description:
-      "Após o deploy, monitoramos performance, coletamos feedbacks e iteramos. A solução nunca fica parada.",
+      "Depois do deploy, a gente monitora performance, coleta feedbacks e itera. A solução nunca fica parada.",
   },
 ] as const;
 
@@ -274,7 +274,7 @@ export const cases = [
     metric: "73%",
     label: "Redução no tempo de atendimento",
     description:
-      "Automação inteligente que transformou o fluxo de suporte de um operador logístico. De 12 minutos para 3 minutos por atendimento.",
+      "Automação que transformou o fluxo de suporte de um operador logístico. De 12 minutos para 3 minutos por atendimento.",
     client: "Operador Logístico / LogTech",
     service: "Automação com IA",
   },
@@ -282,7 +282,7 @@ export const cases = [
     metric: "4x",
     label: "Velocidade na integração de dados",
     description:
-      "Pipeline de dados conectando ERP, CRM e ferramentas internas em tempo real. Processos que levavam horas agora levam segundos.",
+      "Pipeline conectando ERP, CRM e ferramentas internas em tempo real. Processos que levavam horas agora levam segundos.",
     client: "Empresa de Varejo / Grupo Norte",
     service: "Integrações de Sistemas",
   },
@@ -290,7 +290,7 @@ export const cases = [
     metric: "92%",
     label: "Taxa de resolução automática",
     description:
-      "Agente de IA que resolve dúvidas técnicas antes de acionar o time humano. Redução de 85% na demanda da equipe de suporte.",
+      "Agente de IA que resolve dúvidas técnicas antes de acionar o time humano. Demanda do suporte caiu 85%.",
     client: "Fintech / Portal Financeiro",
     service: "Atendimento Inteligente",
   },
@@ -298,7 +298,7 @@ export const cases = [
     metric: "3.2x",
     label: "Aumento na taxa de conversão",
     description:
-      "Landing page otimizada com copy baseada em dados e testes A/B contínuos. Leads qualificados triplicaram em 60 dias.",
+      "Landing page com copy baseada em dados e testes A/B. Leads qualificados triplicaram em 60 dias.",
     client: "Imobiliária / Grupo Vivaz",
     service: "Websites & Landing Pages",
   },
@@ -306,7 +306,7 @@ export const cases = [
     metric: "180%",
     label: "Crescimento no faturamento online",
     description:
-      "E-commerce personalizado com checkout otimizado e integração total com estoque e WhatsApp. Ticket médio subiu 40%.",
+      "E-commerce com checkout otimizado e integração com estoque e WhatsApp. Ticket médio subiu 40%.",
     client: "Loja de Moda / Studio Bella",
     service: "E-commerce",
   },
@@ -314,7 +314,7 @@ export const cases = [
     metric: "60%",
     label: "Redução de erros operacionais",
     description:
-      "Automação de processos financeiros com validação inteligente. Erros manuais eliminados, tempo de processamento reduzido pela metade.",
+      "Automação de processos financeiros com validação inteligente. Erros manuais eliminados, tempo cortado pela metade.",
     client: "Escritório de Contabilidade / Contábil Express",
     service: "Automação com IA",
   },
@@ -325,39 +325,39 @@ export const blogPosts = [
     slug: "como-criar-landing-page-que-converte",
     title: "Como Criar uma Landing Page que Converte: Guia Completo 2026",
     description:
-      "Descubra os 7 elementos essenciais de uma landing page de alta conversão. Copy, design, prova social e CTA — tudo baseado em dados reais.",
+      "Os 7 elementos essenciais de uma landing page de alta conversão. Copy, design, prova social e CTK, tudo baseado em dados reais.",
     category: "Landing Pages",
     date: "2026-08-15",
     readTime: "8 min",
     content: `
 ## Por que 96% das landing pages falham?
 
-A maioria das landing pages não converte porque foram feitas com base em achismos, não em dados. Uma landing page eficiente é um sistema: cada elemento — do título ao último botão — precisa justificar sua existência com métrica.
+A maioria das landing pages não converte porque foi feita com base em achismos, não em dados. Uma landing page eficiente é um sistema: cada elemento, do título ao último botão, precisa se justificar com métrica.
 
-## Os 7 elementos de uma landing page de alta conversão
+## Os 7 elementos de uma landing page que converte
 
 ### 1. Headline que comunica valor em 3 segundos
 
-O visitante decide se fica ou sai em 3 segundos. Sua headline precisa responder: **"O que eu ganho com isso?"**
+O visitante decide se fica ou sai em 3 segundos. Sua headline precisa responder: "O que eu ganho com isso?"
 
 - **Fraco:** "Soluções digitais para sua empresa"
 - **Forte:** "Landing pages que transformam visitantes em clientes em 30 dias"
 
 ### 2. Subheadline que expande a promessa
 
-A subheadline detalha **como** a promessa se concretiza. Ela complementa o título, não o repete.
+A subheadline detalha como a promessa se concretiza. Ela complementa o título, não o repete.
 
 ### 3. Prova social imediata
 
-Depoimentos, logos de clientes, métricas — tudo que prova que outros já confiaram e tiveram resultado. Coloque acima da dobra.
+Depoimentos, logos de clientes, métricas. Tudo que prova que outros já confiaram e tiveram resultado. Coloque acima da dobra.
 
-### 4. CTA único e claro
+### 4. CTK único e claro
 
-Um objetivo por página. Não existe "Saiba mais" + "Fale conosco" + "Baixe o e-book" na mesma landing page. Escolha UM CTA.
+Um objetivo por página. Não existe "Saiba mais" + "Fale conosco" + "Baixe o e-book" na mesma landing page. Escolha UM CTK.
 
 ### 5. Formulário otimizado
 
-Cada campo a mais reduz a conversão em ~11%. Pergunte só o essencial: nome, email, e o que o lead precisa.
+Cada campo a mais reduz a conversão em ~11%. Pergunte só o essencial: nome, email e o que o lead precisa.
 
 ### 6. Mobile-first
 
@@ -369,11 +369,11 @@ Cada segundo extra de carregamento reduz a conversão em 7%. Core Web Vitals nã
 
 ## Como implementar na prática
 
-1. Defina **uma única meta** para a página
-2. Mapeie a **jornada do visitante** do clique ao preenchimento do formulário
-3. Escreva a copy **com foco no benefício**, não na feature
-4. Teste **duas versões** do CTA (texto e cor)
-5. Meça **tudo** com analytics e heatmaps
+1. Defina uma única meta para a página
+2. Mapeie a jornada do visitante do clique ao preenchimento do formulário
+3. Escreva a copy focando no benefício, não na feature
+4. Teste duas versões do CTK (texto e cor)
+5. Meça tudo com analytics e heatmaps
 
 ---
 
@@ -384,7 +384,7 @@ Precisa de uma landing page que converte? A BCOMM cria páginas focadas em resul
     slug: "e-commerce-que-vende-mais",
     title: "E-commerce que Vende Mais: 5 Otimizações que Triplicam Conversões",
     description:
-      "Saiba como otimizar sua loja virtual para vender mais. Checkout, velocidade, mobile, provas sociais e recuperação de carrinho.",
+      "Como otimizar sua loja virtual para vender mais. Checkout, velocidade, mobile, provas sociais e recuperação de carrinho.",
     category: "E-commerce",
     date: "2026-08-22",
     readTime: "7 min",
@@ -401,7 +401,7 @@ Cada tela extra no checkout é uma porta de saída. Checkout em uma página aume
 
 ### 2. Velocidade de carregamento
 
-Páginas que carregam em menos de 2 segundos têm 87% menos abandono. Compreensão: otimize imagens, use CDN, minimize JavaScript.
+Páginas que carregam em menos de 2 segundos têm 87% menos abandono. Otimize imagens, use CDN, minimize JavaScript.
 
 ### 3. Experiência mobile impecável
 
@@ -417,7 +417,7 @@ Avaliações, fotos de clientes reais, badge de "mais vendido". Produtos sem pro
 
 ## Implementação
 
-Cada uma dessas otimizações não é "bonita" — é mensurável. Implemente, meça, itere. O e-commerce que vende mais é o que testa mais.
+Cada uma dessas otimizações não é "bonita": é mensurável. Implemente, meça, itere. O e-commerce que vende mais é o que testa mais.
 
 ---
 
@@ -428,28 +428,28 @@ A BCOMM cria e-commerces personalizados com foco em conversão. [Solicite uma pr
     slug: "automacao-ia-reduz-custos-operacionais",
     title: "Automação com IA: Como Reduzir Custos Operacionais em até 60%",
     description:
-      "Veja como empresas estão usando automação com inteligência artificial para reduzir custos, eliminar erros e escalar operações.",
+      "Empresas usando automação com IA para reduzir custos, eliminar erros e escalar operações. Dados e resultados reais.",
     category: "Automação com IA",
     date: "2026-09-01",
     readTime: "6 min",
     content: `
 ## O custo da inação
 
-Processos manuais não são apenas lentos — são caros. Cada hora gasta em tarefa repetitiva é hora não investida em crescimento.
+Processos manuais não são apenas lentos: são caros. Cada hora gasta em tarefa repetitiva é hora não investida em crescimento.
 
 ## Onde a IA gera impacto real
 
 ### Atendimento ao cliente
 
-Chatbots com IA resolvem 70-90% das demandas sem intervenção humana. Isso não substitui o time — libera ele para problemas complexos que geram valor.
+Chatbots com IA resolvem 70-90% das demandas sem intervenção humana. Isso não substitui o time. Libera ele para problemas complexos que geram valor.
 
 ### Processamento de dados
 
-Entrada de dados, reconciliação, relatórios — tarefas que levam horas podem ser executadas em segundos com IA treinada para o contexto do negócio.
+Entrada de dados, reconciliação, relatórios. Tarefas que levam horas podem ser executadas em segundos com IA treinada para o contexto do negócio.
 
 ### Gestão de processos
 
-Validação de documentos, aprovações, follow-ups — cada etapa automatizada reduz o ciclo operacional e elimina gargalos.
+Validação de documentos, aprovações, follow-ups. Cada etapa automatizada reduz o ciclo operacional e elimina gargalos.
 
 ## ROI real da automação
 
@@ -460,11 +460,11 @@ Validação de documentos, aprovações, follow-ups — cada etapa automatizada 
 
 ## Por onde começar
 
-1. **Mapeie** os processos que mais consomem tempo
-2. **Quantifique** o custo dessas tarefas (horas × custo/hora)
-3. **Priorize** pelo impacto e facilidade de automação
-4. **Implemente** em ciclos curtos, meça resultado
-5. **Evolua** com base em dados reais, não suposições
+1. Mapeie os processos que mais consomem tempo
+2. Quantifique o custo dessas tarefas (horas x custo/hora)
+3. Priorize pelo impacto e facilidade de automação
+4. Implemente em ciclos curtos, meça resultado
+5. Evolua com base em dados reais, não suposições
 
 ---
 

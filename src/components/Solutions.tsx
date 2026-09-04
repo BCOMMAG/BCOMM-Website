@@ -17,10 +17,10 @@ export function Solutions() {
             Nossos Serviços
           </p>
           <h2 className="mt-[8px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
-            Soluções que geram resultado
+            O que a gente faz
           </h2>
           <p className="mt-[16px] max-w-[560px] text-[16px] leading-[1.5] text-ash">
-            Do website à automação completa. Cada serviço é construído com engenharia de verdade para resolver problemas reais.
+            Do website à automação completa. Cada serviço é construído para resolver um problema específico.
           </p>
         </AnimatedSection>
 

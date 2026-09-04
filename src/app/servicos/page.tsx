@@ -9,7 +9,7 @@ import { allServices } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Nossos Serviços | Websites, Landing Pages, E-commerce e Automação com IA",
   description:
-    "Conheça todos os serviços da BCOMM: criação de websites, landing pages, e-commerce personalizado, automação com IA, integrações de sistemas e atendimento inteligente.",
+    "Todos os serviços da BCOMM: criação de websites, landing pages, e-commerce personalizado, automação com IA, integrações e atendimento inteligente.",
   keywords: [
     "serviços de tecnologia",
     "criação de site",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Serviços BCOMM | Websites, Landing Pages, E-commerce e Automação",
     description:
-      "Conheça nossos serviços: websites, landing pages, e-commerce, automação com IA e integrações.",
+      "Websites, landing pages, e-commerce, automação com IA e integrações.",
   },
 };
 
@@ -55,7 +55,7 @@ export default function ServicosPage() {
               Do website à automação completa
             </h1>
             <p className="mt-[16px] max-w-[600px] text-[18px] leading-[1.5] text-ash">
-              Cada serviço é construído com engenharia de verdade para resolver problemas reais. Conheça nossas soluções.
+              Cada serviço resolve um problema específico. Conheça o que a gente faz.
             </p>
           </div>
 
@@ -102,7 +102,7 @@ export default function ServicosPage() {
               Não sabe qual serviço precisa?
             </h2>
             <p className="mt-[12px] text-[16px] text-ash">
-              Agende uma conversa gratuita. Vamos analisar sua necessidade e indicar a melhor solução.
+              Agende uma conversa gratuita. A gente analisa sua necessidade e indica a melhor solução.
             </p>
             <Link
               href="/#contato"

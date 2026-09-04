@@ -1,19 +1,19 @@
 # BCOMM Comunicação Inteligente
 
-> Empresa de tecnologia especializada em criação de websites, landing pages, e-commerces e automação com IA para empresas no Brasil.
+> Empresa de tecnologia especializada em criação de websites, landing pages, e-commerces e automação com IA. Curitiba, PR, Brasil.
 
 ## Sobre
 
-A BCOMM combina engenharia de software com inteligência artificial para criar soluções digitais que geram resultado mensurável. Atuamos em Curitiba, PR, atendendo empresas em todo o Brasil.
+A BCOMM combina engenharia de software com inteligência artificial para criar soluções digitais que geram resultado mensurável. Atende empresas em todo o Brasil a partir de Curitiba.
 
 ## Serviços
 
-- **Websites Institucionais** — Sites modernos, rápidos e otimizados para converter visitantes em clientes. Design sob medida com performance e SEO.
-- **Landing Pages de Alta Conversão** — Páginas focadas em resultado para captação de leads, lançamentos e campanhas.
-- **E-commerce Personalizado** — Lojas virtuais que escalam com o negócio. Catálogo, checkout, pagamentos e gestão integrados.
-- **Automação com IA** — Agentes inteligentes que automatizam processos, reduzem erros e liberam o time para tarefas estratégicas.
-- **Integrações de Sistemas** — Conexão de ERP, CRM e ferramentas internas em um fluxo único de dados em tempo real.
-- **Atendimento Inteligente** — Chatbots multicanal que resolvem, aprendem e escalam sem perder a qualidade humana.
+- **Websites Institucionais** — Sites modernos, rápidos e feitos para converter visitantes em clientes.
+- **Landing Pages de Alta Conversão** — Páginas focadas em resultado para captação de leads e campanhas.
+- **E-commerce Personalizado** — Lojas virtuais que crescem com o negócio. Catálogo, checkout, pagamentos e gestão.
+- **Automação com IA** — Agentes inteligentes que automatizam tarefas repetitivas e reduzem erros.
+- **Integrações de Sistemas** — Conexão de ERP, CRM e ferramentas internas em um fluxo único de dados.
+- **Atendimento Inteligente** — Chatbots multicanal que resolvem, aprendem e crescem com o volume.
 
 ## Resultados
 
@@ -40,5 +40,5 @@ A BCOMM combina engenharia de software com inteligência artificial para criar s
 
 - Email: contato@agent-bcomm.space
 - WhatsApp: (41) 96398-023
-- Localização: Curitiba, PR — Brasil
+- Localização: Curitiba, PR, Brasil
 - Website: https://agent-bcomm.space

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const features = [
   {
     title: "Chatbots com IA",
-    description: "Assistentes virtuais que resolvem dúvidas, fazem atendimento e escalam sem perder qualidade.",
+    description: "Assistentes virtuais que resolvem dúvidas, fazem atendimento e crescem com o volume.",
   },
   {
     title: "Automação de Processos",
@@ -106,7 +106,7 @@ export default function AutomacaoPage() {
               IA que trabalha para você
             </h1>
             <p className="mt-[16px] max-w-[600px] text-[18px] leading-[1.5] text-ash">
-              Automatize processos repetitivos, elimine erros operacionais e libere seu time para tarefas estratégicas. Inteligência artificial aplicada a problemas reais.
+              Automatize processos repetitivos, elimine erros operacionais e libere seu time para tarefas estratégicas. IA aplicada a problemas reais.
             </p>
           </div>
 
@@ -140,7 +140,7 @@ export default function AutomacaoPage() {
               Que processos você quer automatizar?
             </h2>
             <p className="mt-[12px] text-[16px] text-ash">
-              Comece pelo diagnóstico gratuito. Vamos mapear seus processos e identificar onde a IA gera mais impacto.
+              Comece pelo diagnóstico gratuito. A gente mapeia seus processos e identifica onde a IA gera mais impacto.
             </p>
             <Link
               href="/#contato"

@@ -9,7 +9,7 @@ import { cases } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Cases de Sucesso | Resultados Reais da BCOMM",
   description:
-    "Veja como empresas reduziram custos, aumentaram conversões e escalam operações com as soluções da BCOMM. Cases com métricas reais.",
+    "Empresas que reduziram custos, aumentaram conversões e escalam operações com as soluções da BCOMM. Cases com métricas reais.",
   keywords: [
     "cases de sucesso",
     "resultados BCOMM",
@@ -50,7 +50,7 @@ export default function CasesPage() {
               Resultados que falam por si
             </h1>
             <p className="mt-[16px] max-w-[600px] text-[18px] leading-[1.5] text-ash">
-              Empresas que confiaram na BCOMM e transformaram suas operações com tecnologia e inteligência artificial.
+              Empresas que confiaram na BCOMM e transformaram suas operações com tecnologia e IA.
             </p>
           </div>
 
@@ -90,7 +90,7 @@ export default function CasesPage() {
               Quer resultados assim?
             </h2>
             <p className="mt-[12px] text-[16px] text-ash">
-              Agende uma conversa gratuita. Vamos analisar como a tecnologia pode gerar impacto no seu negócio.
+              Agende uma conversa gratuita. A gente analisa como a tecnologia pode fazer diferença no seu negócio.
             </p>
             <Link
               href="/#contato"

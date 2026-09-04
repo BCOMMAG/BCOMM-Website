@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Criação de Websites e Landing Pages | BCOMM",
   description:
-    "Criamos websites institucionais e landing pages de alta conversão. Design responsivo, SEO otimizado, performance impecável. Fale com a BCOMM.",
+    "Websites institucionais e landing pages que convertem. Design responsivo, SEO otimizado, performance boa. Fale com a BCOMM.",
   keywords: [
     "criação de site",
     "criação de website",
@@ -31,23 +31,23 @@ export const metadata: Metadata = {
 const features = [
   {
     title: "Design Responsivo Sob Medida",
-    description: "Layouts exclusivos que funcionam perfeitamente em desktop, tablet e mobile. Sem templates genéricos.",
+    description: "Layouts exclusivos que funcionam bem em desktop, tablet e mobile. Sem templates genéricos.",
   },
   {
-    title: "SEO Técnico Impecável",
+    title: "SEO Técnico",
     description: "Estrutura otimizada para mecanismos de busca: meta tags, schema, velocidade, Core Web Vitals.",
   },
   {
-    title: "Performance Extrema",
+    title: "Performance",
     description: "Sites que carregam em menos de 2 segundos. Otimização de imagens, código e infraestrutura.",
   },
   {
     title: "Copy que Converte",
-    description: "Textos focados em resultado, baseados em dados e testes. Cada palavra justifica sua existência.",
+    description: "Textos focados em resultado, baseados em dados e testes. Cada palavra se justifica.",
   },
   {
-    title: "Integrações Completas",
-    description: "Formulários, analytics, pixels de rastreamento, WhatsApp, CRM — tudo conectado.",
+    title: "Integrações",
+    description: "Formulários, analytics, pixels de rastreamento, WhatsApp, CRM. Tudo conectado.",
   },
   {
     title: "CMS Para Você Atualizar",
@@ -95,7 +95,7 @@ export default function WebsitesPage() {
               Sites que convertem visitantes em clientes
             </h1>
             <p className="mt-[16px] max-w-[600px] text-[18px] leading-[1.5] text-ash">
-              Criamos websites institucionais e landing pages com design exclusivo, performance extrema e SEO técnico para que seu negócio seja encontrado e converta.
+              Webs institucionais e landing pages com design exclusivo, performance boa e SEO técnico para que seu negócio seja encontrado e converta.
             </p>
           </div>
 
@@ -128,7 +128,7 @@ export default function WebsitesPage() {
               Pronto para criar seu website?
             </h2>
             <p className="mt-[12px] text-[16px] text-ash">
-              Agende uma conversa gratuita. Vamos entender seu projeto e apresentar a melhor solução.
+              Agende uma conversa gratuita. A gente entende seu projeto e apresenta a melhor solução.
             </p>
             <Link
               href="/#contato"

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | BCOMM Comunicação Inteligente",
   },
   description:
-    "Criamos websites, landing pages e e-commerces que convertem. Automação com IA, integrações e atendimento inteligente para empresas que precisam de resultado.",
+    "Websites, landing pages, e-commerces e automações com IA. BCOMM Comunicação Inteligente, Curitiba.",
   keywords: [
     "criação de site",
     "criação de website",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     siteName: "BCOMM Comunicação Inteligente",
     title: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
     description:
-      "Criamos websites, landing pages e e-commerces que convertem. Automação com IA e integrações para empresas.",
+      "Websites, landing pages, e-commerces e automações com IA para empresas.",
     images: [
       {
         url: `${siteUrl}/og-image.png`,
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "BCOMM | Criação de Websites, Landing Pages e Automação com IA",
     description:
-      "Criamos websites, landing pages e e-commerces que convertem. Automação com IA para empresas.",
+      "Websites, landing pages, e-commerces e automações com IA para empresas.",
   },
   robots: {
     index: true,
@@ -120,7 +120,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     name: "BCOMM Comunicação Inteligente",
     url: siteUrl,
     description:
-      "Criação de websites, landing pages, e-commerces e automação com IA para empresas.",
+      "Websites, landing pages, e-commerces e automações com IA para empresas.",
     inLanguage: "pt-BR",
   };
 
