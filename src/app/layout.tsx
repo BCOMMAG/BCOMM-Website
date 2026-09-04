@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { LenisProvider } from "@/components/LenisProvider";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -59,6 +60,14 @@ export const metadata: Metadata = {
     title: "BCOMM Comunicação Inteligente | Automação, IA e Integrações",
     description:
       "Automação com IA, integrações e agentes inteligentes para empresas. Soluções de tecnologia com resultado mensurável.",
+    images: [
+      {
+        url: `${siteUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "BCOMM Comunicação Inteligente",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -128,7 +137,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <LenisProvider>{children}</LenisProvider>
+      </body>
     </html>
   );
 }

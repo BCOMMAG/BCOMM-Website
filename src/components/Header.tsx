@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { nav } from "@/lib/constants";
 
 function NavDropdown({
@@ -80,11 +81,21 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "backdrop-blur-[25px] bg-[#000000f2]" : "bg-transparent"
       }`}
+      style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
     >
       <nav
         className="mx-auto flex max-w-[1200px] items-center justify-between px-[24px] py-[16px] md:px-[48px]"
@@ -135,77 +146,85 @@ export function Header() {
         </button>
       </nav>
 
-      {mobileOpen && (
-        <div className="border-t border-graphite backdrop-blur-[25px] bg-[#000000f2] md:hidden">
-          <ul className="flex flex-col gap-[4px] px-[24px] py-[16px]">
-            {nav.map((item) => (
-              <li key={item.label}>
-                {item.children ? (
-                  <>
-                    <button
-                      className="flex w-full items-center justify-between rounded-[9999px] border border-transparent px-[16px] py-[10px] text-[16px] font-normal text-bone transition-all duration-200 hover:border-graphite hover:bg-white hover:text-black"
-                      onClick={() =>
-                        setMobileExpanded(
-                          mobileExpanded === item.label ? null : item.label
-                        )
-                      }
-                      aria-expanded={mobileExpanded === item.label}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="border-t border-graphite backdrop-blur-[25px] bg-[#000000f2] md:hidden overflow-hidden"
+          >
+            <ul className="flex flex-col gap-[4px] px-[24px] py-[16px]">
+              {nav.map((item) => (
+                <li key={item.label}>
+                  {item.children ? (
+                    <>
+                      <button
+                        className="flex w-full items-center justify-between rounded-[9999px] border border-transparent px-[16px] py-[10px] text-[16px] font-normal text-bone transition-all duration-200 hover:border-graphite hover:bg-white hover:text-black"
+                        onClick={() =>
+                          setMobileExpanded(
+                            mobileExpanded === item.label ? null : item.label
+                          )
+                        }
+                        aria-expanded={mobileExpanded === item.label}
+                      >
+                        {item.label}
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          className={`transition-transform duration-200 ${
+                            mobileExpanded === item.label ? "rotate-180" : ""
+                          }`}
+                        >
+                          <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                      {mobileExpanded === item.label && (
+                        <ul className="ml-[16px] mt-[4px] flex flex-col gap-[2px] border-l border-graphite pl-[16px]">
+                          {item.children.map((child) => (
+                            <li key={child.href}>
+                              <a
+                                href={child.href}
+                                className="block rounded-[6px] px-[12px] py-[8px] text-[14px] font-normal text-ash transition-colors duration-150 hover:text-white"
+                                onClick={() => setMobileOpen(false)}
+                              >
+                                {child.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="block rounded-[9999px] border border-transparent px-[16px] py-[10px] text-[16px] font-normal text-bone transition-all duration-200 hover:border-graphite hover:bg-white hover:text-black"
+                      onClick={() => setMobileOpen(false)}
                     >
                       {item.label}
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        className={`transition-transform duration-200 ${
-                          mobileExpanded === item.label ? "rotate-180" : ""
-                        }`}
-                      >
-                        <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
-                    {mobileExpanded === item.label && (
-                      <ul className="ml-[16px] mt-[4px] flex flex-col gap-[2px] border-l border-graphite pl-[16px]">
-                        {item.children.map((child) => (
-                          <li key={child.href}>
-                            <a
-                              href={child.href}
-                              className="block rounded-[6px] px-[12px] py-[8px] text-[14px] font-normal text-ash transition-colors duration-150 hover:text-white"
-                              onClick={() => setMobileOpen(false)}
-                            >
-                              {child.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                ) : (
-                  <a
-                    href={item.href}
-                    className="block rounded-[9999px] border border-transparent px-[16px] py-[10px] text-[16px] font-normal text-bone transition-all duration-200 hover:border-graphite hover:bg-white hover:text-black"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className="px-[24px] pb-[20px]">
-            <a
-              href="#contato"
-              className="btn-slide flex items-center justify-center gap-[6px] rounded-[9999px] border border-graphite bg-transparent px-[18px] py-[10px] text-[14px] font-normal text-white"
-              onClick={() => setMobileOpen(false)}
-            >
-              Fale Conosco
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      )}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <div className="px-[24px] pb-[20px]">
+              <a
+                href="#contato"
+                className="btn-slide flex items-center justify-center gap-[6px] rounded-[9999px] border border-graphite bg-transparent px-[18px] py-[10px] text-[14px] font-normal text-white"
+                onClick={() => setMobileOpen(false)}
+              >
+                Fale Conosco
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

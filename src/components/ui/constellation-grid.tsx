@@ -67,7 +67,7 @@ export default function ConstellationGrid({ className = "" }: ConstellationGridP
 
     const initNodes = () => {
       nodes = [];
-      const spacing = 55;
+      const spacing = width < 768 ? 80 : 55;
       const cols = Math.ceil(width / spacing) + 1;
       const rows = Math.ceil(height / spacing) + 1;
 

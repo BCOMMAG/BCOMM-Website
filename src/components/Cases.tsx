@@ -1,5 +1,6 @@
 import { cases } from "@/lib/constants";
 import { AnimatedSection } from "./AnimatedSection";
+import { AnimatedCounter } from "./AnimatedCounter";
 
 export function Cases() {
   return (
@@ -19,7 +20,11 @@ export function Cases() {
             <AnimatedSection key={c.client} delay={i * 0.1}>
               <div className="rounded-[16px] border border-graphite bg-void-black p-[32px] transition-all duration-500 hover:-translate-y-2 hover:border-iron hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]">
                 <span className="font-mono text-[48px] font-normal leading-[1] text-iris md:text-[56px]">
-                  {c.metric}
+                  <AnimatedCounter
+                    value={parseFloat(c.metric)}
+                    suffix={c.metric.replace(/[0-9.]/g, "")}
+                    decimals={c.metric.includes(".") ? 1 : 0}
+                  />
                 </span>
                 <h3 className="mt-[16px] text-[20px] font-medium leading-[1] text-bone">
                   {c.label}

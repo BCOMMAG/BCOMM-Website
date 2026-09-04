@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { AnimatedSection } from "./AnimatedSection";
+import { TypingEffect } from "./TypingEffect";
 
 const ConstellationGrid = dynamic(
   () => import("@/components/ui/constellation-grid"),
@@ -15,7 +16,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <AnimatedSection>
-          <h1 className="font-playfair text-[48px] font-normal leading-[1] tracking-[-0.01em] text-white sm:text-[64px] md:text-[77px] lg:text-[96px]">
+          <h1 className="font-playfair text-[36px] font-normal leading-[1] tracking-[-0.01em] text-white sm:text-[48px] md:text-[77px] lg:text-[96px]">
             Tecnologia que comunica
             <br />
             <span className="text-bone">Soluções que funcionam</span>
@@ -27,6 +28,14 @@ export function Hero() {
             Automação, integrações e agentes de IA construídos com engenharia de
             verdade, para empresas que precisam de resultados, não de promessas.
           </p>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.15}>
+          <div className="mt-[16px] md:mt-[24px]">
+            <span className="text-iris">
+              <TypingEffect words={["Automação com IA", "Integrações", "Atendimento Inteligente", "SaaS sob Medida"]} />
+            </span>
+          </div>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
