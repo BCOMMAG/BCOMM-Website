@@ -88,7 +88,11 @@ export function LinktreeMobile() {
           ))}
         </div>
 
-        <div className="mt-[16px] grid grid-cols-2 gap-[6px]">
+        <p className="mt-[16px] text-center font-mono text-[9px] uppercase tracking-[0.05em] text-ash">
+          Serviços
+        </p>
+
+        <div className="mt-[8px] grid grid-cols-2 gap-[6px]">
           {linktreeServices.map((srv, i) => (
             <a
               key={srv.label}
