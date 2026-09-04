@@ -83,6 +83,7 @@ export const nav: NavItem[] = [
       { label: "Websites & Landing Pages", href: "/servicos/websites" },
       { label: "E-commerce", href: "/servicos/ecommerce" },
       { label: "Automação com IA", href: "/servicos/automacao" },
+      { label: "Criação de Linktree", href: "/servicos/linktree" },
     ],
   },
   {
