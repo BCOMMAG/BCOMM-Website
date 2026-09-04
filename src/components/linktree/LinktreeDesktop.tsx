@@ -25,7 +25,7 @@ export function LinktreeDesktop() {
         />
       </div>
 
-      <div className="relative z-10 grid w-full max-w-[700px] grid-cols-[auto_1fr] gap-[20px] -translate-x-[10%]">
+      <div className="relative z-10 grid w-full max-w-[700px] grid-cols-[auto_1fr] gap-[20px] -translate-x-[20%]">
         <div className="flex flex-col items-center rounded-[16px] border border-graphite bg-surface-lift p-[20px]">
           <div className="relative h-[100px] w-[100px] overflow-hidden rounded-full border-2 border-iris">
             <Image
