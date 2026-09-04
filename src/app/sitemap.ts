@@ -12,35 +12,58 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${base}#solucoes`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}#sobre`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}#processo`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${base}#cases`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-
-    {
-      url: `${base}#contato`,
+      url: `${base}/servicos`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${base}/servicos/websites`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${base}/servicos/ecommerce`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${base}/servicos/automacao`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${base}/cases`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/blog/como-criar-landing-page-que-converte`,
+      lastModified: new Date("2026-08-15"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${base}/blog/e-commerce-que-vende-mais`,
+      lastModified: new Date("2026-08-22"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${base}/blog/automacao-ia-reduz-custos-operacionais`,
+      lastModified: new Date("2026-09-01"),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
   ];
 }

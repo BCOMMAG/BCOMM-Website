@@ -1,30 +1,27 @@
 # BCOMM Comunicação Inteligente
 
-> Empresa de tecnologia que combina engenharia de software com inteligência artificial para resolver problemas reais de comunicação e operação de empresas.
+> Empresa de tecnologia especializada em criação de websites, landing pages, e-commerces e automação com IA para empresas no Brasil.
 
 ## Sobre
 
-A BCOMM atua em quatro frentes principais: automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida. Nosso diferencial é a execução técnica com suporte contínuo, do diagnóstico à evolução contínua.
+A BCOMM combina engenharia de software com inteligência artificial para criar soluções digitais que geram resultado mensurável. Atuamos em Curitiba, PR, atendendo empresas em todo o Brasil.
 
 ## Serviços
 
-- **Automação com IA** — Agentes inteligentes que automatizam processos repetitivos, reduzem erros operacionais e liberam o time para tarefas estratégicas.
+- **Websites Institucionais** — Sites modernos, rápidos e otimizados para converter visitantes em clientes. Design sob medida com performance e SEO.
+- **Landing Pages de Alta Conversão** — Páginas focadas em resultado para captação de leads, lançamentos e campanhas.
+- **E-commerce Personalizado** — Lojas virtuais que escalam com o negócio. Catálogo, checkout, pagamentos e gestão integrados.
+- **Automação com IA** — Agentes inteligentes que automatizam processos, reduzem erros e liberam o time para tarefas estratégicas.
 - **Integrações de Sistemas** — Conexão de ERP, CRM e ferramentas internas em um fluxo único de dados em tempo real.
-- **Atendimento Inteligente** — Chatbots e canais de suporte que resolvem, aprendem e escalam sem perder a qualidade humana.
-- **Plataformas SaaS sob Medida** — Soluções personalizadas do MVP ao enterprise, com arquitetura pensada para crescer.
+- **Atendimento Inteligente** — Chatbots multicanal que resolvem, aprendem e escalam sem perder a qualidade humana.
 
 ## Resultados
 
 - 73% redução no tempo de atendimento
 - 4x velocidade na integração de dados
 - 92% taxa de resolução automática
-
-## Contato
-
-- Email: contato@agent-bcomm.space
-- WhatsApp: (41) 96398-023
-- Localização: Curitiba, PR — Brasil
-- Website: https://agent-bcomm.space
+- 3.2x aumento na taxa de conversão de landing pages
+- 180% crescimento no faturamento de e-commerces
 
 ## Processo
 
@@ -32,3 +29,16 @@ A BCOMM atua em quatro frentes principais: automação com IA, integrações de 
 2. Arquitetura — Projeto da solução com as tecnologias certas
 3. Implementação — Desenvolvimento em ciclos curtos com entrega funcional
 4. Evolução contínua — Monitoramento, feedback e iteração constante
+
+## Blog
+
+- Como Criar uma Landing Page que Converte
+- E-commerce que Vende Mais: 5 Otimizações Essenciais
+- Automação com IA: Como Reduzir Custos Operacionais
+
+## Contato
+
+- Email: contato@agent-bcomm.space
+- WhatsApp: (41) 96398-023
+- Localização: Curitiba, PR — Brasil
+- Website: https://agent-bcomm.space

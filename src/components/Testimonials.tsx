@@ -5,10 +5,22 @@ import { AnimatedSection } from "./AnimatedSection";
 
 const testimonials = [
   {
-    name: "Ricardo Mendes",
-    role: "CTO",
-    company: "Fintech Digital",
-    body: "A automação que implementamos reduziu nosso tempo de processamento em 70%. O time da BCOMM entendeu exatamente o que precisávamos.",
+    name: "Rafael Tomazini",
+    role: "Diretor de Operações",
+    company: "Grupo Vivaz",
+    body: "A landing page que a BCOMM criou para nosso lançamento imobiliário triplicou os leads qualificados em 60 dias. Copy e design impecáveis.",
+  },
+  {
+    name: "Patrícia Lima",
+    role: "CEO",
+    company: "Studio Bella Moda",
+    body: "Nosso e-commerce faturava X por mês. Depois da BCOMM, o faturamento online cresceu 180%. Checkout otimizado e integração com WhatsApp fez a diferença.",
+  },
+  {
+    name: "Marcos Vieira",
+    role: "Head de Tecnologia",
+    company: "Portal Financeiro",
+    body: "O agente de IA que desenvolveram para nosso suporte técnico resolve 85% das demandas sem acionar o time humano. Redução real de custos.",
   },
   {
     name: "Camila Ferreira",
@@ -17,28 +29,16 @@ const testimonials = [
     body: "A integração entre nosso ERP e CRM finalmente funciona como deveria. Dados fluindo em tempo real entre departamentos.",
   },
   {
-    name: "André Lima",
-    role: "Head de Tecnologia",
-    company: "Indústria MetalTech",
-    body: "O agente de IA que desenvolveram para nosso suporte técnico resolve 85% das demandas sem acionar o time humano.",
+    name: "André Santos",
+    role: "Gerente de TI",
+    company: "LogTech Operadora",
+    body: "Implementação ágil e resultado real. Em 4 semanas já tínhamos o sistema de automação rodando e gerando economia mensurável.",
   },
   {
-    name: "Fernanda Costa",
-    role: "Gerente de Suporte",
-    company: "Operadora LogTech",
-    body: "Implementação ágil e resultado real. Em 4 semanas já tínhamos o sistema rodando e gerando economia mensurável.",
-  },
-  {
-    name: "Marcos Oliveira",
-    role: "CEO",
-    company: "Startup SaaS Hub",
-    body: "A plataforma sob medida que construíram escala com nosso crescimento. Arquitetura pensada para o futuro, não só para hoje.",
-  },
-  {
-    name: "Juliana Santos",
-    role: " Diretora Executiva",
-    company: "Portal Financeiro",
-    body: "O suporte contínuo faz toda a diferença. Não é só deploy e sumiço, evolução constante da solução.",
+    name: "Juliana Costa",
+    role: "Diretora Executiva",
+    company: "Contábil Express",
+    body: "A automação de processos financeiros eliminou erros manuais que custavam horas de retrabalho. ROI em 3 meses.",
   },
 ];
 
@@ -84,18 +84,15 @@ export function Testimonials() {
       </div>
 
       <div className="relative mt-[48px] md:mt-[64px]">
-        {/* Gradient overlays */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-[80px] bg-gradient-to-r from-void-black to-transparent md:w-[160px]" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-[80px] bg-gradient-to-l from-void-black to-transparent md:w-[160px]" />
 
-        {/* Row 1: scrolling left */}
         <Marquee pauseOnHover repeat={3} className="[--duration:50s]">
           {testimonials.map((t) => (
             <TestimonialCard key={`r1-${t.name}`} {...t} />
           ))}
         </Marquee>
 
-        {/* Row 2: scrolling right (reversed) */}
         <Marquee pauseOnHover reverse repeat={3} className="mt-[16px] [--duration:50s]">
           {testimonials.map((t) => (
             <TestimonialCard key={`r2-${t.name}`} {...t} />

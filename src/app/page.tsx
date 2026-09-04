@@ -11,28 +11,45 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "BCOMM Comunicação Inteligente | Automação, IA e Integrações",
+  title: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
   description:
-    "Automação com IA, integrações e agentes inteligentes para empresas. Soluções de tecnologia com resultado mensurável. Fale conosco.",
+    "Criamos websites, landing pages e e-commerces que convertem. Automação com IA, integrações e atendimento inteligente para empresas que precisam de resultado.",
   keywords: [
+    "criação de site",
+    "criação de website",
+    "desenvolvimento de site",
+    "landing page",
+    "página de vendas",
+    "e-commerce",
+    "loja virtual",
+    "loja online",
     "automação com IA",
+    "inteligência artificial para empresas",
     "integração de sistemas",
     "atendimento inteligente",
-    "plataforma SaaS",
+    "chatbot",
+    "desenvolvimento web",
     "empresa de tecnologia Curitiba",
-    "agentes de IA",
-    "automação de processos",
-    "chatbot inteligente",
-    "desenvolvimento de software",
+    "agência digital Curitiba",
+    "criação de site Curitiba",
+    "desenvolvimento de software sob medida",
   ],
   openGraph: {
-    title: "BCOMM Comunicação Inteligente | Automação, IA e Integrações",
+    title: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
     description:
-      "Automação com IA, integrações e agentes inteligentes para empresas. Soluções de tecnologia com resultado mensurável.",
+      "Criamos websites, landing pages e e-commerces que convertem. Automação com IA e integrações para empresas.",
     url: "https://agent-bcomm.space",
     siteName: "BCOMM Comunicação Inteligente",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "https://agent-bcomm.space/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BCOMM — Criação de Websites, Landing Pages e Automação com IA",
+      },
+    ],
   },
 };
 
@@ -42,7 +59,7 @@ export default function Home() {
     "@type": "ProfessionalService",
     name: "BCOMM Comunicação Inteligente",
     description:
-      "Empresa de tecnologia especializada em automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida.",
+      "Criação de websites, landing pages, e-commerces e automação com IA para empresas. Soluções de tecnologia com resultado mensurável.",
     url: "https://agent-bcomm.space",
     email: "contato@agent-bcomm.space",
     telephone: "+554196398023",
@@ -63,14 +80,38 @@ export default function Home() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Soluções BCOMM",
+      name: "Serviços BCOMM",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
+            name: "Criação de Websites Institucionais",
+            description: "Sites modernos, rápidos e otimizados para converter visitantes em clientes.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Landing Pages de Alta Conversão",
+            description: "Páginas focadas em resultado para captação de leads e campanhas.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "E-commerce Personalizado",
+            description: "Lojas virtuais que escalam com o negócio, do catálogo ao checkout.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
             name: "Automação com IA",
-            description: "Agentes inteligentes que automatizam processos repetitivos e reduzem erros operacionais.",
+            description: "Agentes inteligentes que automatizam processos e reduzem erros operacionais.",
           },
         },
         {
@@ -87,14 +128,6 @@ export default function Home() {
             "@type": "Service",
             name: "Atendimento Inteligente",
             description: "Chatbots e canais de suporte que resolvem, aprendem e escalam.",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Plataformas SaaS sob Medida",
-            description: "Soluções personalizadas do MVP ao enterprise com arquitetura escalável.",
           },
         },
       ],

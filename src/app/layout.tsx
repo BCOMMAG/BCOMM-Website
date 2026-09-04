@@ -26,28 +26,30 @@ const siteUrl = "https://agent-bcomm.space";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "BCOMM Comunicação Inteligente | Automação, IA e Integrações",
+    default: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
     template: "%s | BCOMM Comunicação Inteligente",
   },
   description:
-    "Automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida para empresas.",
+    "Criamos websites, landing pages e e-commerces que convertem. Automação com IA, integrações e atendimento inteligente para empresas que precisam de resultado.",
   keywords: [
+    "criação de site",
+    "criação de website",
+    "desenvolvimento de site",
+    "landing page",
+    "página de vendas",
+    "e-commerce",
+    "loja virtual",
+    "loja online",
     "automação com IA",
+    "inteligência artificial para empresas",
     "integração de sistemas",
     "atendimento inteligente",
-    "plataforma SaaS",
-    "empresa de tecnologia",
-    "agentes de IA para empresas",
-    "automação de processos",
-    "integração ERP CRM",
-    "chatbot inteligente",
+    "chatbot",
+    "desenvolvimento web",
+    "empresa de tecnologia Curitiba",
+    "agência digital Curitiba",
+    "criação de site Curitiba",
     "desenvolvimento de software sob medida",
-    "soluções de comunicação empresarial",
-    "tecnologia para empresas",
-    "engenharia de software",
-    "inteligência artificial empresarial",
-    "BCOMM comunicação inteligente",
-    "empresa de automação em Curitiba",
   ],
   authors: [{ name: "BCOMM Comunicação Inteligente" }],
   creator: "BCOMM Comunicação Inteligente",
@@ -57,23 +59,23 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: siteUrl,
     siteName: "BCOMM Comunicação Inteligente",
-    title: "BCOMM Comunicação Inteligente | Automação, IA e Integrações",
+    title: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
     description:
-      "Automação com IA, integrações e agentes inteligentes para empresas. Soluções de tecnologia com resultado mensurável.",
+      "Criamos websites, landing pages e e-commerces que convertem. Automação com IA e integrações para empresas.",
     images: [
       {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "BCOMM Comunicação Inteligente",
+        alt: "BCOMM — Criação de Websites, Landing Pages e Automação com IA",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BCOMM Comunicação Inteligente | Automação, IA e Integrações",
+    title: "BCOMM | Criação de Websites, Landing Pages e Automação com IA",
     description:
-      "Automação com IA, integrações e agentes inteligentes para empresas. Resultado mensurável.",
+      "Criamos websites, landing pages e e-commerces que convertem. Automação com IA para empresas.",
   },
   robots: {
     index: true,
@@ -99,7 +101,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     url: siteUrl,
     logo: `${siteUrl}/logo.png`,
     description:
-      "Empresa de tecnologia especializada em automação com IA, integrações de sistemas, atendimento inteligente e plataformas SaaS sob medida.",
+      "Criação de websites, landing pages, e-commerces e automação com IA para empresas.",
     email: "contato@agent-bcomm.space",
     telephone: "+554196398023",
     address: {
@@ -108,7 +110,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       addressRegion: "PR",
       addressCountry: "BR",
     },
-    areaSBR: "BR",
+    areaServed: "BR",
     sameAs: [],
   };
 
@@ -118,7 +120,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     name: "BCOMM Comunicação Inteligente",
     url: siteUrl,
     description:
-      "Automação com IA, integrações e agentes inteligentes para empresas. Resultado mensurável.",
+      "Criação de websites, landing pages, e-commerces e automação com IA para empresas.",
     inLanguage: "pt-BR",
   };
 

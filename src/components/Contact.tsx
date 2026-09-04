@@ -31,12 +31,15 @@ export function Contact() {
   const [countryCode, setCountryCode] = useState("+55");
   const [telefone, setTelefone] = useState("");
   const [mensagem, setMensagem] = useState("");
+  const [website, setWebsite] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
 
   const validate = (): FormErrors => {
     const e: FormErrors = {};
+
+    if (website) return e;
 
     if (!nome.trim()) {
       e.nome = "Nome é obrigatório";
@@ -115,7 +118,6 @@ export function Contact() {
       <div className="mx-auto max-w-[1200px]">
         <AnimatedSection>
           <div className="grid gap-[48px] md:grid-cols-[2fr_1fr] md:gap-[0px]">
-            {/* Left column: info */}
             <div className="flex flex-col justify-between border-b border-graphite pb-[48px] md:border-b-0 md:border-r md:border-graphite md:pr-[48px] md:pb-0">
               <div>
                 <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
@@ -141,11 +143,9 @@ export function Contact() {
                     contato@agent-bcomm.space
                   </a>
                 </div>
-
               </div>
             </div>
 
-            {/* Right column: form */}
             <div className="md:pl-[48px]">
               {submitted ? (
                 <div className="flex h-full min-h-[400px] flex-col items-center justify-center text-center">
@@ -170,7 +170,29 @@ export function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]" noValidate>
-                  {/* Nome */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: "-9999px",
+                      opacity: 0,
+                      height: 0,
+                      width: 0,
+                      overflow: "hidden",
+                    }}
+                    aria-hidden="true"
+                  >
+                    <label htmlFor="website">Não preencha</label>
+                    <input
+                      id="website"
+                      type="text"
+                      name="website"
+                      value={website}
+                      onChange={(e) => setWebsite(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
                   <div>
                     <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
                       Nome *
@@ -187,7 +209,6 @@ export function Contact() {
                     )}
                   </div>
 
-                  {/* Email */}
                   <div>
                     <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
                       Email *
@@ -204,7 +225,6 @@ export function Contact() {
                     )}
                   </div>
 
-                  {/* Telefone */}
                   <div>
                     <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
                       Telefone *
@@ -234,7 +254,6 @@ export function Contact() {
                     )}
                   </div>
 
-                  {/* Mensagem */}
                   <div>
                     <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
                       Mensagem *
@@ -258,7 +277,6 @@ export function Contact() {
                     </div>
                   </div>
 
-                  {/* Submit */}
                   <button
                     type="submit"
                     disabled={sending}
