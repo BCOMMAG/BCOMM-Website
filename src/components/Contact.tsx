@@ -61,7 +61,7 @@ export function Contact() {
                   Fale Conosco
                 </h2>
                 <p className="mt-[16px] max-w-[480px] text-[18px] leading-[1.5] text-ash">
-                  Monte sua mensagem e envie direto pelo WhatsApp. A gente responde rápido.
+                  Monte sua mensagem e envie direto pelo WhatsApp. Respondemos rapidamente.
                 </p>
               </div>
 
