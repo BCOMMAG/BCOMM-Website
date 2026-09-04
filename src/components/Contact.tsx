@@ -98,7 +98,7 @@ export function Contact() {
                   </p>
                   <div className="mt-[8px] flex gap-[16px]">
                     <a
-                      href="https://instagram.com/bcomm"
+                      href="https://www.instagram.com/bcomm.br"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-graphite text-ash transition-all duration-200 hover:border-iris hover:text-iris"
@@ -111,7 +111,7 @@ export function Contact() {
                       </svg>
                     </a>
                     <a
-                      href="https://facebook.com/bcomm"
+                      href="https://www.facebook.com/bcommagent"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-graphite text-ash transition-all duration-200 hover:border-iris hover:text-iris"
