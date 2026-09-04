@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | BCOMM Comunicação Inteligente",
   },
   icons: {
-    icon: "/logo.jpeg",
+    icon: "/favicon.svg",
   },
   description:
     "Websites, landing pages, e-commerces e automações com IA. BCOMM Comunicação Inteligente, Curitiba.",
