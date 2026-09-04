@@ -15,12 +15,12 @@ export function Hero() {
     <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-void-black px-[24px] pt-[80px] md:px-[48px] lg:px-[80px]">
       <ConstellationGrid className="opacity-30" />
 
-      <div className="pointer-events-none absolute bottom-0 left-0 top-0 hidden w-[45%] lg:block">
+      <div className="pointer-events-none absolute bottom-0 right-0 top-0 hidden w-[45%] lg:block">
         <Image
           src="/hero-ai.png"
           alt=""
           fill
-          className="object-contain object-left-bottom opacity-80"
+          className="object-contain object-right-bottom opacity-80"
           sizes="(max-width: 1024px) 0px, 45vw"
           priority
         />
