@@ -19,8 +19,14 @@ const marqueeItems = [
   "Criação de Linktree",
 ];
 
-const sequentialGlow =
-  "animate-[sequential-glow_16s_ease-in-out_infinite]";
+const glowByIcon: Record<string, string> = {
+  globe: "animate-[sequential-glow_16s_ease-in-out_infinite]",
+  whatsapp: "animate-[sequential-glow-green_16s_ease-in-out_infinite]",
+  instagram: "animate-[sequential-glow-pink_16s_ease-in-out_infinite]",
+  facebook: "animate-[sequential-glow-blue_16s_ease-in-out_infinite]",
+};
+
+const serviceGlow = "animate-[sequential-glow_16s_ease-in-out_infinite]";
 
 export function LinktreeMobile() {
   return (
@@ -70,7 +76,7 @@ export function LinktreeMobile() {
               href={link.href}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className={`flex items-center gap-[10px] self-center rounded-[10px] border border-graphite bg-surface-lift px-[8px] py-[10px] transition-all duration-200 hover:border-iron hover:bg-[#111418] ${sequentialGlow}`}
+              className={`flex items-center gap-[10px] self-center rounded-[10px] border border-graphite bg-surface-lift px-[8px] py-[10px] transition-all duration-200 hover:border-iron hover:bg-[#111418] ${glowByIcon[link.icon] || "animate-[sequential-glow_16s_ease-in-out_infinite]"}`}
               style={{
                 width: "min(320px, 85vw)",
                 animationDelay: `${i * 2}s`,
@@ -97,7 +103,7 @@ export function LinktreeMobile() {
             <a
               key={srv.label}
               href={srv.href}
-              className={`rounded-[8px] border border-graphite bg-surface-lift px-[8px] py-[6px] text-center text-[11px] font-medium text-bone transition-all duration-200 ${sequentialGlow}`}
+              className={`rounded-[8px] border border-graphite bg-surface-lift px-[8px] py-[6px] text-center text-[11px] font-medium text-bone transition-all duration-200 ${serviceGlow}`}
               style={{ animationDelay: `${(linktreeLinks.length + i) * 2}s` }}
             >
               {srv.label}
