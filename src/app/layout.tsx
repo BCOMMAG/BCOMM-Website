@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     default: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
     template: "%s | BCOMM Comunicação Inteligente",
   },
+  icons: {
+    icon: "/logo.jpeg",
+  },
   description:
     "Websites, landing pages, e-commerces e automações com IA. BCOMM Comunicação Inteligente, Curitiba.",
   keywords: [
