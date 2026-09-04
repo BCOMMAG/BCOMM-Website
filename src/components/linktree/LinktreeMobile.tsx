@@ -37,7 +37,18 @@ export function LinktreeMobile() {
 
       <div className="relative z-10 flex flex-1 flex-col px-[20px] py-[20px]">
         <div className="mt-[8px] flex flex-col items-center">
-          <h1 className="text-center font-playfair text-[18px] font-normal leading-[1.2] text-white">
+          <div className="relative h-[70px] w-[70px] overflow-hidden rounded-full border-2 border-iris">
+            <Image
+              src="/logo.png"
+              alt="BCOMM"
+              fill
+              className="object-contain p-[8px]"
+              sizes="70px"
+              priority
+            />
+          </div>
+
+          <h1 className="mt-[10px] text-center font-playfair text-[18px] font-normal leading-[1.2] text-white">
             Tecnologia que{" "}
             <span className="text-iris">vende</span>
           </h1>
@@ -60,6 +71,19 @@ export function LinktreeMobile() {
           </Marquee>
         </div>
 
+        <div className="mt-[12px] grid grid-cols-2 gap-[6px]">
+          {linktreeServices.map((srv, i) => (
+            <a
+              key={srv.label}
+              href={srv.href}
+              style={{ animationDelay: `${i * 1.2}s` }}
+              className="animate-[subtle-glow_4s_ease-in-out_infinite] rounded-[8px] border border-graphite bg-surface-lift px-[8px] py-[6px] text-center text-[11px] font-medium text-bone transition-all duration-200"
+            >
+              {srv.label}
+            </a>
+          ))}
+        </div>
+
         <div className="mt-[12px] flex flex-1 flex-col justify-center gap-[8px] overflow-hidden">
           {linktreeLinks.map((link) => (
             <a
@@ -80,21 +104,6 @@ export function LinktreeMobile() {
               </svg>
             </a>
           ))}
-        </div>
-
-        <div className="mt-[8px]">
-          <div className="grid grid-cols-2 gap-[6px]">
-            {linktreeServices.map((srv, i) => (
-              <a
-                key={srv.label}
-                href={srv.href}
-                style={{ animationDelay: `${i * 1.2}s` }}
-                className="animate-[subtle-glow_4s_ease-in-out_infinite] rounded-[8px] border border-graphite bg-surface-lift px-[8px] py-[6px] text-center text-[11px] font-medium text-bone transition-all duration-200"
-              >
-                {srv.label}
-              </a>
-            ))}
-          </div>
         </div>
 
         <p className="mt-[10px] text-center font-mono text-[9px] text-charcoal">
