@@ -19,6 +19,9 @@ const marqueeItems = [
   "Criação de Linktree",
 ];
 
+const sequentialGlow =
+  "animate-[sequential-glow_16s_ease-in-out_infinite]";
+
 export function LinktreeMobile() {
   return (
     <main className="relative flex h-[100dvh] flex-col overflow-hidden bg-void-black">
@@ -60,28 +63,18 @@ export function LinktreeMobile() {
           </Marquee>
         </div>
 
-        <div className="mt-[16px] grid grid-cols-2 gap-[6px]">
-          {linktreeServices.map((srv, i) => (
-            <a
-              key={srv.label}
-              href={srv.href}
-              style={{ animationDelay: `${i * 1.2}s` }}
-              className="animate-[subtle-glow_4s_ease-in-out_infinite] rounded-[8px] border border-graphite bg-surface-lift px-[8px] py-[6px] text-center text-[11px] font-medium text-bone transition-all duration-200"
-            >
-              {srv.label}
-            </a>
-          ))}
-        </div>
-
         <div className="mt-[24px] flex flex-col gap-[8px] overflow-hidden">
-          {linktreeLinks.map((link) => (
+          {linktreeLinks.map((link, i) => (
             <a
               key={link.label}
               href={link.href}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="flex items-center gap-[10px] self-center rounded-[10px] border border-graphite bg-surface-lift px-[8px] py-[10px] transition-all duration-200 hover:border-iron hover:bg-[#111418]"
-              style={{ width: "min(320px, 85vw)" }}
+              className={`flex items-center gap-[10px] self-center rounded-[10px] border border-graphite bg-surface-lift px-[8px] py-[10px] transition-all duration-200 hover:border-iron hover:bg-[#111418] ${sequentialGlow}`}
+              style={{
+                width: "min(320px, 85vw)",
+                animationDelay: `${i * 2}s`,
+              }}
             >
               <LinktreeIcon name={link.icon} className="!h-[16px] !w-[16px] text-iris" />
               <div className="min-w-0 flex-1">
@@ -91,6 +84,19 @@ export function LinktreeMobile() {
               <svg className="h-[14px] w-[14px] shrink-0 text-charcoal" viewBox="0 0 16 16" fill="none">
                 <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-[16px] grid grid-cols-2 gap-[6px]">
+          {linktreeServices.map((srv, i) => (
+            <a
+              key={srv.label}
+              href={srv.href}
+              className={`rounded-[8px] border border-graphite bg-surface-lift px-[8px] py-[6px] text-center text-[11px] font-medium text-bone transition-all duration-200 ${sequentialGlow}`}
+              style={{ animationDelay: `${(linktreeLinks.length + i) * 2}s` }}
+            >
+              {srv.label}
             </a>
           ))}
         </div>
