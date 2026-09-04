@@ -219,6 +219,23 @@ export const allServices = [
     cta: "Ver demo",
     ctaHref: "#contato",
   },
+  {
+    slug: "linktree",
+    title: "Criação de Linktree",
+    shortTitle: "Linktree",
+    description:
+      "Linktree personalizado para Instagram e redes sociais. Design alinhado com sua marca, links organizados e performance.",
+    features: [
+      "Design personalizado com identidade visual",
+      "Links organizados por categoria",
+      "Integração com WhatsApp, Instagram, email",
+      "Analytics de cliques",
+      "Otimizado para mobile",
+      "SEO e schema para buscadores",
+    ],
+    cta: "Solicitar orçamento",
+    ctaHref: "#contato",
+  },
 ] as const;
 
 export const differentials = [

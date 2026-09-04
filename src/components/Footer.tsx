@@ -29,6 +29,9 @@ export function Footer() {
             </nav>
 
             <div className="flex gap-[24px]">
+              <a href="/links" className="text-[14px] font-normal text-iron transition-colors hover:text-bone">
+                Links
+              </a>
               <a href="/blog" className="text-[14px] font-normal text-iron transition-colors hover:text-bone">
                 Blog
               </a>
