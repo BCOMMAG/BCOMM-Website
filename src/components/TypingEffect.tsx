@@ -4,16 +4,20 @@ import { useRef, useEffect, useCallback } from "react";
 
 interface TypingEffectProps {
   words: string[];
+  startIndex?: number;
   className?: string;
 }
 
-export function TypingEffect({ words, className = "" }: TypingEffectProps) {
+export function TypingEffect({ words, startIndex = 0, className = "" }: TypingEffectProps) {
   const spanRef = useRef<HTMLSpanElement>(null);
 
   const animate = useCallback(() => {
     const el = spanRef.current;
     if (!el || words.length === 0) return;
-    let wordIndex = 0, charIndex = 0, isDeleting = false, timeout: ReturnType<typeof setTimeout>;
+    let wordIndex = startIndex;
+    let charIndex = 0;
+    let isDeleting = false;
+    let timeout: ReturnType<typeof setTimeout>;
 
     function tick() {
       const current = el;
@@ -41,7 +45,7 @@ export function TypingEffect({ words, className = "" }: TypingEffectProps) {
     }
     tick();
     return () => clearTimeout(timeout);
-  }, [words]);
+  }, [words, startIndex]);
 
   useEffect(() => { const cleanup = animate(); return cleanup; }, [animate]);
 
