@@ -17,12 +17,10 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <AnimatedSection>
           <h1 className="font-playfair text-[36px] font-normal leading-[1] tracking-[-0.01em] text-white sm:text-[48px] md:text-[77px] lg:text-[96px]">
-            Tecnologias que{" "}
-            <TypingEffect words={["comunicam", "funcionam"]} startIndex={0} />
+            Tecnologia que
             <br />
-            <span className="text-bone">
-              Soluções que{" "}
-              <TypingEffect words={["funcionam", "comunicam"]} startIndex={0} />
+            <span className="text-iris">
+              <TypingEffect words={["vende", "converte", "escala", "automatiza"]} />
             </span>
           </h1>
         </AnimatedSection>
@@ -30,6 +28,12 @@ export function Hero() {
         <AnimatedSection delay={0.1}>
           <p className="mt-[24px] max-w-[600px] text-[18px] font-normal leading-[1.5] text-ash md:mt-[32px]">
             Websites, landing pages, e-commerces e automações com IA. Tudo construído com engenharia de verdade para empresas que precisam de resultado.
+          </p>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.15}>
+          <p className="font-playfair text-[24px] font-normal leading-[1.2] tracking-[-0.02em] text-bone sm:text-[32px] md:text-[40px]">
+            Resultados que aparecem.
           </p>
         </AnimatedSection>
 
