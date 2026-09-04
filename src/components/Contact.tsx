@@ -3,69 +3,25 @@
 import { useState } from "react";
 import { AnimatedSection } from "./AnimatedSection";
 
-const countries = [
-  { code: "+55", label: "BR +55" },
-  { code: "+1", label: "US +1" },
-  { code: "+54", label: "AR +54" },
-  { code: "+351", label: "PT +351" },
-  { code: "+34", label: "ES +34" },
-  { code: "+44", label: "UK +44" },
-  { code: "+49", label: "DE +49" },
-  { code: "+33", label: "FR +33" },
-  { code: "+39", label: "IT +39" },
-  { code: "+52", label: "MX +52" },
-];
-
-const API_URL = "/api/send-email";
+const WHATSAPP_NUMBER = "554196398023";
 
 interface FormErrors {
   nome?: string;
-  email?: string;
-  telefone?: string;
   mensagem?: string;
 }
 
 export function Contact() {
   const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [countryCode, setCountryCode] = useState("+55");
-  const [telefone, setTelefone] = useState("");
   const [mensagem, setMensagem] = useState("");
-  const [website, setWebsite] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
 
   const validate = (): FormErrors => {
     const e: FormErrors = {};
-
-    if (website) return e;
 
     if (!nome.trim()) {
       e.nome = "Nome é obrigatório";
     } else if (nome.trim().length > 100) {
       e.nome = "Máximo de 100 caracteres";
-    }
-
-    if (!email.trim()) {
-      e.email = "Email é obrigatório";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      e.email = "Email inválido";
-    } else if (email.trim().length > 254) {
-      e.email = "Máximo de 254 caracteres";
-    }
-
-    if (!telefone.trim()) {
-      e.telefone = "Telefone é obrigatório";
-    } else {
-      const digits = telefone.replace(/\D/g, "");
-      if (countryCode === "+55") {
-        if (digits.length < 10 || digits.length > 11) {
-          e.telefone = "BR: DDD + 9 + 8 dígitos (ex: 41 9 9999-0000)";
-        }
-      } else if (digits.length < 7 || digits.length > 15) {
-        e.telefone = "Telefone inválido";
-      }
     }
 
     if (!mensagem.trim()) {
@@ -77,40 +33,18 @@ export function Contact() {
     return e;
   };
 
-  const handleSubmit = async (ev: React.FormEvent) => {
+  const handleSubmit = (ev: React.FormEvent) => {
     ev.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) return;
 
-    setSending(true);
+    const texto = encodeURIComponent(
+      `Olá, sou ${nome.trim()}.\n\n${mensagem.trim()}`
+    );
 
-    try {
-      const payload = {
-        nome: nome.trim(),
-        email: email.trim(),
-        telefone: `${countryCode} ${telefone.trim()}`,
-        mensagem: mensagem.trim(),
-        data: new Date().toISOString(),
-      };
-
-      const res = await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        setErrors({ mensagem: "Erro ao enviar. Tente novamente." });
-      }
-    } catch {
-      setErrors({ mensagem: "Erro de conexão. Tente novamente." });
-    } finally {
-      setSending(false);
-    }
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`, "_blank");
   };
 
   return (
@@ -127,11 +61,25 @@ export function Contact() {
                   Fale Conosco
                 </h2>
                 <p className="mt-[16px] max-w-[480px] text-[18px] leading-[1.5] text-ash">
-                  Preencha o formulário ao lado ou nos chame no WhatsApp. Respondemos em até 1 dia útil.
+                  Monte sua mensagem e envie direto pelo WhatsApp. A gente responde rápido.
                 </p>
               </div>
 
               <div className="mt-[48px] flex flex-col gap-[24px] md:mt-[64px]">
+                <div>
+                  <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
+                    WhatsApp
+                  </p>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-[4px] font-mono text-[16px] text-iris transition-colors hover:text-iris-glow"
+                  >
+                    (41) 96398-023
+                  </a>
+                </div>
+
                 <div>
                   <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
                     Email
@@ -143,149 +91,92 @@ export function Contact() {
                     contato@agent-bcomm.space
                   </a>
                 </div>
+
+                <div>
+                  <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
+                    Redes Sociais
+                  </p>
+                  <div className="mt-[8px] flex gap-[16px]">
+                    <a
+                      href="https://instagram.com/bcomm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-graphite text-ash transition-all duration-200 hover:border-iris hover:text-iris"
+                      aria-label="Instagram"
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <circle cx="12" cy="12" r="5" />
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://facebook.com/bcomm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-graphite text-ash transition-all duration-200 hover:border-iris hover:text-iris"
+                      aria-label="Facebook"
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div className="md:pl-[48px]">
-              {submitted ? (
-                <div className="flex h-full min-h-[400px] flex-col items-center justify-center text-center">
-                  <p className="text-[24px] font-medium text-white">
-                    Obrigado!
-                  </p>
-                  <p className="mt-[12px] text-[16px] text-ash">
-                    Recebemos sua mensagem. Em breve entraremos em contato.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setNome("");
-                      setEmail("");
-                      setTelefone("");
-                      setMensagem("");
-                    }}
-                    className="mt-[24px] rounded-[9999px] border border-graphite bg-transparent px-[20px] py-[10px] text-[14px] text-bone transition-all duration-200 hover:border-white hover:bg-white hover:text-black"
-                  >
-                    Enviar outra mensagem
-                  </button>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]" noValidate>
+                <div>
+                  <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
+                    Seu nome
+                  </label>
+                  <input
+                    type="text"
+                    value={nome}
+                    onChange={(e) => setNome(e.target.value.slice(0, 100))}
+                    placeholder="Como prefere ser chamado?"
+                    className="input-field"
+                  />
+                  {errors.nome && (
+                    <p className="mt-[4px] text-[12px] text-alarm">{errors.nome}</p>
+                  )}
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]" noValidate>
-                  <div
-                    style={{
-                      position: "absolute",
-                      left: "-9999px",
-                      opacity: 0,
-                      height: 0,
-                      width: 0,
-                      overflow: "hidden",
-                    }}
-                    aria-hidden="true"
-                  >
-                    <label htmlFor="website">Não preencha</label>
-                    <input
-                      id="website"
-                      type="text"
-                      name="website"
-                      value={website}
-                      onChange={(e) => setWebsite(e.target.value)}
-                      tabIndex={-1}
-                      autoComplete="off"
-                    />
-                  </div>
 
-                  <div>
-                    <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                      Nome *
-                    </label>
-                    <input
-                      type="text"
-                      value={nome}
-                      onChange={(e) => setNome(e.target.value.slice(0, 100))}
-                      placeholder="Seu nome"
-                      className="input-field"
-                    />
-                    {errors.nome && (
-                      <p className="mt-[4px] text-[12px] text-alarm">{errors.nome}</p>
+                <div>
+                  <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
+                    Sua mensagem
+                  </label>
+                  <textarea
+                    value={mensagem}
+                    onChange={(e) => setMensagem(e.target.value.slice(0, 500))}
+                    placeholder="Conte o que precisa. Quanto mais detalhes, melhor a gente te atende."
+                    rows={5}
+                    className="input-field resize-y"
+                  />
+                  <div className="mt-[4px] flex justify-between">
+                    {errors.mensagem ? (
+                      <p className="text-[12px] text-alarm">{errors.mensagem}</p>
+                    ) : (
+                      <span />
                     )}
+                    <p className="font-mono text-[12px] text-charcoal">
+                      {mensagem.length}/500
+                    </p>
                   </div>
+                </div>
 
-                  <div>
-                    <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value.slice(0, 254))}
-                      placeholder="seu@email.com"
-                      className="input-field"
-                    />
-                    {errors.email && (
-                      <p className="mt-[4px] text-[12px] text-alarm">{errors.email}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                      Telefone *
-                    </label>
-                    <div className="flex gap-[8px]">
-                      <select
-                        value={countryCode}
-                        onChange={(e) => setCountryCode(e.target.value)}
-                        className="select-field w-[100px] shrink-0"
-                      >
-                        {countries.map((c) => (
-                          <option key={c.code} value={c.code}>
-                            {c.label}
-                          </option>
-                        ))}
-                      </select>
-                      <input
-                        type="tel"
-                        value={telefone}
-                        onChange={(e) => setTelefone(e.target.value.slice(0, 15))}
-                        placeholder={countryCode === "+55" ? "41 99999-0000" : "+1 555 123 4567"}
-                        className="input-field flex-1"
-                      />
-                    </div>
-                    {errors.telefone && (
-                      <p className="mt-[4px] text-[12px] text-alarm">{errors.telefone}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                      Mensagem *
-                    </label>
-                    <textarea
-                      value={mensagem}
-                      onChange={(e) => setMensagem(e.target.value.slice(0, 500))}
-                      placeholder="Como podemos ajudar?"
-                      rows={5}
-                      className="input-field resize-y"
-                    />
-                    <div className="mt-[4px] flex justify-between">
-                      {errors.mensagem ? (
-                        <p className="text-[12px] text-alarm">{errors.mensagem}</p>
-                      ) : (
-                        <span />
-                      )}
-                      <p className="font-mono text-[12px] text-charcoal">
-                        {mensagem.length}/500
-                      </p>
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={sending}
-                    className="btn-slide mt-[8px] w-full rounded-[9999px] border border-graphite bg-transparent px-[24px] py-[12px] text-[16px] font-normal text-white disabled:opacity-50"
-                  >
-                    {sending ? "Enviando..." : "Enviar mensagem"}
-                  </button>
-                </form>
-              )}
+                <button
+                  type="submit"
+                  className="mt-[8px] flex w-full items-center justify-center gap-[8px] rounded-[9999px] bg-[#25D366] px-[24px] py-[14px] text-[16px] font-normal text-white transition-all duration-200 hover:brightness-110"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  Enviar no WhatsApp
+                </button>
+              </form>
             </div>
           </div>
         </AnimatedSection>
