@@ -24,25 +24,14 @@ export function LinktreeMobile() {
     <main className="relative flex h-[100dvh] flex-col overflow-hidden bg-void-black">
       <ConstellationGrid className="absolute inset-0 opacity-20" />
 
-      <div className="pointer-events-none absolute bottom-0 right-0 z-[5] h-[60dvh] w-full opacity-70">
-        <Image
-          src="/hero-ai.png"
-          alt=""
-          fill
-          className="object-contain object-right-bottom"
-          sizes="100vw"
-          priority
-        />
-      </div>
-
       <div className="relative z-10 flex flex-1 flex-col justify-center px-[20px] py-[24px]">
         <div className="flex flex-col items-center">
           <div className="relative h-[150px] w-[150px] overflow-hidden rounded-full border-2 border-iris">
             <Image
-              src="/logo.png"
+              src="/hero-ai.png"
               alt="BCOMM"
               fill
-              className="object-contain p-[14px]"
+              className="object-cover"
               sizes="150px"
               priority
             />
