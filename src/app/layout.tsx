@@ -73,9 +73,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BCOMM | Criação de Websites, Landing Pages e Automação com IA",
+    title: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
     description:
       "Websites, landing pages, e-commerces e automações com IA para empresas.",
+    images: [`${siteUrl}/og-image.png`],
   },
   robots: {
     index: true,
@@ -111,7 +112,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       addressCountry: "BR",
     },
     areaServed: "BR",
-    sameAs: [],
+    sameAs: [
+      "https://www.instagram.com/bcomm.br",
+      "https://www.facebook.com/bcommagent",
+    ],
   };
 
   const websiteJsonLd = {

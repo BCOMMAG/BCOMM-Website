@@ -56,6 +56,8 @@ export default async function BlogPostPage({ params }: PageProps) {
       },
     },
     datePublished: post.date,
+    dateModified: post.date,
+    image: `https://agent-bcomm.space/og-image.png`,
     url: `https://agent-bcomm.space/blog/${post.slug}`,
   };
 
