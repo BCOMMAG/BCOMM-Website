@@ -35,8 +35,8 @@ export function LinktreeMobile() {
         />
       </div>
 
-      <div className="relative z-10 flex flex-1 flex-col px-[20px] py-[20px]">
-        <div className="mt-[8px] flex flex-col items-center">
+      <div className="relative z-10 flex flex-1 flex-col justify-center px-[20px] py-[20px]">
+        <div className="flex flex-col items-center">
           <div className="relative h-[70px] w-[70px] overflow-hidden rounded-full border-2 border-iris">
             <Image
               src="/logo.png"
@@ -84,7 +84,7 @@ export function LinktreeMobile() {
           ))}
         </div>
 
-        <div className="mt-[12px] flex flex-1 flex-col justify-center gap-[8px] overflow-hidden">
+        <div className="mt-[12px] flex flex-col gap-[8px] overflow-hidden">
           {linktreeLinks.map((link) => (
             <a
               key={link.label}
