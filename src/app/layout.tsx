@@ -117,6 +117,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       "Criação de websites, landing pages, e-commerces e automação com IA para empresas.",
     email: "contato@agent-bcomm.space",
     telephone: "+554196398023",
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "contato@agent-bcomm.space",
+      telephone: "+554196398023",
+      contactType: "customer service",
+      availableLanguage: "Portuguese",
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Curitiba",
