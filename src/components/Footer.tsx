@@ -10,32 +10,32 @@ export function Footer() {
               className="h-[64px] w-auto opacity-60"
               aria-hidden="true"
             />
-            <span className="text-[14px] font-normal text-iron">
+            <span className="text-[14px] font-normal text-ash">
               © {new Date().getFullYear()} BCOMM Comunicação Inteligente
             </span>
           </div>
 
           <div className="flex flex-col gap-[16px] md:flex-row md:items-center md:gap-[32px]">
             <nav className="flex gap-[24px]" aria-label="Serviços">
-              <a href="/servicos/websites" className="text-[14px] font-normal text-iron transition-colors hover:text-bone">
+              <a href="/servicos/websites" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 Websites
               </a>
-              <a href="/servicos/ecommerce" className="text-[14px] font-normal text-iron transition-colors hover:text-bone">
+              <a href="/servicos/ecommerce" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 E-commerce
               </a>
-              <a href="/servicos/automacao" className="text-[14px] font-normal text-iron transition-colors hover:text-bone">
+              <a href="/servicos/automacao" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 Automação
               </a>
             </nav>
 
             <div className="flex gap-[24px]">
-              <a href="/links" className="text-[14px] font-normal text-iron transition-colors hover:text-bone">
+              <a href="/links" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 Links
               </a>
-              <a href="/blog" className="text-[14px] font-normal text-iron transition-colors hover:text-bone">
+              <a href="/blog" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 Blog
               </a>
-              <a href="#contato" className="text-[14px] font-normal text-iron transition-colors hover:text-bone">
+              <a href="#contato" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 Contato
               </a>
             </div>

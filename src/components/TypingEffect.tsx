@@ -50,7 +50,7 @@ export function TypingEffect({ words, startIndex = 0, className = "" }: TypingEf
   useEffect(() => { const cleanup = animate(); return cleanup; }, [animate]);
 
   return (
-    <span className={className}>
+    <span className={`inline-block ${className}`} style={{ minWidth: `${Math.max(...words.map(w => w.length))}ch` }}>
       <span ref={spanRef} aria-hidden="true" />
       <span
         className="ml-0.5 inline-block w-[2px] bg-iris"

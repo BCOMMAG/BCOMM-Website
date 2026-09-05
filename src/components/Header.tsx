@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { nav } from "@/lib/constants";
 
@@ -102,7 +103,7 @@ export function Header() {
         aria-label="Navegação principal"
       >
         <a href="#" className="flex items-center">
-          <img src="/logo.png" alt="" className="h-[80px] w-auto md:h-[96px]" aria-hidden="true" />
+          <Image src="/logo.png" alt="" width={96} height={96} className="h-[80px] w-auto md:h-[96px]" aria-hidden="true" priority />
           <span className="sr-only">BCOMM</span>
         </a>
 

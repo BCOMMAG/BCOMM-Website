@@ -23,6 +23,7 @@ export function Hero() {
           className="object-contain object-right-bottom"
           sizes="(max-width: 1024px) 0px, 45vw"
           priority
+          fetchPriority="high"
         />
       </div>
 

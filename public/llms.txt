@@ -2,18 +2,31 @@
 
 > Empresa de tecnologia especializada em criação de websites, landing pages, e-commerces e automação com IA. Curitiba, PR, Brasil.
 
+## Links
+
+- [Website](https://agent-bcomm.space)
+- [Serviços](https://agent-bcomm.space/servicos)
+- [Cases](https://agent-bcomm.space/cases)
+- [Blog](https://agent-bcomm.space/blog)
+- [Contato](https://agent-bcomm.space/#contato)
+- [Linktree](https://agent-bcomm.space/links)
+- [Instagram](https://www.instagram.com/bcomm.br)
+- [Facebook](https://www.facebook.com/bcommagent)
+- [WhatsApp](https://wa.me/554196398023)
+
 ## Sobre
 
 A BCOMM combina engenharia de software com inteligência artificial para criar soluções digitais que geram resultado mensurável. Atende empresas em todo o Brasil a partir de Curitiba.
 
 ## Serviços
 
-- **Websites Institucionais** — Sites modernos, rápidos e feitos para converter visitantes em clientes.
-- **Landing Pages de Alta Conversão** — Páginas focadas em resultado para captação de leads e campanhas.
-- **E-commerce Personalizado** — Lojas virtuais que crescem com o negócio. Catálogo, checkout, pagamentos e gestão.
-- **Automação com IA** — Agentes inteligentes que automatizam tarefas repetitivas e reduzem erros.
-- **Integrações de Sistemas** — Conexão de ERP, CRM e ferramentas internas em um fluxo único de dados.
-- **Atendimento Inteligente** — Chatbots multicanal que resolvem, aprendem e crescem com o volume.
+- [Websites Institucionais](https://agent-bcomm.space/servicos/websites) — Sites modernos, rápidos e feitos para converter visitantes em clientes.
+- [Landing Pages de Alta Conversão](https://agent-bcomm.space/servicos/websites) — Páginas focadas em resultado para captação de leads e campanhas.
+- [E-commerce Personalizado](https://agent-bcomm.space/servicos/ecommerce) — Lojas virtuais que crescem com o negócio. Catálogo, checkout, pagamentos e gestão.
+- [Automação com IA](https://agent-bcomm.space/servicos/automacao) — Agentes inteligentes que automatizam tarefas repetitivas e reduzem erros.
+- [Integrações de Sistemas](https://agent-bcomm.space/servicos) — Conexão de ERP, CRM e ferramentas internas em um fluxo único de dados.
+- [Atendimento Inteligente](https://agent-bcomm.space/servicos) — Chatbots multicanal que resolvem, aprendem e crescem com o volume.
+- [Criação de Linktree](https://agent-bcomm.space/servicos) — Linktree personalizado para Instagram e redes sociais.
 
 ## Resultados
 
@@ -23,22 +36,14 @@ A BCOMM combina engenharia de software com inteligência artificial para criar s
 - 3.2x aumento na taxa de conversão de landing pages
 - 180% crescimento no faturamento de e-commerces
 
-## Processo
-
-1. Diagnóstico — Mapeamento do fluxo atual e identificação de gargalos
-2. Arquitetura — Projeto da solução com as tecnologias certas
-3. Implementação — Desenvolvimento em ciclos curtos com entrega funcional
-4. Evolução contínua — Monitoramento, feedback e iteração constante
-
 ## Blog
 
-- Como Criar uma Landing Page que Converte
-- E-commerce que Vende Mais: 5 Otimizações Essenciais
-- Automação com IA: Como Reduzir Custos Operacionais
+- [Como Criar uma Landing Page que Converte](https://agent-bcomm.space/blog/como-criar-landing-page-que-converte)
+- [E-commerce que Vende Mais](https://agent-bcomm.space/blog/e-commerce-que-vende-mais)
+- [Automação com IA: Reduza Custos Operacionais](https://agent-bcomm.space/blog/automacao-ia-reduz-custos-operacionais)
 
 ## Contato
 
-- Email: contato@agent-bcomm.space
-- WhatsApp: (41) 96398-023
+- Email: [contato@agent-bcomm.space](mailto:contato@agent-bcomm.space)
+- WhatsApp: [(41) 96398-023](https://wa.me/554196398023)
 - Localização: Curitiba, PR, Brasil
-- Website: https://agent-bcomm.space
