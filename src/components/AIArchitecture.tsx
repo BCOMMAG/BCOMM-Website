@@ -1,4 +1,5 @@
 import { AnimatedSection } from "./AnimatedSection";
+import { SpotlightCard } from "./SpotlightCard";
 
 const pillars = [
   {
@@ -45,23 +46,25 @@ export function AIArchitecture() {
 
         <div className="mt-[64px] grid grid-cols-1 gap-[24px] md:grid-cols-3">
           {pillars.map((p, i) => (
-            <AnimatedSection key={p.title} delay={i * 0.1}>
-              <div className="group relative flex h-full flex-col justify-between rounded-[16px] border border-graphite bg-[#0b0b0c]/90 p-[32px] transition-all duration-300 hover:border-iron hover:shadow-[0_8px_30px_rgba(255,255,255,0.04)]">
-                <div>
-                  <span className="font-mono text-[11px] tracking-[0.08em] text-iris">
-                    // {p.tag}
-                  </span>
-                  <h3 className="mt-[16px] text-[22px] font-medium leading-[1.4] text-white">
-                    {p.title}
-                  </h3>
-                  <p className="mt-[12px] text-[15px] leading-[1.7] text-ash">
-                    {p.description}
-                  </p>
+            <AnimatedSection key={p.title} delay={i * 0.1} className="h-full">
+              <SpotlightCard className="h-full transition-all duration-300 hover:-translate-y-1.5">
+                <div className="flex h-full flex-col justify-between p-[32px]">
+                  <div>
+                    <span className="font-mono text-[11px] tracking-[0.08em] text-iris">
+                      // {p.tag}
+                    </span>
+                    <h3 className="mt-[16px] text-[22px] font-medium leading-[1.4] text-white">
+                      {p.title}
+                    </h3>
+                    <p className="mt-[12px] text-[15px] leading-[1.7] text-ash">
+                      {p.description}
+                    </p>
+                  </div>
+                  <div className="mt-[28px] border-t border-graphite/60 pt-[16px] font-mono text-[11px] uppercase text-bone/60">
+                    {p.detail}
+                  </div>
                 </div>
-                <div className="mt-[28px] border-t border-graphite/60 pt-[16px] font-mono text-[11px] uppercase text-bone/60">
-                  {p.detail}
-                </div>
-              </div>
+              </SpotlightCard>
             </AnimatedSection>
           ))}
         </div>

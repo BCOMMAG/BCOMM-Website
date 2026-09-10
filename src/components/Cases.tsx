@@ -1,6 +1,7 @@
 import { cases } from "@/lib/constants";
 import { AnimatedSection } from "./AnimatedSection";
 import { AnimatedCounter } from "./AnimatedCounter";
+import { SpotlightCard } from "./SpotlightCard";
 
 export function Cases() {
   return (
@@ -17,30 +18,34 @@ export function Cases() {
 
         <div className="mt-[48px] grid grid-cols-1 gap-[16px] md:grid-cols-3">
           {cases.slice(0, 3).map((c, i) => (
-            <AnimatedSection key={c.client} delay={i * 0.1}>
-              <div className="rounded-[16px] border border-graphite bg-void-black p-[32px] transition-all duration-500 hover:-translate-y-2 hover:border-iron hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]">
-                <div className="flex items-center gap-[8px]">
-                  <span className="font-mono text-[48px] font-normal leading-[1] text-iris md:text-[56px]">
-                    <AnimatedCounter
-                      value={parseFloat(c.metric)}
-                      suffix={c.metric.replace(/[0-9.]/g, "")}
-                      decimals={c.metric.includes(".") ? 1 : 0}
-                    />
-                  </span>
-                  <span className="rounded-[9999px] border border-graphite px-[8px] py-[2px] font-mono text-[10px] uppercase text-ash">
-                    {c.service}
-                  </span>
+            <AnimatedSection key={c.client} delay={i * 0.1} className="h-full">
+              <SpotlightCard className="h-full transition-all duration-300 hover:-translate-y-1.5">
+                <div className="flex h-full flex-col justify-between p-[32px]">
+                  <div>
+                    <div className="flex items-center gap-[8px]">
+                      <span className="font-mono text-[48px] font-normal leading-[1] text-iris md:text-[56px]">
+                        <AnimatedCounter
+                          value={parseFloat(c.metric)}
+                          suffix={c.metric.replace(/[0-9.]/g, "")}
+                          decimals={c.metric.includes(".") ? 1 : 0}
+                        />
+                      </span>
+                      <span className="rounded-[9999px] border border-graphite px-[8px] py-[2px] font-mono text-[10px] uppercase text-ash">
+                        {c.service}
+                      </span>
+                    </div>
+                    <h3 className="mt-[16px] text-[20px] font-medium leading-[1] text-bone">
+                      {c.label}
+                    </h3>
+                    <p className="mt-[8px] text-[16px] leading-[1.5] text-ash">
+                      {c.description}
+                    </p>
+                  </div>
+                  <p className="mt-[20px] border-t border-graphite pt-[16px] font-mono text-[12px] uppercase tracking-[0.025em] text-charcoal">
+                    {c.client}
+                  </p>
                 </div>
-                <h3 className="mt-[16px] text-[20px] font-medium leading-[1] text-bone">
-                  {c.label}
-                </h3>
-                <p className="mt-[8px] text-[16px] leading-[1.5] text-ash">
-                  {c.description}
-                </p>
-                <p className="mt-[20px] border-t border-graphite pt-[16px] font-mono text-[12px] uppercase tracking-[0.025em] text-charcoal">
-                  {c.client}
-                </p>
-              </div>
+              </SpotlightCard>
             </AnimatedSection>
           ))}
         </div>
