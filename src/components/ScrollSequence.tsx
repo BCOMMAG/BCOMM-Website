@@ -23,14 +23,40 @@ export function ScrollSequence({ desktopFramesCount, mobileFramesCount }: Scroll
     const framesCount = isMobile ? mobileFramesCount : desktopFramesCount;
     const prefix = isMobile ? "/frames/mobile/frame_" : "/frames/desktop/frame_";
     
-    // Preload images
+    // Preload images sequentially to not block the main thread
     const images: HTMLImageElement[] = [];
-    for (let i = 1; i <= framesCount; i++) {
-      const img = new window.Image();
-      const paddedIndex = i.toString().padStart(4, '0');
-      img.src = `${prefix}${paddedIndex}.jpg`;
-      images.push(img);
-    }
+    let isDestroyed = false;
+
+    const loadFrame = (index: number) => {
+      return new Promise<void>((resolve) => {
+        const img = new window.Image();
+        const paddedIndex = index.toString().padStart(4, '0');
+        img.src = `${prefix}${paddedIndex}.webp`;
+        img.onload = () => resolve();
+        images[index - 1] = img; // 0-indexed array
+      });
+    };
+
+    const preloadImages = async () => {
+      // Load first 5 frames immediately for instant feedback
+      for (let i = 1; i <= Math.min(5, framesCount); i++) {
+        if (isDestroyed) return;
+        await loadFrame(i);
+      }
+      
+      // Trigger initial render
+      if (images[0] && images[0].complete) {
+        resizeCanvas();
+      }
+
+      // Load remaining frames sequentially in the background
+      for (let i = 6; i <= framesCount; i++) {
+        if (isDestroyed) return;
+        await loadFrame(i);
+      }
+    };
+
+    preloadImages();
 
     let currentFrame = 0;
 
@@ -60,16 +86,11 @@ export function ScrollSequence({ desktopFramesCount, mobileFramesCount }: Scroll
 
     // Initial setup
     const resizeCanvas = () => {
+      if (isDestroyed) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       render(currentFrame);
     };
-
-    if (images[0]) {
-      images[0].onload = () => {
-        resizeCanvas();
-      };
-    }
 
     window.addEventListener('resize', resizeCanvas);
 
@@ -86,6 +107,7 @@ export function ScrollSequence({ desktopFramesCount, mobileFramesCount }: Scroll
     });
 
     return () => {
+      isDestroyed = true;
       window.removeEventListener('resize', resizeCanvas);
       unsubscribe();
     };
