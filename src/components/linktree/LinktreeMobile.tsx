@@ -35,12 +35,12 @@ export function LinktreeMobile() {
 
       <div className="relative z-10 flex flex-1 flex-col justify-center px-[20px] py-[24px]">
         <div className="flex flex-col items-center">
-          <div className="relative h-[150px] w-[150px] overflow-hidden rounded-full border-2 border-iris">
+          <div className="relative h-[150px] w-[150px] overflow-hidden rounded-full border-2 border-iris bg-surface-lift">
             <Image
-              src="/hero-ai.png"
+              src="/logo.png"
               alt="BCOMM"
               fill
-              className="object-cover"
+              className="object-contain p-[15px]"
               sizes="150px"
               priority
             />

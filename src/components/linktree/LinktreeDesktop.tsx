@@ -14,9 +14,9 @@ export function LinktreeDesktop() {
     <main className="relative flex h-[100dvh] items-center justify-center overflow-hidden bg-void-black px-[24px]">
       <ConstellationGrid className="absolute inset-0 opacity-20" />
 
-      <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-[5] hidden w-[45%] lg:block">
+      <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-[5] hidden w-[45%] lg:block opacity-10">
         <Image
-          src="/hero-ai.png"
+          src="/logo.png"
           alt=""
           fill
           className="object-contain object-right-bottom"
