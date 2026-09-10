@@ -6,14 +6,7 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-transparent px-[24px] pt-[80px] md:px-[48px] lg:px-[80px]">
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
-        <div className="animate-hero-in inline-flex items-center gap-[8px] rounded-full border border-graphite bg-[#0b0b0c]/80 px-[14px] py-[6px] backdrop-blur-md">
-          <span className="h-[6px] w-[6px] rounded-full bg-iris animate-pulse" />
-          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-ash">
-            Engenharia de Software & Inteligência Artificial
-          </span>
-        </div>
-
-        <h1 className="animate-hero-in mt-[20px] font-playfair text-[36px] font-normal leading-[1.1] tracking-[-0.01em] text-white sm:text-[44px] md:text-[56px] lg:text-[64px]">
+        <h1 className="animate-hero-in font-playfair text-[36px] font-normal leading-[1.1] tracking-[-0.01em] text-white sm:text-[44px] md:text-[56px] lg:text-[64px]">
           Tecnologia que{" "}
           <span className="text-iris">
             <TypingEffect words={["multiplica suas vendas", "escala sua operação", "automatiza seu negócio"]} />
