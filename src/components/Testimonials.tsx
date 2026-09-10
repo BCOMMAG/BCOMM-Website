@@ -71,7 +71,7 @@ function TestimonialCard({ name, role, company, body }: (typeof testimonials)[nu
 
 export function Testimonials() {
   return (
-    <section id="depoimentos" className="relative overflow-hidden border-t border-graphite bg-void-black px-[24px] py-[96px] md:px-[48px] md:py-[120px] lg:px-[80px] lg:py-[144px]">
+    <section id="depoimentos" className="relative overflow-hidden border-t border-graphite bg-transparent px-[24px] py-[96px] md:px-[48px] md:py-[120px] lg:px-[80px] lg:py-[144px]">
       <div className="mx-auto max-w-[1200px]">
         <AnimatedSection>
           <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">

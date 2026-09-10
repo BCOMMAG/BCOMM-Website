@@ -8,6 +8,7 @@ import { Cases } from "@/components/Cases";
 import { Contact } from "@/components/Contact";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
+import { ScrollSequence } from "@/components/ScrollSequence";
 
 export const metadata: Metadata = {
   title: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
@@ -139,6 +140,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
       />
+      <ScrollSequence desktopFramesCount={192} mobileFramesCount={192} />
       <Header />
       <main>
         <Hero />

@@ -10,7 +10,7 @@ const bgClass: Record<string, string> = {
 
 export function Solutions() {
   return (
-    <section id="servicos" className="bg-void-black px-[24px] py-[80px] md:px-[48px] md:py-[96px] lg:px-[80px]">
+    <section id="servicos" className="bg-transparent px-[24px] py-[80px] md:px-[48px] md:py-[96px] lg:px-[80px]">
       <div className="mx-auto max-w-[1200px]">
         <AnimatedSection>
           <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">

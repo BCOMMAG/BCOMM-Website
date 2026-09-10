@@ -3,7 +3,7 @@ import { AnimatedSection } from "./AnimatedSection";
 
 export function About() {
   return (
-    <section id="sobre" className="border-t border-graphite bg-void-black px-[24px] py-[96px] md:px-[48px] md:py-[120px] lg:px-[80px] lg:py-[144px]">
+    <section id="sobre" className="border-t border-graphite bg-transparent px-[24px] py-[96px] md:px-[48px] md:py-[120px] lg:px-[80px] lg:py-[144px]">
       <div className="mx-auto max-w-[1200px]">
         <AnimatedSection>
           <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">

@@ -11,7 +11,7 @@ const ConstellationGrid = dynamic(
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-void-black px-[24px] pt-[80px] md:px-[48px] lg:px-[80px]">
+    <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-transparent px-[24px] pt-[80px] md:px-[48px] lg:px-[80px]">
       <ConstellationGrid className="z-0 opacity-30" />
 
       <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-[5] hidden w-[45%] lg:block">

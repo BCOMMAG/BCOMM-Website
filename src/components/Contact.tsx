@@ -48,7 +48,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contato" className="border-t border-graphite bg-void-black px-[24px] py-[96px] md:px-[48px] md:py-[144px] lg:py-[192px]">
+    <section id="contato" className="border-t border-graphite bg-transparent px-[24px] py-[96px] md:px-[48px] md:py-[144px] lg:py-[192px]">
       <div className="mx-auto max-w-[1200px]">
         <AnimatedSection>
           <div className="grid gap-[48px] md:grid-cols-[2fr_1fr] md:gap-[0px]">
