@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const startFrame = 150;
+const startFrame = 180;
 const endFrame = 192;
 
 for (let i = startFrame; i <= endFrame; i++) {
