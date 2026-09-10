@@ -33,6 +33,64 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function renderMarkdown(content: string) {
+  const blocks = content.trim().split(/\n\n+/);
+
+  return blocks.map((block, i) => {
+    const trimmed = block.trim();
+
+    if (trimmed.startsWith("### ")) {
+      return (
+        <h3 key={i} className="mt-[32px] mb-[12px] text-[20px] font-semibold text-white sm:text-[22px]">
+          {trimmed.replace(/^###\s+/, "")}
+        </h3>
+      );
+    }
+
+    if (trimmed.startsWith("## ")) {
+      return (
+        <h2 key={i} className="mt-[44px] mb-[16px] text-[24px] font-semibold text-white sm:text-[28px]">
+          {trimmed.replace(/^##\s+/, "")}
+        </h2>
+      );
+    }
+
+    if (trimmed.startsWith("- ")) {
+      const items = trimmed.split(/\n-\s+/);
+      return (
+        <ul key={i} className="my-[16px] list-disc pl-[24px] space-y-[8px] text-bone">
+          {items.map((item, idx) => {
+            const cleanItem = item.replace(/^- /, "");
+            return (
+              <li
+                key={idx}
+                dangerouslySetInnerHTML={{
+                  __html: cleanItem
+                    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
+                    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-iris hover:text-iris-glow underline">$1</a>'),
+                }}
+              />
+            );
+          })}
+        </ul>
+      );
+    }
+
+    return (
+      <p
+        key={i}
+        className="my-[18px] text-[16px] leading-[1.8] text-bone"
+        dangerouslySetInnerHTML={{
+          __html: trimmed
+            .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
+            .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-iris hover:text-iris-glow underline">$1</a>')
+            .replace(/\n/g, "<br/>"),
+        }}
+      />
+    );
+  });
+}
+
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
@@ -40,16 +98,18 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
     author: {
       "@type": "Organization",
       name: "BCOMM Comunicação Inteligente",
+      url: "https://agent-bcomm.space",
     },
     publisher: {
       "@type": "Organization",
       name: "BCOMM Comunicação Inteligente",
+      url: "https://agent-bcomm.space",
       logo: {
         "@type": "ImageObject",
         url: "https://agent-bcomm.space/logo.png",
@@ -57,6 +117,10 @@ export default async function BlogPostPage({ params }: PageProps) {
     },
     datePublished: post.date,
     dateModified: post.date,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://agent-bcomm.space/blog/${post.slug}`,
+    },
     image: `https://agent-bcomm.space/og-image.png`,
     url: `https://agent-bcomm.space/blog/${post.slug}`,
   };
@@ -88,14 +152,13 @@ export default async function BlogPostPage({ params }: PageProps) {
               {post.description}
             </p>
             <p className="mt-[8px] font-mono text-[12px] text-charcoal">
-              {new Date(post.date).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}
+              Publicado em {new Date(post.date).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })} • Por BCOMM Engenharia de Software
             </p>
           </div>
 
-          <div
-            className="prose mt-[48px] text-[16px] leading-[1.8] text-bone"
-            dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, "<br/>").replace(/## (.*)/g, '<h2 class="mt-[32px] mb-[16px] text-[24px] font-semibold text-white">$1</h2>').replace(/### (.*)/g, '<h3 class="mt-[24px] mb-[12px] text-[18px] font-medium text-white">$1</h3>').replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>').replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-iris hover:text-iris-glow underline">$1</a>') }}
-          />
+          <div className="mt-[48px]">
+            {renderMarkdown(post.content)}
+          </div>
 
           {relatedPosts.length > 0 && (
             <div className="mt-[64px] border-t border-graphite pt-[32px]">

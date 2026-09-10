@@ -139,7 +139,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     sameAs: [
       "https://www.instagram.com/bcomm.br",
       "https://www.facebook.com/bcommagent",
+      "https://wa.me/554196398023",
     ],
+    knowsAbout: [
+      "Criação de Websites",
+      "Landing Pages de Alta Conversão",
+      "E-commerce Personalizado",
+      "Automação com Inteligência Artificial",
+      "Agentes Autônomos de IA",
+      "Integração de Sistemas ERP e CRM",
+      "Chatbots de Atendimento Inteligente",
+      "Next.js",
+      "Otimização de Conversão (CRO)",
+      "SEO e Generative Engine Optimization (GEO)",
+    ],
+    foundingLocation: {
+      "@type": "Place",
+      name: "Curitiba, Paraná, Brasil",
+    },
+    priceRange: "$$",
   };
 
   const websiteJsonLd = {

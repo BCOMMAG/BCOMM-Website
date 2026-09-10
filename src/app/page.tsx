@@ -9,6 +9,8 @@ import { Contact } from "@/components/Contact";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
 import { ScrollSequence } from "@/components/ScrollSequence";
+import { FAQ } from "@/components/FAQ";
+import { faqItems } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "BCOMM | Criação de Websites, Landing Pages, E-commerce e Automação com IA",
@@ -134,11 +136,28 @@ export default function Home() {
     },
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <ScrollSequence desktopFramesCount={192} mobileFramesCount={192} />
       <Header />
@@ -148,6 +167,7 @@ export default function Home() {
         <About />
         <Process />
         <Cases />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

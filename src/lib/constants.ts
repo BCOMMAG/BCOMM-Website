@@ -490,3 +490,32 @@ A BCOMM implementa automação com IA para empresas que querem resultados mensur
     `,
   },
 ] as const;
+
+export const faqItems = [
+  {
+    question: "Quanto custa para criar um website institucional ou landing page?",
+    answer:
+      "O investimento varia conforme a complexidade e os recursos necessários (como integrações de CRM, automações ou design exclusivo). Criamos projetos sob medida focados em alta conversão e retorno sobre o investimento (ROI). Entre em contato pelo WhatsApp para receber uma proposta detalhada em poucas horas.",
+  },
+  {
+    question: "Quanto tempo leva para desenvolver e publicar o projeto?",
+    answer:
+      "Landing pages de alta conversão costumam ser entregues entre 5 a 10 dias úteis. Websites institucionais completos levam em média de 2 a 4 semanas. Lojas virtuais e projetos com automações personalizadas de IA seguem um cronograma ágil definido após a análise inicial.",
+  },
+  {
+    question: "Como funciona a automação com Inteligência Artificial para empresas?",
+    answer:
+      "Desenvolvemos agentes autônomos de IA e chatbots inteligentes integrados aos seus canais (WhatsApp, CRM, ERP e e-mail). Eles qualificam leads, tiram dúvidas 24/7 de forma humanizada, agendam reuniões e automatizam tarefas operacionais repetitivas, reduzindo até 73% do tempo de atendimento.",
+  },
+  {
+    question: "A BCOMM atende apenas Curitiba ou empresas de todo o Brasil?",
+    answer:
+      "Nossa sede fica em Curitiba/PR, mas atendemos clientes em todo o território nacional e no exterior. Todo o processo de briefing, aprovação e suporte é realizado de forma ágil e 100% online.",
+  },
+  {
+    question: "O website desenvolvido já vem otimizado para o Google (SEO e IA)?",
+    answer:
+      "Sim! Todos os nossos websites são construídos com Next.js, arquitetura de carregamento ultrarrápido, dados estruturados (Schema.org / JSON-LD), metadados para redes sociais e protocolos para IAs (llms.txt), garantindo visibilidade máxima no Google, ChatGPT, Perplexity e Gemini.",
+  },
+];
+
