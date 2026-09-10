@@ -55,7 +55,7 @@ export function Cases() {
             <div className="flex flex-col gap-[20px] md:flex-row md:items-center md:justify-between">
               <div className="max-w-[760px]">
                 <p className="font-playfair text-[20px] italic leading-[1.6] text-bone sm:text-[22px]">
-                  &ldquo;A transição para a plataforma desenvolvida pela BCOMM reduziu drasticamente nossos gargalos de suporte e dobrou a velocidade de fechamento das propostas comerciais. É engenharia pura com foco no nosso caixa.&rdquo;
+                  &ldquo;A transição para a plataforma desenvolvida pela BCOMM reduziu drasticamente nossos gargalos de suporte e dobrou a velocidade de fechamento das propostas comerciais. Foi o melhor investimento para modernizar nossa operação e aumentar o caixa da empresa.&rdquo;
                 </p>
                 <div className="mt-[16px] flex items-center gap-[12px]">
                   <div className="h-[36px] w-[36px] rounded-full border border-graphite bg-[#111418] flex items-center justify-center font-mono text-[12px] text-iris">

@@ -14,7 +14,7 @@ export function Hero() {
         </h1>
 
         <p className="animate-hero-in-delayed mt-[24px] max-w-[620px] text-[17px] font-normal leading-[1.6] text-ash sm:text-[19px] md:mt-[32px]">
-          Construímos plataformas web de alta velocidade e agentes de IA autônomos que operam em regime ininterrupto para captar clientes, fechar negócios e reduzir despesas operacionais da sua empresa.
+          Construímos websites de abertura instantânea e assistentes de inteligência artificial que atendem no WhatsApp 24 horas por dia para captar clientes, fechar vendas e cortar custos operacionais da sua empresa.
         </p>
 
         <div className="animate-hero-in-delayed-2 mt-[40px] flex flex-col gap-[12px] sm:flex-row sm:items-center md:mt-[48px]">
@@ -40,13 +40,13 @@ export function Hero() {
 
         <div className="animate-hero-in-delayed-2 mt-[48px] flex flex-wrap items-center gap-[12px] border-t border-graphite/60 pt-[24px]">
           <div className="flex items-center gap-[6px] rounded-[6px] border border-graphite bg-[#0b0b0c]/40 px-[10px] py-[5px] font-mono text-[11px] text-bone">
-            <span className="text-iris">/</span> CARREGAMENTO &lt; 1S
+            <span className="text-iris">/</span> ABERTURA INSTANTÂNEA NO CELULAR
           </div>
           <div className="flex items-center gap-[6px] rounded-[6px] border border-graphite bg-[#0b0b0c]/40 px-[10px] py-[5px] font-mono text-[11px] text-bone">
-            <span className="text-iris">/</span> IA ATIVA 24/7
+            <span className="text-iris">/</span> ATENDIMENTO ATIVO 24H POR DIA
           </div>
           <div className="flex items-center gap-[6px] rounded-[6px] border border-graphite bg-[#0b0b0c]/40 px-[10px] py-[5px] font-mono text-[11px] text-bone">
-            <span className="text-iris">/</span> FOCO EM ROI MENSURÁVEL
+            <span className="text-iris">/</span> FOCO EM RETORNO FINANCEIRO
           </div>
         </div>
       </div>
