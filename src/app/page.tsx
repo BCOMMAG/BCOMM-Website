@@ -10,6 +10,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
 import { ScrollSequence } from "@/components/ScrollSequence";
 import { FAQ } from "@/components/FAQ";
+import { AIArchitecture } from "@/components/AIArchitecture";
 import { faqItems } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -167,6 +168,7 @@ export default function Home() {
         <About />
         <Process />
         <Cases />
+        <AIArchitecture />
         <FAQ />
         <Contact />
       </main>

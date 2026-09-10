@@ -242,48 +242,48 @@ export const allServices = [
 export const differentials = [
   {
     number: "01",
-    title: "Time técnico especializado",
+    title: "Código Proprietário & Velocidade",
     description:
-      "Engenheiros de software e especialistas em IA trabalhando direto com você. Sem intermediários, sem ruído.",
+      "Sem templates lentos de WordPress ou Wix. Engenharia de ponta em Next.js com carregamento sub-segundo e deploy em Edge Global.",
   },
   {
     number: "02",
-    title: "Implementação ágil",
+    title: "Inteligência Artificial Integrada",
     description:
-      "Do diagnóstico à entrega em semanas, não meses. Metodologias ágeis aplicadas com disciplina, não só no slide.",
+      "Não criamos apenas telas estáticas. Integramos agentes autônomos de IA aos seus canais e bancos de dados para atender e converter 24/7.",
   },
   {
     number: "03",
-    title: "Suporte contínuo",
+    title: "Foco em Resultados Mensuráveis",
     description:
-      "O projeto não termina no deploy. A gente monitora, evolui e garante que a solução continue performando.",
+      "Cada linha de código e estrutura visual é desenhada para gerar tração: redução de custos operacionais e aumento real na taxa de conversão.",
   },
 ] as const;
 
 export const processSteps = [
   {
     step: "01",
-    title: "Diagnóstico",
+    title: "Diagnóstico & Escopo (48h)",
     description:
-      "Mapeamos o fluxo atual, identificamos gargalos e definimos onde a tecnologia faz diferença de verdade.",
+      "Mapeamos o fluxo do seu negócio, identificamos os principais gargalos operacionais e traçamos o plano de ação exato.",
   },
   {
     step: "02",
-    title: "Arquitetura",
+    title: "Arquitetura & Design",
     description:
-      "Projetamos a solução com as tecnologias certas: escalável, segura e alinhada com a infraestrutura que já existe.",
+      "Desenhamos interfaces de alta conversão e arquitetamos o fluxo de dados com segurança, escalabilidade e conformidade.",
   },
   {
     step: "03",
-    title: "Implementação",
+    title: "Engenharia & Integrações",
     description:
-      "Desenvolvemos, testamos e entregamos em ciclos curtos. Cada sprint gera algo funcional e mensurável.",
+      "Desenvolvemos a plataforma em Next.js e conectamos seus agentes de IA, CRMs e gateways em ciclos ágeis de entrega.",
   },
   {
     step: "04",
-    title: "Evolução contínua",
+    title: "Go-Live & Suporte Ativo",
     description:
-      "Depois do deploy, monitoramos performance, coletamos feedbacks e iteramos. A solução nunca fica parada.",
+      "Homologação rigorosa, publicação global e monitoramento contínuo de métricas para garantir que a solução performe sempre.",
   },
 ] as const;
 

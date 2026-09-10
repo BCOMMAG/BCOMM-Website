@@ -126,9 +126,9 @@ export function Header() {
         <div className="hidden md:block">
           <a
             href="#contato"
-            className="btn-slide inline-flex items-center gap-[6px] rounded-[9999px] border border-graphite bg-transparent px-[18px] py-[10px] text-[14px] font-normal text-white"
+            className="btn-slide inline-flex items-center gap-[6px] rounded-[9999px] border border-iris/50 bg-iris/10 px-[20px] py-[10px] text-[14px] font-medium text-white transition-all duration-200 hover:border-iris hover:bg-iris hover:text-black"
           >
-            Fale Conosco
+            Solicitar Proposta
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -222,10 +222,10 @@ export function Header() {
             <div className="px-[24px] pb-[20px]">
               <a
                 href="#contato"
-                className="btn-slide flex items-center justify-center gap-[6px] rounded-[9999px] border border-graphite bg-transparent px-[18px] py-[10px] text-[14px] font-normal text-white"
+                className="btn-slide flex items-center justify-center gap-[6px] rounded-[9999px] border border-iris/50 bg-iris/10 px-[18px] py-[10px] text-[14px] font-medium text-white transition-all duration-200 hover:border-iris hover:bg-iris hover:text-black"
                 onClick={() => setMobileOpen(false)}
               >
-                Fale Conosco
+                Solicitar Proposta
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

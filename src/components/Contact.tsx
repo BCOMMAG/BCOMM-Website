@@ -5,6 +5,15 @@ import { AnimatedSection } from "./AnimatedSection";
 
 const WHATSAPP_NUMBER = "554196398023";
 
+const serviceOptions = [
+  "Website Institucional",
+  "Landing Page de Alta Conversão",
+  "E-commerce / Loja Virtual",
+  "Agente de IA / Atendimento 24h",
+  "Integração de Sistemas & APIs",
+  "Outro Projeto Sob Medida",
+];
+
 interface FormErrors {
   nome?: string;
   mensagem?: string;
@@ -12,6 +21,7 @@ interface FormErrors {
 
 export function Contact() {
   const [nome, setNome] = useState("");
+  const [selectedService, setSelectedService] = useState<string>("Website Institucional");
   const [mensagem, setMensagem] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
 
@@ -41,7 +51,7 @@ export function Contact() {
     if (Object.keys(validationErrors).length > 0) return;
 
     const texto = encodeURIComponent(
-      `Olá, sou ${nome.trim()}.\n\n${mensagem.trim()}`
+      `Olá! Meu nome é ${nome.trim()}.\n\nInteresse principal: [${selectedService}]\n\nDetalhes do projeto:\n${mensagem.trim()}`
     );
 
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`, "_blank");
@@ -51,50 +61,52 @@ export function Contact() {
     <section id="contato" className="border-t border-graphite bg-transparent px-[24px] py-[96px] md:px-[48px] md:py-[144px] lg:py-[192px]">
       <div className="mx-auto max-w-[1200px]">
         <AnimatedSection>
-          <div className="grid gap-[48px] md:grid-cols-[2fr_1fr] md:gap-[0px]">
+          <div className="grid gap-[48px] md:grid-cols-[1.8fr_2fr] md:gap-[0px]">
             <div className="flex flex-col justify-between border-b border-graphite pb-[48px] md:border-b-0 md:border-r md:border-graphite md:pr-[48px] md:pb-0">
               <div>
-                <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                  Contato
-                </p>
-                <h2 className="mt-[8px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
-                  Fale Conosco
+                <div className="inline-flex items-center gap-[8px] rounded-full border border-emerald-500/30 bg-emerald-500/10 px-[12px] py-[5px] text-[11px] font-mono text-emerald-400">
+                  <span className="h-[6px] w-[6px] rounded-full bg-emerald-400 animate-pulse" />
+                  SISTEMA ONLINE • ATENDIMENTO IMEDIATO 24/7
+                </div>
+
+                <h2 className="mt-[20px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
+                  Solicitar Proposta
                 </h2>
-                <p className="mt-[16px] max-w-[480px] text-[18px] leading-[1.5] text-ash">
-                  Monte sua mensagem e envie direto pelo WhatsApp. Respondemos rapidamente.
+                <p className="mt-[16px] max-w-[480px] text-[16px] leading-[1.6] text-ash sm:text-[18px]">
+                  Sem esperas de dias por um e-mail comercial. Nosso sistema inteligente processa sua demanda em minutos a qualquer hora do dia ou da noite e direciona seu projeto aos nossos engenheiros.
                 </p>
               </div>
 
               <div className="mt-[48px] flex flex-col gap-[24px] md:mt-[64px]">
                 <div>
-                  <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                    WhatsApp
+                  <p className="font-mono text-[11px] uppercase tracking-[0.05em] text-ash">
+                    WhatsApp Direto
                   </p>
                   <a
                     href={`https://wa.me/${WHATSAPP_NUMBER}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-[4px] font-mono text-[16px] text-iris transition-colors hover:text-iris-glow"
+                    className="mt-[4px] inline-block font-mono text-[16px] text-iris transition-colors hover:text-iris-glow"
                   >
                     (41) 96398-023
                   </a>
                 </div>
 
                 <div>
-                  <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                    Email
+                  <p className="font-mono text-[11px] uppercase tracking-[0.05em] text-ash">
+                    Canal Institucional
                   </p>
                   <a
                     href="mailto:contato@agent-bcomm.space"
-                    className="mt-[4px] font-mono text-[16px] text-iris transition-colors hover:text-iris-glow"
+                    className="mt-[4px] inline-block font-mono text-[16px] text-iris transition-colors hover:text-iris-glow"
                   >
                     contato@agent-bcomm.space
                   </a>
                 </div>
 
                 <div>
-                  <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                    Redes Sociais
+                  <p className="font-mono text-[11px] uppercase tracking-[0.05em] text-ash">
+                    Redes
                   </p>
                   <div className="mt-[8px] flex gap-[16px]">
                     <a
@@ -129,14 +141,39 @@ export function Contact() {
             <div className="md:pl-[48px]">
               <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]" noValidate>
                 <div>
-                  <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                    Seu nome
+                  <label className="mb-[10px] block font-mono text-[11px] uppercase tracking-[0.05em] text-ash">
+                    1. Selecione o tipo de projeto
+                  </label>
+                  <div className="flex flex-wrap gap-[8px]">
+                    {serviceOptions.map((opt) => {
+                      const isSelected = selectedService === opt;
+                      return (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => setSelectedService(opt)}
+                          className={`rounded-[8px] border px-[12px] py-[7px] text-[13px] font-normal transition-all duration-200 ${
+                            isSelected
+                              ? "border-iris bg-iris/15 text-white"
+                              : "border-graphite bg-[#0b0b0c] text-ash hover:border-iron hover:text-bone"
+                          }`}
+                        >
+                          {opt}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="mb-[6px] block font-mono text-[11px] uppercase tracking-[0.05em] text-ash">
+                    2. Seu nome ou empresa
                   </label>
                   <input
                     type="text"
                     value={nome}
                     onChange={(e) => setNome(e.target.value.slice(0, 100))}
-                    placeholder="Como prefere ser chamado?"
+                    placeholder="Nome completo ou nome da empresa"
                     className="input-field"
                   />
                   {errors.nome && (
@@ -145,14 +182,14 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label className="mb-[6px] block font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-                    Sua mensagem
+                  <label className="mb-[6px] block font-mono text-[11px] uppercase tracking-[0.05em] text-ash">
+                    3. Detalhes do projeto
                   </label>
                   <textarea
                     value={mensagem}
                     onChange={(e) => setMensagem(e.target.value.slice(0, 500))}
-                    placeholder="Conte o que precisa. Quanto mais detalhes, melhor te atendemos."
-                    rows={5}
+                    placeholder="Descreva seu objetivo, prazo estimado ou dúvidas sobre o projeto."
+                    rows={4}
                     className="input-field resize-y"
                   />
                   <div className="mt-[4px] flex justify-between">
@@ -169,12 +206,12 @@ export function Contact() {
 
                 <button
                   type="submit"
-                  className="mt-[8px] flex w-full items-center justify-center gap-[8px] rounded-[9999px] bg-[#25D366] px-[24px] py-[14px] text-[16px] font-normal text-white transition-all duration-200 hover:brightness-110"
+                  className="mt-[8px] flex w-full items-center justify-center gap-[8px] rounded-[9999px] bg-[#25D366] px-[24px] py-[14px] text-[16px] font-medium text-white transition-all duration-200 hover:brightness-110"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                   </svg>
-                  Enviar no WhatsApp
+                  Iniciar Atendimento Imediato
                 </button>
               </form>
             </div>

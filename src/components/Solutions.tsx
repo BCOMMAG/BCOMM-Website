@@ -14,13 +14,13 @@ export function Solutions() {
       <div className="mx-auto max-w-[1200px]">
         <AnimatedSection>
           <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-            Nossos Serviços
+            Nossas Soluções
           </p>
           <h2 className="mt-[8px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
-            O que fazemos
+            Soluções de Alta Performance
           </h2>
-          <p className="mt-[16px] max-w-[560px] text-[16px] leading-[1.5] text-ash">
-            Do website à automação completa. Cada serviço é construído para resolver um problema específico.
+          <p className="mt-[16px] max-w-[620px] text-[16px] leading-[1.6] text-ash sm:text-[18px]">
+            Elimine gargalos operacionais e acelere suas vendas diárias com plataformas sob medida e inteligência artificial prática.
           </p>
         </AnimatedSection>
 
