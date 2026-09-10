@@ -6,7 +6,8 @@ function extract(video, outDir) {
     return new Promise((resolve, reject) => {
         const args = [
             '-i', video,
-            '-vf', 'fps=24',
+            '-t', '6',
+            '-vf', 'fps=32',
             '-qscale:v', '3',
             path.join(outDir, 'frame_%04d.jpg')
         ];
