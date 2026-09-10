@@ -1,31 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import Image from "next/image";
 import { TypingEffect } from "./TypingEffect";
-
-const ConstellationGrid = dynamic(
-  () => import("@/components/ui/constellation-grid"),
-  { ssr: false }
-);
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-transparent px-[24px] pt-[80px] md:px-[48px] lg:px-[80px]">
-      <ConstellationGrid className="z-0 opacity-30" />
-
-      <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-[5] hidden w-[45%] lg:block">
-        <Image
-          src="/hero-ai.png"
-          alt=""
-          fill
-          className="object-contain object-right-bottom"
-          sizes="(max-width: 1024px) 0px, 45vw"
-          priority
-          fetchPriority="high"
-        />
-      </div>
-
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <h1 className="animate-hero-in font-playfair text-[36px] font-normal leading-[1.1] tracking-[-0.01em] text-white sm:text-[44px] md:text-[56px] lg:text-[64px]">
           Tecnologia que{" "}

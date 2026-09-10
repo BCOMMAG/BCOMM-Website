@@ -92,9 +92,13 @@ export function ScrollSequence({ desktopFramesCount, mobileFramesCount }: Scroll
   }, [desktopFramesCount, mobileFramesCount, scrollYProgress]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 w-full h-[100vh] z-[-1] pointer-events-none"
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 w-full h-[100vh] z-[-2] pointer-events-none"
+      />
+      {/* Overlay escuro para garantir leitura dos textos em cima do vídeo */}
+      <div className="fixed inset-0 bg-black/65 z-[-1] pointer-events-none" />
+    </>
   );
 }
