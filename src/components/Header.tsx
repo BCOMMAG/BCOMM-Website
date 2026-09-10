@@ -102,7 +102,7 @@ export function Header() {
         className="mx-auto flex max-w-[1200px] items-center justify-between px-[24px] py-[16px] md:px-[48px]"
         aria-label="Navegação principal"
       >
-        <a href="#" className="relative flex items-center w-[80px] md:w-[96px] h-[32px]">
+        <a href="/" className="relative flex items-center w-[80px] md:w-[96px] h-[32px]">
           <Image 
             src="/logo.png" 
             alt="" 
