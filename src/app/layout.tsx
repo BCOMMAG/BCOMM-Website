@@ -45,6 +45,7 @@ export const metadata: Metadata = {
       { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
     ],
   },
+  manifest: "/site.webmanifest",
   description:
     "Websites, landing pages, e-commerces e automações com IA. BCOMM Comunicação Inteligente, Curitiba.",
   keywords: [

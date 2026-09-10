@@ -71,5 +71,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|llms.txt|llms-full.txt|404.md|logo.png|logo.jpeg|og-image.png|hero-ai.png|hero-desktop.jpg|hero-mobile.jpg|favicon.svg|favicon-16x16.png|favicon-32x32.png|apple-touch-icon.png|android-chrome-192x192.png|android-chrome-512x512.png).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|llms.txt|llms-full.txt|404.md|logo.png|logo.jpeg|og-image.png|hero-ai.png|hero-desktop.jpg|hero-mobile.jpg|favicon.svg|favicon-16x16.png|favicon-32x32.png|favicon-48x48.png|favicon-96x96.png|apple-touch-icon.png|android-chrome-192x192.png|android-chrome-512x512.png|site.webmanifest).*)"],
 };
