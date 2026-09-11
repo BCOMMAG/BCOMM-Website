@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { solutions } from "@/lib/constants";
 import { AnimatedSection } from "./AnimatedSection";
 import { SpotlightCard } from "./SpotlightCard";
@@ -40,21 +39,32 @@ export function Solutions() {
     };
   }, [isPaused]);
 
-  // Estado para o Stack de Cartões no Mobile (Ideia 3)
-  const [activeStackIndex, setActiveStackIndex] = useState(0);
+  // Estado e Ref para o Carrossel Horizontal Snap & Peek no Mobile (Ideia 1)
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
 
-  const nextCard = () => {
-    setActiveStackIndex((prev) => (prev + 1) % solutions.length);
+  // Sincroniza o indicador de pontos com a rolagem do usuário pelo polegar
+  const handleScroll = () => {
+    if (!carouselRef.current) return;
+    const { scrollLeft, clientWidth } = carouselRef.current;
+    const index = Math.round(scrollLeft / (clientWidth * 0.82));
+    setMobileActiveIndex(Math.min(Math.max(index, 0), solutions.length - 1));
   };
 
-  const prevCard = () => {
-    setActiveStackIndex((prev) => (prev - 1 + solutions.length) % solutions.length);
+  const scrollToCard = (index: number) => {
+    if (!carouselRef.current) return;
+    const cardWidth = carouselRef.current.clientWidth * 0.82;
+    carouselRef.current.scrollTo({
+      left: index * cardWidth,
+      behavior: "smooth",
+    });
+    setMobileActiveIndex(index);
   };
 
   return (
     <section
       id="servicos"
-      className="relative overflow-hidden bg-transparent px-[24px] py-[80px] md:px-[48px] md:py-[120px] lg:px-[80px]"
+      className="relative overflow-hidden bg-transparent px-[20px] py-[80px] md:px-[48px] md:py-[120px] lg:px-[80px]"
     >
       <div className="mx-auto max-w-[1360px]">
 
@@ -115,19 +125,17 @@ export function Solutions() {
             </div>
           </div>
 
-          {/* Cards Orbitando: 100% SÓLIDOS, NITIDEZ MÁXIMA E RAIO EXPANDIDO (sem sobreposição) */}
+          {/* Cards Orbitando: 100% SÓLIDOS, NITIDEZ MÁXIMA E RAIO EXPANDIDO */}
           {solutions.map((s, i) => {
             const itemAngle = (angle + i * 90) * (Math.PI / 180);
             
-            // Raio expandido para os cards orbitarem com espaço de sobra ao redor do bloco branco
             const radiusX = 490;
             const radiusY = 320;
             const x = Math.cos(itemAngle) * radiusX;
             const y = Math.sin(itemAngle) * radiusY;
 
-            // Profundidade: mantemos SEMPRE 100% de opacidade (sem transparência nem opaco)
-            const depthFactor = (Math.sin(itemAngle) + 1) / 2; // 0 a 1
-            const scale = 0.95 + depthFactor * 0.1; // 0.95x a 1.05x (sutil variação de tamanho)
+            const depthFactor = (Math.sin(itemAngle) + 1) / 2;
+            const scale = 0.95 + depthFactor * 0.1;
             const zIndex = Math.round(depthFactor * 30);
 
             return (
@@ -138,13 +146,12 @@ export function Solutions() {
                 className="absolute left-1/2 top-1/2 will-change-transform"
                 style={{
                   transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(${scale})`,
-                  opacity: 1, // 100% nítido, sem transparência
+                  opacity: 1,
                   zIndex,
                   transition: "transform 0.1s linear",
                 }}
               >
                 <div className="w-[310px]">
-                  {/* Fundo 100% sólido escuro (#0e0e11) e borda luminosa para máximo contraste */}
                   <SpotlightCard className="!bg-[#0e0e11] border-graphite/90 shadow-[0_16px_40px_rgba(0,0,0,0.85)] transition-all duration-300 hover:border-iris/80 hover:shadow-[0_0_30px_rgba(146,129,247,0.3)]">
                     <a
                       href={s.ctaHref}
@@ -189,19 +196,19 @@ export function Solutions() {
 
 
         {/* ========================================================================= */}
-        {/* VERSÃO MOBILE & TABLET: STACK DE CARTÕES INTERATIVOS (lg:hidden)          */}
+        {/* VERSÃO MOBILE & TABLET: CARROSSEL HORIZONTAL SNAP & PEEK (Ideia 1)        */}
         {/* ========================================================================= */}
         <div className="block lg:hidden">
-          {/* Bloco Central com Fundo Branco no Mobile */}
+          {/* Bloco de Apresentação com Fundo Branco */}
           <AnimatedSection>
-            <div className="rounded-[24px] bg-white p-[28px] text-center shadow-[0_16px_40px_rgba(0,0,0,0.3)]">
+            <div className="rounded-[24px] bg-white p-[26px] text-center shadow-[0_16px_40px_rgba(0,0,0,0.3)]">
               <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 shadow-sm">
                 <span className="h-2 w-2 rounded-full bg-iris animate-pulse" />
                 <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-neutral-700">
                   Nossas Soluções
                 </p>
               </div>
-              <h2 className="mt-[14px] text-[30px] font-semibold leading-[1.15] tracking-[-0.04em] text-neutral-950 sm:text-[36px]">
+              <h2 className="mt-[14px] text-[28px] font-semibold leading-[1.15] tracking-[-0.04em] text-neutral-950 sm:text-[34px]">
                 Soluções de Alta Performance
               </h2>
               <p className="mt-[12px] text-[14px] leading-[1.6] text-neutral-600">
@@ -221,103 +228,88 @@ export function Solutions() {
             </div>
           </AnimatedSection>
 
-          {/* Stack de Cartões Sobrepostos no Mobile */}
-          <div className="relative mt-[36px] flex flex-col items-center">
-            
-            {/* Área do Baralho com Altura Fixa */}
-            <div className="relative h-[360px] w-full max-w-[360px]">
-              {solutions.map((item, idx) => {
-                const offset = (idx - activeStackIndex + solutions.length) % solutions.length;
-                if (offset > 2) return null;
+          {/* Carrossel Horizontal "Snap & Peek" */}
+          <div className="mt-[32px]">
+            {/* Faixa deslizante com Snap e ponta do próximo card visível (Peek) */}
+            <div
+              ref={carouselRef}
+              onScroll={handleScroll}
+              className="flex snap-x snap-mandatory gap-[16px] overflow-x-auto pb-[16px] pt-[8px] no-scrollbar"
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
+              {solutions.map((item, idx) => (
+                <div
+                  key={item.title}
+                  className="w-[84vw] max-w-[320px] shrink-0 snap-start"
+                >
+                  <SpotlightCard className="h-[300px] !bg-[#0e0e11] border border-graphite/90 shadow-[0_16px_40px_rgba(0,0,0,0.85)]">
+                    <a
+                      href={item.ctaHref}
+                      className="relative flex h-full flex-col justify-between p-[24px]"
+                    >
+                      <div
+                        className={`absolute inset-0 opacity-20 ${bgClass[item.variant]}`}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e11] via-[#0e0e11]/90 to-transparent" />
 
-                const translateY = offset * 14;
-                const scale = 1 - offset * 0.06;
-                const opacity = 1; // 100% nítido
-                const zIndex = 20 - offset;
-
-                return (
-                  <motion.div
-                    key={item.title}
-                    animate={{
-                      y: translateY,
-                      scale: scale,
-                      opacity: opacity,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 25,
-                    }}
-                    onClick={offset === 0 ? undefined : () => setActiveStackIndex(idx)}
-                    className="absolute inset-0 cursor-pointer"
-                    style={{ zIndex }}
-                  >
-                    <SpotlightCard className="h-full !bg-[#0e0e11] border border-graphite/90 shadow-[0_16px_40px_rgba(0,0,0,0.8)]">
-                      <div className="relative flex h-full flex-col justify-between p-[28px]">
-                        <div
-                          className={`absolute inset-0 opacity-20 ${bgClass[item.variant]}`}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e11] via-[#0e0e11]/90 to-transparent" />
-
-                        <div className="relative z-10">
-                          <div className="flex items-center justify-between border-b border-graphite/60 pb-[14px]">
-                            <span className="font-mono text-[11px] font-medium uppercase tracking-wider text-iris">
-                              0{idx + 1} de 0{solutions.length}
-                            </span>
-                            <span className="rounded-full border border-graphite bg-[#151518] px-2 py-0.5 font-mono text-[10px] text-bone">
-                              {offset === 0 ? "TOQUE NO BOTÃO" : "TOQUE P/ ABRIR"}
-                            </span>
-                          </div>
-
-                          <h3 className="mt-[20px] text-[22px] font-semibold leading-[1.3] text-white">
-                            {item.title}
-                          </h3>
-                          <p className="mt-[12px] text-[14px] leading-[1.6] text-ash">
-                            {item.description}
-                          </p>
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-between border-b border-graphite/60 pb-[12px]">
+                          <span className="font-mono text-[11px] font-medium uppercase tracking-wider text-iris">
+                            0{idx + 1} // SOLUÇÃO
+                          </span>
+                          <span className="h-2 w-2 rounded-full bg-iris" />
                         </div>
 
-                        <div className="relative z-10 mt-[20px] border-t border-graphite/60 pt-[16px]">
-                          <a
-                            href={item.ctaHref}
-                            className="inline-flex w-full items-center justify-between rounded-full border border-iris/40 bg-iris/15 px-[18px] py-[10px] text-[14px] font-medium text-white transition-colors hover:bg-iris hover:text-black"
-                          >
-                            <span>{item.cta}</span>
-                            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                              <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                          </a>
-                        </div>
+                        <h3 className="mt-[16px] text-[20px] font-semibold leading-[1.3] text-white">
+                          {item.title}
+                        </h3>
+                        <p className="mt-[10px] text-[13.5px] leading-[1.6] text-ash">
+                          {item.description}
+                        </p>
                       </div>
-                    </SpotlightCard>
-                  </motion.div>
-                );
-              })}
+
+                      <div className="relative z-10 mt-[16px] border-t border-graphite/60 pt-[14px]">
+                        <span className="inline-flex w-full items-center justify-between text-[13.5px] font-medium text-iris">
+                          <span>{item.cta}</span>
+                          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </SpotlightCard>
+                </div>
+              ))}
             </div>
 
-            {/* Controles de Navegação do Stack no Mobile */}
-            <div className="mt-[48px] flex w-full max-w-[360px] items-center justify-between px-2">
+            {/* Controles de Navegação e Indicadores de Progresso em Pílula */}
+            <div className="mt-[18px] flex items-center justify-between px-2">
               <button
                 type="button"
-                onClick={prevCard}
-                aria-label="Solução anterior"
-                className="flex h-[42px] w-[42px] items-center justify-center rounded-full border border-graphite bg-[#0e0e11] text-ash transition-colors hover:border-iris hover:text-white active:scale-95"
+                onClick={() => scrollToCard(Math.max(0, mobileActiveIndex - 1))}
+                aria-label="Card anterior"
+                disabled={mobileActiveIndex === 0}
+                className="flex h-[38px] w-[38px] items-center justify-center rounded-full border border-graphite bg-[#0e0e11] text-ash transition-colors hover:border-iris hover:text-white disabled:opacity-30 active:scale-95"
               >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <path d="M10 13L5 8L10 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
 
-              {/* Indicadores de Pontos */}
+              {/* Indicadores de Pontos / Barra em Pílula Luminosa */}
               <div className="flex items-center gap-2">
                 {solutions.map((_, i) => (
                   <button
                     type="button"
                     key={i}
-                    onClick={() => setActiveStackIndex(i)}
+                    onClick={() => scrollToCard(i)}
                     aria-label={`Ir para solução 0${i + 1}`}
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      activeStackIndex === i ? "w-6 bg-iris" : "w-2 bg-graphite"
+                      mobileActiveIndex === i ? "w-6 bg-iris" : "w-2 bg-graphite"
                     }`}
                   />
                 ))}
@@ -325,16 +317,21 @@ export function Solutions() {
 
               <button
                 type="button"
-                onClick={nextCard}
-                aria-label="Próxima solução"
-                className="flex h-[42px] w-[42px] items-center justify-center rounded-full border border-graphite bg-[#0e0e11] text-ash transition-colors hover:border-iris hover:text-white active:scale-95"
+                onClick={() => scrollToCard(Math.min(solutions.length - 1, mobileActiveIndex + 1))}
+                aria-label="Próximo card"
+                disabled={mobileActiveIndex === solutions.length - 1}
+                className="flex h-[38px] w-[38px] items-center justify-center rounded-full border border-graphite bg-[#0e0e11] text-ash transition-colors hover:border-iris hover:text-white disabled:opacity-30 active:scale-95"
               >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
             </div>
 
+            {/* Dica sutil de deslizamento para o usuário */}
+            <div className="mt-3 text-center font-mono text-[10px] uppercase tracking-wider text-ash/60">
+              Deslize para ver todas as soluções
+            </div>
           </div>
         </div>
 
