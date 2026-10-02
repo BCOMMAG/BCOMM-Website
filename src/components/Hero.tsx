@@ -19,7 +19,7 @@ export function Hero() {
 
         <div className="animate-hero-in-delayed-2 mt-[40px] flex flex-col gap-[12px] sm:flex-row sm:items-center md:mt-[48px]">
           <a
-            href="#contato"
+            href="/#contato"
             className="btn-slide inline-flex items-center justify-center gap-[8px] rounded-[9999px] border border-iris/50 bg-iris/10 px-[24px] py-[14px] text-[16px] font-medium text-white transition-all duration-200 hover:border-iris hover:bg-iris hover:text-black"
           >
             Solicitar Proposta

@@ -23,12 +23,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/servicos/linktree",
-        destination: "/links",
-        permanent: true,
-      },
-      {
-        source: "/servicos/link-bio",
-        destination: "/links",
+        destination: "/servicos/link-bio",
         permanent: true,
       },
     ];

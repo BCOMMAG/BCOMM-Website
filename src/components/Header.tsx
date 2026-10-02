@@ -5,6 +5,25 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { nav } from "@/lib/constants";
 
+function handleAnchorClick(
+  e: React.MouseEvent<HTMLAnchorElement>,
+  href: string,
+  callback?: () => void
+) {
+  if (callback) callback();
+  if (href.startsWith("/#")) {
+    const hash = href.replace("/#", "");
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      e.preventDefault();
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+    }
+  }
+}
+
 function NavDropdown({
   item,
   onClose,
@@ -28,6 +47,7 @@ function NavDropdown({
     return (
       <a
         href={item.href}
+        onClick={(e) => handleAnchorClick(e, item.href, onClose)}
         className="rounded-[9999px] border border-transparent px-[14px] py-[8px] text-[14px] font-normal text-bone transition-all duration-200 ease-out hover:border-graphite hover:bg-white hover:text-black"
       >
         {item.label}
@@ -54,13 +74,16 @@ function NavDropdown({
       </button>
 
       {open && (
-        <div className="absolute left-0 top-full z-50 mt-[8px] min-w-[180px] rounded-[8px] border border-graphite bg-void-black p-[8px] backdrop-blur-[25px]">
+        <div className="absolute left-0 top-full z-50 mt-[8px] min-w-[200px] rounded-[8px] border border-graphite bg-void-black p-[8px] backdrop-blur-[25px]">
           {item.children.map((child) => (
             <a
               key={child.href}
               href={child.href}
               className="block rounded-[6px] px-[12px] py-[8px] text-[14px] font-normal text-bone transition-colors duration-150 hover:bg-white hover:text-black"
-              onClick={onClose}
+              onClick={(e) => {
+                setOpen(false);
+                handleAnchorClick(e, child.href, onClose);
+              }}
             >
               {child.label}
             </a>
@@ -125,7 +148,8 @@ export function Header() {
 
         <div className="hidden md:block">
           <a
-            href="#contato"
+            href="/#contato"
+            onClick={(e) => handleAnchorClick(e, "/#contato")}
             className="btn-slide inline-flex items-center gap-[6px] rounded-[9999px] border border-iris/50 bg-iris/10 px-[20px] py-[10px] text-[14px] font-medium text-white transition-all duration-200 hover:border-iris hover:bg-iris hover:text-black"
           >
             Solicitar Proposta
@@ -198,7 +222,9 @@ export function Header() {
                               <a
                                 href={child.href}
                                 className="block rounded-[6px] px-[12px] py-[8px] text-[14px] font-normal text-ash transition-colors duration-150 hover:text-white"
-                                onClick={() => setMobileOpen(false)}
+                                onClick={(e) =>
+                                  handleAnchorClick(e, child.href, () => setMobileOpen(false))
+                                }
                               >
                                 {child.label}
                               </a>
@@ -211,7 +237,9 @@ export function Header() {
                     <a
                       href={item.href}
                       className="block rounded-[9999px] border border-transparent px-[16px] py-[10px] text-[16px] font-normal text-bone transition-all duration-200 hover:border-graphite hover:bg-white hover:text-black"
-                      onClick={() => setMobileOpen(false)}
+                      onClick={(e) =>
+                        handleAnchorClick(e, item.href, () => setMobileOpen(false))
+                      }
                     >
                       {item.label}
                     </a>
@@ -221,9 +249,11 @@ export function Header() {
             </ul>
             <div className="px-[24px] pb-[20px]">
               <a
-                href="#contato"
+                href="/#contato"
                 className="btn-slide flex items-center justify-center gap-[6px] rounded-[9999px] border border-iris/50 bg-iris/10 px-[18px] py-[10px] text-[14px] font-medium text-white transition-all duration-200 hover:border-iris hover:bg-iris hover:text-black"
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) =>
+                  handleAnchorClick(e, "/#contato", () => setMobileOpen(false))
+                }
               >
                 Solicitar Proposta
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none">

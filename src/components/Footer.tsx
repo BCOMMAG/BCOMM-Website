@@ -20,7 +20,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-[16px] md:flex-row md:items-center md:gap-[32px]">
-            <nav className="flex gap-[24px]" aria-label="Serviços">
+            <nav className="flex flex-wrap gap-[20px] md:gap-[24px]" aria-label="Serviços">
               <a href="/servicos/websites" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 Websites
               </a>
@@ -30,16 +30,19 @@ export function Footer() {
               <a href="/servicos/automacao" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 Automação
               </a>
+              <a href="/servicos/link-bio" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
+                Link Bio
+              </a>
             </nav>
 
-            <div className="flex gap-[24px]">
+            <div className="flex gap-[20px] md:gap-[24px]">
               <a href="/links" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
-                Links
+                Central de Links
               </a>
               <a href="/blog" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 Blog
               </a>
-              <a href="#contato" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
+              <a href="/#contato" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 Contato
               </a>
             </div>

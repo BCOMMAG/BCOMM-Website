@@ -77,26 +77,27 @@ interface NavItem {
 export const nav: NavItem[] = [
   {
     label: "Serviços",
-    href: "#servicos",
+    href: "/#servicos",
     children: [
       { label: "Todos os Serviços", href: "/servicos" },
       { label: "Websites & Landing Pages", href: "/servicos/websites" },
       { label: "E-commerce", href: "/servicos/ecommerce" },
       { label: "Automação com IA", href: "/servicos/automacao" },
-      { label: "Link Bio Instagram", href: "/links" },
+      { label: "Link Bio Instagram", href: "/servicos/link-bio" },
+      { label: "Central de Links (Bio)", href: "/links" },
     ],
   },
   {
     label: "Sobre",
-    href: "#sobre",
+    href: "/#sobre",
     children: [
-      { label: "Sobre a BCOMM", href: "#sobre" },
-      { label: "Como Trabalhamos", href: "#processo" },
+      { label: "Sobre a BCOMM", href: "/#sobre" },
+      { label: "Como Trabalhamos", href: "/#processo" },
     ],
   },
-  { label: "Cases", href: "#cases" },
+  { label: "Cases", href: "/#cases" },
   { label: "Blog", href: "/blog" },
-  { label: "Contato", href: "#contato" },
+  { label: "Contato", href: "/#contato" },
 ];
 
 export const solutions = [
@@ -150,7 +151,7 @@ export const allServices = [
       "CMS para atualização de conteúdo",
     ],
     cta: "Solicitar orçamento",
-    ctaHref: "#contato",
+    ctaHref: "/#contato",
   },
   {
     slug: "ecommerce",
@@ -167,7 +168,7 @@ export const allServices = [
       "Integração com WhatsApp e e-mail marketing",
     ],
     cta: "Criar minha loja",
-    ctaHref: "#contato",
+    ctaHref: "/#contato",
   },
   {
     slug: "automacao",
@@ -184,7 +185,7 @@ export const allServices = [
       "Monitoramento e otimização contínua",
     ],
     cta: "Ver como funciona",
-    ctaHref: "#contato",
+    ctaHref: "/#contato",
   },
   {
     slug: "integracoes",
@@ -201,7 +202,7 @@ export const allServices = [
       "Documentação técnica completa",
     ],
     cta: "Conheça as integrações",
-    ctaHref: "#contato",
+    ctaHref: "/#contato",
   },
   {
     slug: "atendimento",
@@ -218,7 +219,7 @@ export const allServices = [
       "Relatórios de performance do atendimento",
     ],
     cta: "Ver demo",
-    ctaHref: "#contato",
+    ctaHref: "/#contato",
   },
   {
     slug: "link-bio",
@@ -234,8 +235,8 @@ export const allServices = [
       "Otimizado para abertura instantânea no celular",
       "Sem marcas de terceiros ou limitações de planos",
     ],
-    cta: "Ver demonstração",
-    ctaHref: "/links",
+    cta: "Saiba mais",
+    ctaHref: "/servicos/link-bio",
   },
 ] as const;
 

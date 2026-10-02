@@ -49,7 +49,7 @@ const differentialsData: DifferentialItem[] = [
       "Página exclusiva com a identidade da sua marca, catálogo de produtos e atalhos rápidos de atendimento que passam autoridade imediata.",
     metricNumber: "100%",
     metricLabel: "Identidade visual própria sem marcas alheias",
-    serviceHref: "/links",
+    serviceHref: "/servicos/link-bio",
     serviceCta: "Ver Link Bio",
   },
   {
@@ -73,7 +73,7 @@ const differentialsData: DifferentialItem[] = [
       "Livre de taxas abusivas de ferramentas prontas como Wix ou WordPress pesado. Você é dono absoluto do seu projeto digital.",
     metricNumber: "100%",
     metricLabel: "Código proprietário entregue a você",
-    serviceHref: "#contato",
+    serviceHref: "/#contato",
     serviceCta: "Falar com especialista",
   },
 ];
@@ -174,7 +174,7 @@ export function About() {
               {/* Botão de Ação Rápida */}
               <div className="shrink-0">
                 <a
-                  href="#contato"
+                  href="/#contato"
                   className="inline-flex items-center gap-2 rounded-full bg-neutral-950 px-[22px] py-[12px] font-medium text-[14px] text-white shadow-md transition-all duration-200 hover:bg-iris hover:text-black active:scale-95"
                 >
                   Solicitar meu projeto

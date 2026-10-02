@@ -7,6 +7,7 @@ const KNOWN_PATHS = [
   "/servicos/websites",
   "/servicos/ecommerce",
   "/servicos/automacao",
+  "/servicos/link-bio",
   "/cases",
   "/blog",
   "/sobre",
@@ -29,11 +30,12 @@ This URL does not exist on the BCOMM website.
 - [Websites & Landing Pages](https://agent-bcomm.space/servicos/websites)
 - [E-commerce](https://agent-bcomm.space/servicos/ecommerce)
 - [AI Automation](https://agent-bcomm.space/servicos/automacao)
+- [Link Bio Instagram](https://agent-bcomm.space/servicos/link-bio)
+- [Central de Links (Bio)](https://agent-bcomm.space/links)
 - [Cases](https://agent-bcomm.space/cases)
 - [Blog](https://agent-bcomm.space/blog)
 - [About](https://agent-bcomm.space/about)
 - [Contact](https://agent-bcomm.space/contact)
-- [Link Bio Instagram](https://agent-bcomm.space/links)
 
 ## Machine-readable files
 

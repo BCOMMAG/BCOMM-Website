@@ -62,48 +62,62 @@ export default function ServicosPage() {
           <div className="mt-[64px] flex flex-col gap-[32px]">
             {allServices.map((service) => {
               const isLinkBio = service.slug === "link-bio";
-              const href = isLinkBio
-                ? "/links"
-                : ["websites", "ecommerce", "automacao"].includes(service.slug)
-                ? `/servicos/${service.slug}`
-                : "/#contato";
+              const isDetailed = ["websites", "ecommerce", "automacao", "link-bio"].includes(service.slug);
+              const href = isDetailed ? `/servicos/${service.slug}` : "/#contato";
 
               return (
-                <Link
+                <div
                   key={service.slug}
-                  href={href}
                   className="group rounded-[16px] border border-graphite bg-[#0b0b0c] p-[32px] transition-all duration-500 hover:-translate-y-1 hover:border-iron hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)] md:p-[48px]"
                 >
                   <div className="flex flex-col gap-[24px] md:flex-row md:items-start md:justify-between">
                     <div className="max-w-[600px]">
                       <h2 className="text-[24px] font-semibold text-white transition-colors group-hover:text-iris-glow md:text-[32px]">
-                        {service.title}
+                        <Link href={href} className="hover:underline">
+                          {service.title}
+                        </Link>
                       </h2>
                       <p className="mt-[12px] text-[16px] leading-[1.6] text-ash">
                         {service.description}
                       </p>
                     </div>
-                    <span className="inline-flex shrink-0 items-center gap-[6px] text-[14px] font-normal text-iris transition-colors group-hover:text-iris-glow">
-                      {isLinkBio ? "Ver demonstração" : "Saiba mais"}
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                        <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
+                    <div className="flex flex-wrap items-center gap-[12px] shrink-0">
+                      {isLinkBio && (
+                        <Link
+                          href="/links"
+                          className="inline-flex items-center gap-[6px] rounded-[9999px] border border-graphite px-[14px] py-[8px] text-[13px] font-normal text-bone transition-colors hover:border-iris hover:text-white"
+                        >
+                          Ver demonstração
+                          <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </Link>
+                      )}
+                      <Link
+                        href={href}
+                        className="inline-flex items-center gap-[6px] rounded-[9999px] border border-iris/40 bg-iris/10 px-[16px] py-[8px] text-[14px] font-medium text-white transition-all hover:border-iris hover:bg-iris hover:text-black"
+                      >
+                        Saiba mais
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                          <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </Link>
+                    </div>
                   </div>
 
-                <div className="mt-[24px] grid grid-cols-1 gap-[8px] sm:grid-cols-2 lg:grid-cols-3">
-                  {service.features.map((f) => (
-                    <div key={f} className="flex items-center gap-[8px] text-[14px] text-ash">
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="shrink-0 text-iris">
-                        <path d="M3 8L7 12L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                      {f}
-                    </div>
-                  ))}
+                  <div className="mt-[24px] grid grid-cols-1 gap-[8px] sm:grid-cols-2 lg:grid-cols-3">
+                    {service.features.map((f) => (
+                      <div key={f} className="flex items-center gap-[8px] text-[14px] text-ash">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="shrink-0 text-iris">
+                          <path d="M3 8L7 12L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {f}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </Link>
-            );
-          })}
+              );
+            })}
           </div>
 
           <div className="mt-[64px] rounded-[16px] border border-graphite bg-[#0b0b0c] p-[32px] text-center md:p-[48px]">

@@ -49,7 +49,7 @@ export const linktreeServices = [
   },
   {
     label: "Link Bio Instagram",
-    href: "/links",
+    href: "/servicos/link-bio",
   },
 ] as const;
 
