@@ -83,7 +83,7 @@ export const nav: NavItem[] = [
       { label: "Websites & Landing Pages", href: "/servicos/websites" },
       { label: "E-commerce", href: "/servicos/ecommerce" },
       { label: "Automação com IA", href: "/servicos/automacao" },
-      { label: "Criação de Linktree", href: "/servicos/linktree" },
+      { label: "Link Bio Instagram", href: "/links" },
     ],
   },
   {
@@ -221,21 +221,21 @@ export const allServices = [
     ctaHref: "#contato",
   },
   {
-    slug: "linktree",
-    title: "Criação de Linktree",
-    shortTitle: "Linktree",
+    slug: "link-bio",
+    title: "Link Bio Instagram",
+    shortTitle: "Link Bio",
     description:
-      "Linktree personalizado para Instagram e redes sociais. Design alinhado com sua marca, links organizados e performance.",
+      "Página de links personalizada para bio do Instagram e redes sociais. Design exclusivo alinhado com sua marca, links organizados e alta performance.",
     features: [
-      "Design personalizado com identidade visual",
-      "Links organizados por categoria",
-      "Integração com WhatsApp, Instagram, email",
-      "Analytics de cliques",
-      "Otimizado para mobile",
-      "SEO e schema para buscadores",
+      "Design exclusivo com identidade visual própria",
+      "Links organizados por categoria e prioridade",
+      "Integração com WhatsApp, Instagram e e-mail",
+      "Analytics de cliques e conversão",
+      "Otimizado para abertura instantânea no celular",
+      "Sem marcas de terceiros ou limitações de planos",
     ],
-    cta: "Solicitar orçamento",
-    ctaHref: "#contato",
+    cta: "Ver demonstração",
+    ctaHref: "/links",
   },
 ] as const;
 

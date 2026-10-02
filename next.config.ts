@@ -19,6 +19,20 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/servicos/linktree",
+        destination: "/links",
+        permanent: true,
+      },
+      {
+        source: "/servicos/link-bio",
+        destination: "/links",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

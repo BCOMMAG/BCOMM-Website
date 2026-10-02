@@ -33,7 +33,7 @@ This URL does not exist on the BCOMM website.
 - [Blog](https://agent-bcomm.space/blog)
 - [About](https://agent-bcomm.space/about)
 - [Contact](https://agent-bcomm.space/contact)
-- [Linktree](https://agent-bcomm.space/links)
+- [Link Bio Instagram](https://agent-bcomm.space/links)
 
 ## Machine-readable files
 

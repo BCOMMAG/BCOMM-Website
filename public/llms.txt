@@ -11,7 +11,7 @@ Use a BCOMM when you need:
 - Automatizar processos repetitivos com inteligência artificial
 - Integrar sistemas como ERP, CRM e ferramentas internas
 - Implementar chatbots e atendimento inteligente multicanal
-- Criar um linktree personalizado para redes sociais
+- Criar uma página de Link da Bio (Instagram) personalizada para redes sociais
 
 Melhor para: empresas brasileiras que precisam de soluções web sob medida com foco em resultado mensurável. Não é ideal para quem busca templates prontos ou soluções genéricas.
 
@@ -23,7 +23,7 @@ Melhor para: empresas brasileiras que precisam de soluções web sob medida com 
 - [Blog](https://agent-bcomm.space/blog)
 - [Sobre](https://agent-bcomm.space/sobre)
 - [Contato](https://agent-bcomm.space/contato)
-- [Linktree](https://agent-bcomm.space/links)
+- [Link Bio Instagram](https://agent-bcomm.space/links)
 - [Instagram](https://www.instagram.com/bcomm.br)
 - [Facebook](https://www.facebook.com/bcommagent)
 - [WhatsApp](https://wa.me/554196398023)
@@ -44,7 +44,7 @@ A BCOMM combina engenharia de software com inteligência artificial para criar s
 - [Automação com IA](https://agent-bcomm.space/servicos/automacao) — Agentes inteligentes que automatizam tarefas repetitivas e reduzem erros.
 - [Integrações de Sistemas](https://agent-bcomm.space/servicos) — Conexão de ERP, CRM e ferramentas internas em um fluxo único de dados.
 - [Atendimento Inteligente](https://agent-bcomm.space/servicos) — Chatbots multicanal que resolvem, aprendem e crescem com o volume.
-- [Criação de Linktree](https://agent-bcomm.space/servicos) — Linktree personalizado para Instagram e redes sociais.
+- [Link Bio Instagram](https://agent-bcomm.space/links) — Página de links personalizada para bio do Instagram e redes sociais.
 
 ## Resultados
 

@@ -60,28 +60,36 @@ export default function ServicosPage() {
           </div>
 
           <div className="mt-[64px] flex flex-col gap-[32px]">
-            {allServices.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/servicos/${service.slug}`}
-                className="group rounded-[16px] border border-graphite bg-[#0b0b0c] p-[32px] transition-all duration-500 hover:-translate-y-1 hover:border-iron hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)] md:p-[48px]"
-              >
-                <div className="flex flex-col gap-[24px] md:flex-row md:items-start md:justify-between">
-                  <div className="max-w-[600px]">
-                    <h2 className="text-[24px] font-semibold text-white transition-colors group-hover:text-iris-glow md:text-[32px]">
-                      {service.title}
-                    </h2>
-                    <p className="mt-[12px] text-[16px] leading-[1.6] text-ash">
-                      {service.description}
-                    </p>
+            {allServices.map((service) => {
+              const isLinkBio = service.slug === "link-bio";
+              const href = isLinkBio
+                ? "/links"
+                : ["websites", "ecommerce", "automacao"].includes(service.slug)
+                ? `/servicos/${service.slug}`
+                : "/#contato";
+
+              return (
+                <Link
+                  key={service.slug}
+                  href={href}
+                  className="group rounded-[16px] border border-graphite bg-[#0b0b0c] p-[32px] transition-all duration-500 hover:-translate-y-1 hover:border-iron hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)] md:p-[48px]"
+                >
+                  <div className="flex flex-col gap-[24px] md:flex-row md:items-start md:justify-between">
+                    <div className="max-w-[600px]">
+                      <h2 className="text-[24px] font-semibold text-white transition-colors group-hover:text-iris-glow md:text-[32px]">
+                        {service.title}
+                      </h2>
+                      <p className="mt-[12px] text-[16px] leading-[1.6] text-ash">
+                        {service.description}
+                      </p>
+                    </div>
+                    <span className="inline-flex shrink-0 items-center gap-[6px] text-[14px] font-normal text-iris transition-colors group-hover:text-iris-glow">
+                      {isLinkBio ? "Ver demonstração" : "Saiba mais"}
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                        <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
                   </div>
-                  <span className="inline-flex shrink-0 items-center gap-[6px] text-[14px] font-normal text-iris transition-colors group-hover:text-iris-glow">
-                    Saiba mais
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                      <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                </div>
 
                 <div className="mt-[24px] grid grid-cols-1 gap-[8px] sm:grid-cols-2 lg:grid-cols-3">
                   {service.features.map((f) => (
@@ -94,7 +102,8 @@ export default function ServicosPage() {
                   ))}
                 </div>
               </Link>
-            ))}
+            );
+          })}
           </div>
 
           <div className="mt-[64px] rounded-[16px] border border-graphite bg-[#0b0b0c] p-[32px] text-center md:p-[48px]">

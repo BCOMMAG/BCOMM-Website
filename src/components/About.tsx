@@ -41,16 +41,16 @@ const differentialsData: DifferentialItem[] = [
     serviceCta: "Ver automação",
   },
   {
-    id: "linktree",
-    tag: "LINKTREE PARA INSTAGRAM",
+    id: "link-bio",
+    tag: "LINK BIO INSTAGRAM",
     title: "Bio do Instagram Transformada em Vendas",
     hook: "Substitua links genéricos por uma página veloz e profissional.",
     benefit:
       "Página exclusiva com a identidade da sua marca, catálogo de produtos e atalhos rápidos de atendimento que passam autoridade imediata.",
     metricNumber: "100%",
     metricLabel: "Identidade visual própria sem marcas alheias",
-    serviceHref: "/servicos/linktree",
-    serviceCta: "Ver linktree",
+    serviceHref: "/links",
+    serviceCta: "Ver Link Bio",
   },
   {
     id: "ecommerce",

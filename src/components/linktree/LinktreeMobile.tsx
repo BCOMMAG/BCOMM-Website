@@ -16,7 +16,7 @@ const marqueeItems = [
   "Automação com IA",
   "Integrações",
   "Atendimento Inteligente",
-  "Criação de Linktree",
+  "Link Bio Instagram",
 ];
 
 const glowByIcon: Record<string, string> = {

@@ -36,7 +36,7 @@ export const linktreeLinks = [
 
 export const linktreeServices = [
   {
-    label: "Webs & Landing Pages",
+    label: "Websites & Landing Pages",
     href: "/servicos/websites",
   },
   {
@@ -48,8 +48,8 @@ export const linktreeServices = [
     href: "/servicos/automacao",
   },
   {
-    label: "Criação de Linktree",
-    href: "/servicos/linktree",
+    label: "Link Bio Instagram",
+    href: "/links",
   },
 ] as const;
 
