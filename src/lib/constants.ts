@@ -87,6 +87,7 @@ export const nav: NavItem[] = [
       { label: "Central de Links (Bio)", href: "/links" },
     ],
   },
+  { label: "Preços", href: "/precos" },
   {
     label: "Sobre",
     href: "/#sobre",

@@ -26,6 +26,11 @@ const nextConfig: NextConfig = {
         destination: "/servicos/link-bio",
         permanent: true,
       },
+      {
+        source: "/proposta",
+        destination: "/precos",
+        permanent: false,
+      },
     ];
   },
 };

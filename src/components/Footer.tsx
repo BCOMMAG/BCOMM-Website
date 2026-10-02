@@ -35,7 +35,10 @@ export function Footer() {
               </a>
             </nav>
 
-            <div className="flex gap-[20px] md:gap-[24px]">
+            <div className="flex flex-wrap gap-[20px] md:gap-[24px]">
+              <a href="/precos" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
+                Preços
+              </a>
               <a href="/links" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
                 Central de Links
               </a>

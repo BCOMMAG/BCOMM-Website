@@ -8,6 +8,8 @@ const KNOWN_PATHS = [
   "/servicos/ecommerce",
   "/servicos/automacao",
   "/servicos/link-bio",
+  "/precos",
+  "/proposta",
   "/cases",
   "/blog",
   "/sobre",
@@ -26,6 +28,7 @@ This URL does not exist on the BCOMM website.
 ## Available pages
 
 - [Home](https://agent-bcomm.space)
+- [Preços & Planos](https://agent-bcomm.space/precos)
 - [Services](https://agent-bcomm.space/servicos)
 - [Websites & Landing Pages](https://agent-bcomm.space/servicos/websites)
 - [E-commerce](https://agent-bcomm.space/servicos/ecommerce)
