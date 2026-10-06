@@ -245,3 +245,130 @@ export const pricingFaq = [
     a: "Atendemos empresas em todo o território nacional e no exterior. Todo o processo de atendimento, alinhamento e homologação é realizado de forma 100% online e ágil pelo WhatsApp.",
   },
 ];
+
+export interface EcommercePlan {
+  id: string;
+  name: string;
+  badge: string;
+  subBadge?: string | null;
+  subtitle: string;
+  setupPrice: string;
+  monthlyPrice: string;
+  monthlyLabel: string;
+  highlight?: boolean;
+  features: string[];
+  cta: string;
+  whatsappMessage: string;
+}
+
+export interface EcommerceComparisonRow {
+  feature: string;
+  essencial: string | boolean;
+  pro: string | boolean;
+  automatizado: string | boolean;
+}
+
+export const ecommercePlans: EcommercePlan[] = [
+  {
+    id: "ecommerce-essencial",
+    name: "E-commerce Essencial",
+    badge: "Loja Sob Medida",
+    subBadge: null,
+    subtitle: "Para quem quer começar a vender online com catálogo próprio e atendimento humanizado via WhatsApp.",
+    setupPrice: "1.897",
+    monthlyPrice: "197",
+    monthlyLabel: "Gestão & Infraestrutura",
+    highlight: false,
+    features: [
+      "Loja virtual com design 100% sob medida para a marca",
+      "Catálogo de produtos, fotos em alta resolução e categorias",
+      "Variações completas por produto (tamanhos, cores, grades)",
+      "Carrinho inteligente e captura rápida de dados da cliente",
+      "Registro oficial de pedidos no banco de dados (fonte única da verdade)",
+      "Finalização direta via WhatsApp com link seguro do pedido",
+      "Painel administrativo para cadastro e edição ilimitada de produtos",
+      "Cálculo de frete realizado manualmente pela loja no WhatsApp",
+      "Hospedagem em VPS dedicada, SSL, backups automáticos e suporte técnico",
+    ],
+    cta: "Escolher Essencial",
+    whatsappMessage: "Olá! Gostaria de contratar a implantação do E-commerce Essencial (R$ 1.897 + R$ 197/mês) para a minha loja.",
+  },
+  {
+    id: "ecommerce-gestao-pro",
+    name: "E-commerce Gestão Pro",
+    badge: "Central Operacional",
+    subBadge: "MAIS ESCOLHIDO",
+    subtitle: "O plano ideal para quem quer controle total da operação, histórico de pedidos e gestão inteligente de estoque.",
+    setupPrice: "1.897",
+    monthlyPrice: "297",
+    monthlyLabel: "Gestão, Auditoria & Infraestrutura",
+    highlight: true,
+    features: [
+      "Tudo incluso no Plano Essencial",
+      "Linha do tempo e histórico completo de movimentações do pedido",
+      "Gestão estruturada de status: Aguardando Confirmação ➔ Confirmado ➔ Em Preparação ➔ Enviado ➔ Entregue",
+      "Baixa inteligente de estoque: O estoque só é reservado/baixado após a confirmação manual do pagamento",
+      "Módulo de cancelamento com auditoria: Registro de motivos e devolução automática dos itens ao estoque",
+      "Painel de Rastreio com botão direto: Campo no admin para colar o código de envio, gerando link do Melhor Rastreio para o cliente final",
+      "Dashboard gerencial: Indicadores de faturamento, pedidos pendentes e produtos mais vendidos",
+      "Estrutura pronta para futuras integrações automáticas",
+    ],
+    cta: "Escolher Gestão Pro",
+    whatsappMessage: "Olá! Gostaria de contratar a implantação do E-commerce Gestão Pro (R$ 1.897 + R$ 297/mês) para a minha loja.",
+  },
+  {
+    id: "ecommerce-automatizado",
+    name: "E-commerce Automatizado",
+    badge: "Automação & Escala",
+    subBadge: null,
+    subtitle: "Operação de alta eficiência com cotação automática de frete no carrinho e módulo de recomendação de produtos.",
+    setupPrice: "1.897",
+    monthlyPrice: "397",
+    monthlyLabel: "Gestão Avançada & Automações",
+    highlight: false,
+    features: [
+      "Tudo incluso no Plano Gestão Pro",
+      "Cálculo automático de frete no carrinho via API do Melhor Envio (SEDEX, PAC, Jadlog e transportadoras em tempo real por CEP)",
+      "Módulo 'Monte o Look' / Upsell: Recomendação de produtos complementares no carrinho para elevar o ticket médio",
+      "Seleção de frete no checkout: Valor e prazo já associados automaticamente ao pedido",
+      "Geração de links de rastreamento integrados",
+      "Acompanhamento técnico prioritário e evolução contínua da loja",
+    ],
+    cta: "Escolher Automatizado",
+    whatsappMessage: "Olá! Gostaria de contratar a implantação do E-commerce Automatizado (R$ 1.897 + R$ 397/mês) para a minha loja.",
+  },
+];
+
+export const ecommerceComparisonRows: EcommerceComparisonRow[] = [
+  { feature: "Loja Virtual & Design Sob Medida", essencial: true, pro: true, automatizado: true },
+  { feature: "Catálogo Ilimitado & Variações (Cor/Tamanho)", essencial: true, pro: true, automatizado: true },
+  { feature: "Pedidos Gravados no Banco com Link Seguro", essencial: true, pro: true, automatizado: true },
+  { feature: "Finalização de Pedido no WhatsApp", essencial: true, pro: true, automatizado: true },
+  { feature: "Baixa de Estoque Inteligente na Confirmação", essencial: false, pro: true, automatizado: true },
+  { feature: "Linha do Tempo e Histórico do Pedido", essencial: false, pro: true, automatizado: true },
+  { feature: "Gestão de Cancelamentos com Retorno de Estoque", essencial: false, pro: true, automatizado: true },
+  { feature: "Dashboard com Métricas de Vendas", essencial: false, pro: true, automatizado: true },
+  { feature: "Consulta de Rastreio para o Cliente", essencial: "Manual", pro: "Botão Melhor Rastreio", automatizado: "Integrado via API" },
+  { feature: "Cálculo de Frete no Carrinho", essencial: "Manual via WhatsApp", pro: "Manual via WhatsApp", automatizado: "Automático via Melhor Envio" },
+  { feature: "Módulo Upsell (\"Monte o Look\" no Carrinho)", essencial: false, pro: false, automatizado: true },
+  { feature: "Servidor VPS Dedicado, SSL e Backups Inclusos", essencial: true, pro: true, automatizado: true },
+];
+
+export const ecommerceFaq = [
+  {
+    q: "Por que a implantação é um valor único e a gestão é mensal?",
+    a: "O desenvolvimento sob medida envolve arquitetura, design exclusivo e deploy dedicado. A mensalidade cobre a infraestrutura da VPS, banco de dados, segurança, backups diários, manutenção de APIs e suporte contínuo para manter sua loja vendendo 24 horas por dia.",
+  },
+  {
+    q: "O estoque é baixado quando o cliente clica no WhatsApp?",
+    a: "Não! No modelo BCOMM o estoque só é deduzido após a administradora confirmar o recebimento do pagamento no painel, impedindo que clientes desistentes bloqueiem produtos de outros compradores.",
+  },
+  {
+    q: "Posso começar no plano Essencial ou Gestão Pro e migrar para o Automatizado depois?",
+    a: "Sim! A arquitetura BCOMM é modular. Você pode iniciar com o cálculo de frete manual e ativar a integração com o Melhor Envio ou novas automações quando sua operação escalar.",
+  },
+  {
+    q: "Há limites de produtos cadastrados?",
+    a: "Não há limites artificiais de catálogo. Você gerencia seus produtos livremente através do seu painel administrativo.",
+  },
+];
