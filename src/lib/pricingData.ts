@@ -246,6 +246,14 @@ export const pricingFaq = [
   },
 ];
 
+export type EcommerceBillingCycle = "mensal" | "semestral" | "anual";
+
+export interface EcommerceCyclePrice {
+  monthly: string;
+  savings?: string | null;
+  commitmentLabel: string;
+}
+
 export interface EcommercePlan {
   id: string;
   name: string;
@@ -253,12 +261,10 @@ export interface EcommercePlan {
   subBadge?: string | null;
   subtitle: string;
   setupPrice: string;
-  monthlyPrice: string;
-  monthlyLabel: string;
+  prices: Record<EcommerceBillingCycle, EcommerceCyclePrice>;
   highlight?: boolean;
   features: string[];
   cta: string;
-  whatsappMessage: string;
 }
 
 export interface EcommerceComparisonRow {
@@ -276,8 +282,23 @@ export const ecommercePlans: EcommercePlan[] = [
     subBadge: null,
     subtitle: "Para quem quer começar a vender online com catálogo próprio e atendimento humanizado via WhatsApp.",
     setupPrice: "1.897",
-    monthlyPrice: "197",
-    monthlyLabel: "Gestão & Infraestrutura",
+    prices: {
+      mensal: {
+        monthly: "249",
+        savings: null,
+        commitmentLabel: "Sem fidelidade • Cancele quando quiser",
+      },
+      semestral: {
+        monthly: "219",
+        savings: "Economize R$ 180 no semestre",
+        commitmentLabel: "Compromisso de 6 meses",
+      },
+      anual: {
+        monthly: "197",
+        savings: "Economize R$ 624/ano",
+        commitmentLabel: "Compromisso de 12 meses • Mais escolhido",
+      },
+    },
     highlight: false,
     features: [
       "Loja virtual com design 100% sob medida para a marca",
@@ -291,7 +312,6 @@ export const ecommercePlans: EcommercePlan[] = [
       "Hospedagem em VPS dedicada, SSL, backups automáticos e suporte técnico",
     ],
     cta: "Escolher Essencial",
-    whatsappMessage: "Olá! Gostaria de contratar a implantação do E-commerce Essencial (R$ 1.897 + R$ 197/mês) para a minha loja.",
   },
   {
     id: "ecommerce-gestao-pro",
@@ -300,8 +320,23 @@ export const ecommercePlans: EcommercePlan[] = [
     subBadge: "MAIS ESCOLHIDO",
     subtitle: "O plano ideal para quem quer controle total da operação, histórico de pedidos e gestão inteligente de estoque.",
     setupPrice: "1.897",
-    monthlyPrice: "297",
-    monthlyLabel: "Gestão, Auditoria & Infraestrutura",
+    prices: {
+      mensal: {
+        monthly: "369",
+        savings: null,
+        commitmentLabel: "Sem fidelidade • Cancele quando quiser",
+      },
+      semestral: {
+        monthly: "329",
+        savings: "Economize R$ 240 no semestre",
+        commitmentLabel: "Compromisso de 6 meses",
+      },
+      anual: {
+        monthly: "297",
+        savings: "Economize R$ 864/ano",
+        commitmentLabel: "Compromisso de 12 meses • Mais escolhido",
+      },
+    },
     highlight: true,
     features: [
       "Tudo incluso no Plano Essencial",
@@ -314,7 +349,6 @@ export const ecommercePlans: EcommercePlan[] = [
       "Estrutura pronta para futuras integrações automáticas",
     ],
     cta: "Escolher Gestão Pro",
-    whatsappMessage: "Olá! Gostaria de contratar a implantação do E-commerce Gestão Pro (R$ 1.897 + R$ 297/mês) para a minha loja.",
   },
   {
     id: "ecommerce-automatizado",
@@ -323,8 +357,23 @@ export const ecommercePlans: EcommercePlan[] = [
     subBadge: null,
     subtitle: "Operação de alta eficiência com cotação automática de frete no carrinho e módulo de recomendação de produtos.",
     setupPrice: "1.897",
-    monthlyPrice: "397",
-    monthlyLabel: "Gestão Avançada & Automações",
+    prices: {
+      mensal: {
+        monthly: "489",
+        savings: null,
+        commitmentLabel: "Sem fidelidade • Cancele quando quiser",
+      },
+      semestral: {
+        monthly: "439",
+        savings: "Economize R$ 300 no semestre",
+        commitmentLabel: "Compromisso de 6 meses",
+      },
+      anual: {
+        monthly: "397",
+        savings: "Economize R$ 1.104/ano",
+        commitmentLabel: "Compromisso de 12 meses • Mais escolhido",
+      },
+    },
     highlight: false,
     features: [
       "Tudo incluso no Plano Gestão Pro",
@@ -335,7 +384,6 @@ export const ecommercePlans: EcommercePlan[] = [
       "Acompanhamento técnico prioritário e evolução contínua da loja",
     ],
     cta: "Escolher Automatizado",
-    whatsappMessage: "Olá! Gostaria de contratar a implantação do E-commerce Automatizado (R$ 1.897 + R$ 397/mês) para a minha loja.",
   },
 ];
 
@@ -355,6 +403,10 @@ export const ecommerceComparisonRows: EcommerceComparisonRow[] = [
 ];
 
 export const ecommerceFaq = [
+  {
+    q: "Como funcionam os planos Mensal, Semestral e Anual?",
+    a: "No plano Mensal você tem total flexibilidade: sem contrato de fidelidade e podendo pausar ou cancelar quando quiser. Nos planos Semestral e Anual você conta com condições especiais e descontos progressivos de até R$ 1.104/ano na gestão técnica como incentivo ao crescimento contínuo da sua loja.",
+  },
   {
     q: "Por que a implantação é um valor único e a gestão é mensal?",
     a: "O desenvolvimento sob medida envolve arquitetura, design exclusivo e deploy dedicado. A mensalidade cobre a infraestrutura da VPS, banco de dados, segurança, backups diários, manutenção de APIs e suporte contínuo para manter sua loja vendendo 24 horas por dia.",

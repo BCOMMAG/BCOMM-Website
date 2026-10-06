@@ -12,6 +12,7 @@ import {
   ecommercePlans,
   ecommerceComparisonRows,
   ecommerceFaq,
+  EcommerceBillingCycle,
 } from "@/lib/pricingData";
 
 const WHATSAPP_NUMBER = "554196398023";
@@ -20,9 +21,24 @@ function getWhatsappLink(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
+function getEcommerceWhatsappMessage(
+  planName: string,
+  cycle: EcommerceBillingCycle,
+  monthlyPrice: string
+) {
+  const cycleText =
+    cycle === "mensal"
+      ? "no plano mensal sem fidelidade"
+      : cycle === "semestral"
+      ? "no plano semestral"
+      : "no plano anual";
+  return `Olá! Gostaria de contratar o ${planName} (R$ 1.897 + R$ ${monthlyPrice}/mês ${cycleText}) para a minha loja.`;
+}
+
 export function PricingTabs() {
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<"institutional" | "ecommerce">("institutional");
+  const [ecommerceCycle, setEcommerceCycle] = useState<EcommerceBillingCycle>("anual");
 
   useEffect(() => {
     const checkTab = () => {
@@ -703,7 +719,7 @@ export function PricingTabs() {
               </div>
               <div className="shrink-0 flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-emerald-400 font-mono text-[12px]">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                Contrato Anual (12 Meses)
+                Flexibilidade Total • Sem Fidelidade Obrigatória
               </div>
             </div>
 
@@ -746,7 +762,7 @@ export function PricingTabs() {
                   <span className="text-[13px] text-neutral-400">/mês</span>
                 </div>
                 <p className="mt-2 text-[13px] leading-relaxed text-ash">
-                  Variável de acordo com o nível operacional da loja (contrato anual de 12 meses, incluindo VPS dedicada, SSL, rotinas de backup diário, monitoramento 24/7 e suporte contínuo).
+                  Variável de acordo com o nível operacional da loja. Planos flexíveis: mensal sem fidelidade, semestral ou anual com desconto, incluindo VPS dedicada, SSL, rotinas de backup diário e suporte contínuo.
                 </p>
               </div>
             </div>
@@ -771,10 +787,55 @@ export function PricingTabs() {
               </div>
             </div>
 
+            {/* Seletor de Periodicidade / Ciclos de Cobrança */}
+            <div className="mt-[36px] flex flex-col items-center justify-center">
+              <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-1.5 rounded-full border border-graphite bg-[#0e0e12]/95 p-1.5 shadow-xl backdrop-blur-md">
+                <button
+                  type="button"
+                  onClick={() => setEcommerceCycle("mensal")}
+                  className={`flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition-all duration-200 cursor-pointer ${
+                    ecommerceCycle === "mensal"
+                      ? "bg-[#181824] text-white border border-iris/60 shadow-[0_0_20px_rgba(146,129,247,0.2)]"
+                      : "text-ash hover:text-white border border-transparent hover:bg-white/[0.04]"
+                  }`}
+                >
+                  <span>📅 Mensal (Sem Fidelidade)</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setEcommerceCycle("semestral")}
+                  className={`flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition-all duration-200 cursor-pointer ${
+                    ecommerceCycle === "semestral"
+                      ? "bg-[#181824] text-white border border-iris/60 shadow-[0_0_20px_rgba(146,129,247,0.2)]"
+                      : "text-ash hover:text-white border border-transparent hover:bg-white/[0.04]"
+                  }`}
+                >
+                  <span>🗓️ Semestral (6 meses)</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setEcommerceCycle("anual")}
+                  className={`flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition-all duration-200 cursor-pointer ${
+                    ecommerceCycle === "anual"
+                      ? "bg-[#181824] text-white border border-iris/60 shadow-[0_0_20px_rgba(146,129,247,0.2)]"
+                      : "text-ash hover:text-white border border-transparent hover:bg-white/[0.04]"
+                  }`}
+                >
+                  <span>💎 Anual (Mais Econômico)</span>
+                  <span className="rounded-full bg-emerald-500/20 text-emerald-400 px-2 py-0.5 font-mono text-[10px] font-bold tracking-wide">
+                    Economize até R$ 1.104/ano
+                  </span>
+                </button>
+              </div>
+            </div>
+
             {/* Grid dos 3 Cards */}
             <div className="mt-[36px] grid grid-cols-1 gap-[24px] lg:grid-cols-3">
               {ecommercePlans.map((plan) => {
                 const isHighlighted = plan.highlight;
+                const currentPrice = plan.prices[ecommerceCycle];
                 return (
                   <div
                     key={plan.id}
@@ -828,13 +889,24 @@ export function PricingTabs() {
                               isHighlighted ? "text-iris" : "text-white"
                             }`}
                           >
-                            + R$ {plan.monthlyPrice}
+                            + R$ {currentPrice.monthly}
                           </span>
                           <span className="text-[13px] font-normal text-neutral-400">/mês</span>
                         </div>
 
+                        {currentPrice.savings && (
+                          <div className="mt-[8px] inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-emerald-400 font-mono text-[11px] font-semibold">
+                            <span>✦</span>
+                            <span>{currentPrice.savings}</span>
+                          </div>
+                        )}
+
                         <span className="mt-[6px] block font-mono text-[11px] text-neutral-400">
-                          {plan.monthlyLabel} • Contrato Anual
+                          {ecommerceCycle === "mensal"
+                            ? "Sem fidelidade • Cancele quando quiser"
+                            : ecommerceCycle === "semestral"
+                            ? "Fidelidade de 6 meses"
+                            : "Fidelidade de 12 meses • Mais escolhido"}
                         </span>
                       </div>
 
@@ -880,7 +952,9 @@ export function PricingTabs() {
                     {/* Botão de Contratação CTA */}
                     <div className="mt-[32px]">
                       <a
-                        href={getWhatsappLink(plan.whatsappMessage)}
+                        href={getWhatsappLink(
+                          getEcommerceWhatsappMessage(plan.name, ecommerceCycle, currentPrice.monthly)
+                        )}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`w-full inline-flex items-center justify-center gap-[8px] rounded-full px-[24px] py-[13px] text-[14px] font-semibold transition-all duration-200 active:scale-98 cursor-pointer ${
@@ -926,11 +1000,11 @@ export function PricingTabs() {
                   <thead>
                     <tr className="border-b border-graphite/70 text-neutral-400 font-mono text-[11px] uppercase">
                       <th className="p-[16px] md:p-[20px]">Recurso da Loja</th>
-                      <th className="p-[16px] text-center">Essencial (+ R$ 197/mês)</th>
+                      <th className="p-[16px] text-center">Essencial (a partir de R$ 197/mês)</th>
                       <th className="p-[16px] text-center text-iris font-semibold bg-iris/[0.04]">
-                        Gestão Pro (+ R$ 297/mês)
+                        Gestão Pro (a partir de R$ 297/mês)
                       </th>
-                      <th className="p-[16px] text-center">Automatizado (+ R$ 397/mês)</th>
+                      <th className="p-[16px] text-center">Automatizado (a partir de R$ 397/mês)</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-graphite/40 text-bone">
