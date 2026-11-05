@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 
 export function ContinuousBackground() {
   return (
@@ -10,34 +9,34 @@ export function ContinuousBackground() {
       className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
     >
       {/* ======================================================== */}
-      {/* 1. HERO: APENAS A IMAGEM ORIGINAL PURA (SEM GRADIENTES)  */}
+      {/* 1. HERO: VÍDEOS EM LOOPING CONTÍNUO (DESKTOP & MOBILE)     */}
       {/* ======================================================== */}
       <div className="absolute top-0 left-0 right-0 h-[100dvh] min-h-[720px] overflow-hidden">
-        {/* Imagem Desktop */}
-        <div className="hidden md:block absolute inset-0">
-          <Image
-            src="/frames/desktop/frame_0001.webp"
-            alt=""
-            fill
-            priority
-            quality={100}
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-        </div>
+        {/* Vídeo Desktop (16:9) */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="/videos/header-desktop-poster.webp"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
+        >
+          <source src="/videos/header-desktop.mp4" type="video/mp4" />
+        </video>
 
-        {/* Imagem Mobile */}
-        <div className="block md:hidden absolute inset-0">
-          <Image
-            src="/frames/mobile/frame_0001.webp"
-            alt=""
-            fill
-            priority
-            quality={95}
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-        </div>
+        {/* Vídeo Mobile (9:16) */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="/videos/header-mobile-poster.webp"
+          className="block md:hidden absolute inset-0 w-full h-full object-cover object-center"
+        >
+          <source src="/videos/header-mobile.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* ======================================================== */}
