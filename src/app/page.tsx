@@ -8,7 +8,7 @@ import { Cases } from "@/components/Cases";
 import { Contact } from "@/components/Contact";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
-import { ScrollSequence } from "@/components/ScrollSequence";
+import { ContinuousBackground } from "@/components/ContinuousBackground";
 import { FAQ } from "@/components/FAQ";
 import { AIArchitecture } from "@/components/AIArchitecture";
 import { faqItems } from "@/lib/constants";
@@ -160,9 +160,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <ScrollSequence desktopFramesCount={192} mobileFramesCount={192} />
       <Header />
-      <main>
+      <main className="relative bg-[#030306] overflow-x-hidden">
+        <ContinuousBackground />
         <Hero />
         <Solutions />
         <About />
