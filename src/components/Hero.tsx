@@ -13,7 +13,7 @@ export function Hero() {
         
         {/* Bloco Superior: Título Fixo no Topo com Máximo Destaque */}
         <div className="pt-[6px] md:pt-[12px]">
-          <h1 className="animate-hero-in font-playfair text-[32px] font-normal leading-[1.1] tracking-[-0.01em] text-white sm:text-[44px] md:text-[56px] lg:text-[64px]">
+          <h1 className="animate-hero-in font-playfair text-[32px] font-normal leading-[1.1] tracking-[-0.01em] text-white drop-shadow-[0_4px_28px_rgba(0,0,0,0.8)] sm:text-[44px] md:text-[56px] lg:text-[64px]">
             {dict.hero.titlePrefix}{" "}
             <span className="text-iris">
               <TypingEffect key={dict.locale} words={dict.hero.typingWords} />
@@ -24,7 +24,7 @@ export function Hero() {
         {/* Bloco Inferior: Subtítulo, Botões e Badges descidos para a área inferior */}
         <div className="mt-auto pt-[20vh] md:pt-[16vh]">
           {/* Subtítulo Descritivo */}
-          <p className="animate-hero-in-delayed max-w-[640px] text-[15px] font-normal leading-[1.6] text-ash sm:text-[18px] md:text-[17px]">
+          <p className="animate-hero-in-delayed max-w-[640px] text-[15px] font-normal leading-[1.6] text-ash drop-shadow-[0_2px_16px_rgba(0,0,0,0.85)] sm:text-[18px] md:text-[17px]">
             {dict.hero.description}
           </p>
 
@@ -32,7 +32,7 @@ export function Hero() {
           <div className="animate-hero-in-delayed-2 mt-[20px] flex flex-col gap-[12px] sm:flex-row sm:items-center md:mt-[24px]">
             <Link
               href="/#contato"
-              className="btn-slide inline-flex items-center justify-center gap-[8px] rounded-[9999px] border border-iris/50 bg-iris/10 px-[24px] py-[13px] text-[15px] font-medium text-white transition-all duration-200 hover:border-iris hover:bg-iris hover:text-black md:text-[16px] md:py-[14px]"
+              className="btn-slide inline-flex items-center justify-center gap-[8px] rounded-[9999px] border border-iris/60 bg-iris/15 px-[24px] py-[13px] text-[15px] font-medium text-white shadow-[0_4px_20px_rgba(146,129,247,0.15)] backdrop-blur-md transition-all duration-200 hover:border-iris hover:bg-iris hover:text-black md:text-[16px] md:py-[14px]"
             >
               {dict.hero.ctaPrimary}
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -41,7 +41,7 @@ export function Hero() {
             </Link>
             <Link
               href="/servicos"
-              className="inline-flex items-center justify-center gap-[6px] rounded-[9999px] border border-graphite px-[22px] py-[13px] text-[15px] font-normal text-bone transition-all duration-200 hover:border-white hover:bg-white hover:text-black md:text-[16px] md:py-[14px]"
+              className="inline-flex items-center justify-center gap-[6px] rounded-[9999px] border border-graphite/80 bg-black/40 px-[22px] py-[13px] text-[15px] font-normal text-bone backdrop-blur-md transition-all duration-200 hover:border-white hover:bg-white hover:text-black md:text-[16px] md:py-[14px]"
             >
               {dict.hero.ctaSecondary}
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -55,7 +55,7 @@ export function Hero() {
             {dict.hero.badges.map((badge) => (
               <div
                 key={badge}
-                className="flex items-center gap-[6px] rounded-[6px] border border-graphite bg-[#0b0b0c]/40 px-[10px] py-[5px] font-mono text-[11px] text-bone uppercase"
+                className="flex items-center gap-[6px] rounded-[6px] border border-graphite/80 bg-[#0b0b0c]/70 px-[10px] py-[5px] font-mono text-[11px] text-bone uppercase backdrop-blur-sm shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
               >
                 <span className="text-iris">/</span> {badge}
               </div>

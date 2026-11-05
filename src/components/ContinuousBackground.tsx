@@ -9,7 +9,7 @@ export function ContinuousBackground() {
       className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
     >
       {/* ======================================================== */}
-      {/* 1. HERO: VÍDEOS EM LOOPING CONTÍNUO (DESKTOP & MOBILE)     */}
+      {/* 1. HERO: VÍDEOS EM LOOPING CONTÍNUO COM PROFUNDIDADE     */}
       {/* ======================================================== */}
       <div className="absolute top-0 left-0 right-0 h-[100dvh] min-h-[720px] overflow-hidden">
         {/* Vídeo Desktop (16:9) */}
@@ -20,7 +20,7 @@ export function ContinuousBackground() {
           playsInline
           preload="auto"
           poster="/videos/header-desktop-poster.webp"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center opacity-80 brightness-[0.75] contrast-[1.05]"
         >
           <source src="/videos/header-desktop.mp4" type="video/mp4" />
         </video>
@@ -33,10 +33,19 @@ export function ContinuousBackground() {
           playsInline
           preload="auto"
           poster="/videos/header-mobile-poster.webp"
-          className="block md:hidden absolute inset-0 w-full h-full object-cover object-center"
+          className="block md:hidden absolute inset-0 w-full h-full object-cover object-center opacity-80 brightness-[0.75] contrast-[1.05]"
         >
           <source src="/videos/header-mobile.mp4" type="video/mp4" />
         </video>
+
+        {/* Camada 1: Vinheta cinematográfica radial (sensação de fundura e profundidade) */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(3,3,6,0.30)_0%,_rgba(3,3,6,0.65)_70%,_rgba(3,3,6,0.92)_100%)] pointer-events-none" />
+
+        {/* Camada 2: Gradiente lateral para dar destaque total aos textos e informações à esquerda */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#030306]/80 via-[#030306]/45 to-transparent pointer-events-none" />
+
+        {/* Camada 3: Gradiente na base para ancorar subtítulo, botões e cards, integrando à próxima seção */}
+        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#030306] via-[#030306]/75 to-transparent pointer-events-none" />
       </div>
 
       {/* ======================================================== */}
