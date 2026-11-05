@@ -12,14 +12,25 @@ export function Footer() {
       <div className="mx-auto max-w-[1200px]">
         <div className="flex flex-col gap-[32px] md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-[12px]">
-            <Image
-              src="/logo.png"
-              alt=""
-              width={64}
-              height={64}
-              className="h-[64px] w-auto opacity-60"
-              aria-hidden="true"
-            />
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (typeof window !== "undefined" && window.location.pathname === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+              className="flex items-center transition-opacity hover:opacity-100"
+              aria-label="BCOMM - Voltar para o início"
+            >
+              <Image
+                src="/logo.png"
+                alt="BCOMM"
+                width={120}
+                height={22}
+                className="h-[22px] w-auto opacity-70"
+              />
+            </Link>
             <span className="text-[14px] font-normal text-ash">
               &copy; {new Date().getFullYear()} {dict.footer.copyright}
             </span>

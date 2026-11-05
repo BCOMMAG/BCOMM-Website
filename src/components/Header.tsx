@@ -32,6 +32,20 @@ function handleAnchorClick(
   }
 }
 
+function handleLogoClick(
+  e: React.MouseEvent<HTMLAnchorElement>,
+  callback?: () => void
+) {
+  if (callback) callback();
+  if (typeof window !== "undefined") {
+    if (window.location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.pushState(null, "", "/");
+    }
+  }
+}
+
 function NavDropdown({
   item,
   onClose,
@@ -160,17 +174,20 @@ export function Header() {
         className="mx-auto flex max-w-[1200px] items-center justify-between px-[24px] py-[16px] md:px-[48px]"
         aria-label="Navegação principal"
       >
-        <Link href="/" className="relative flex items-center w-[80px] md:w-[96px] h-[32px]">
-          <Image 
-            src="/logo.png" 
-            alt="" 
-            width={96} 
-            height={96} 
-            className="absolute top-[-16px] left-0 h-[80px] w-auto md:h-[96px]" 
-            aria-hidden="true" 
-            priority 
+        <Link
+          href="/"
+          onClick={(e) => handleLogoClick(e, () => setMobileOpen(false))}
+          className="flex items-center transition-opacity hover:opacity-85 py-1"
+          aria-label="BCOMM - Voltar para o início"
+        >
+          <Image
+            src="/logo.png"
+            alt="BCOMM"
+            width={142}
+            height={26}
+            className="h-[22px] w-auto md:h-[26px] object-contain"
+            priority
           />
-          <span className="sr-only">BCOMM</span>
         </Link>
 
         <ul className="hidden items-center gap-[8px] md:flex">
