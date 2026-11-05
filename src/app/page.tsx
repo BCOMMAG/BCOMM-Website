@@ -161,16 +161,18 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header />
-      <main className="relative bg-[#030306] overflow-x-hidden">
+      <main className="relative z-0 overflow-x-hidden">
         <ContinuousBackground />
-        <Hero />
-        <Solutions />
-        <About />
-        <Process />
-        <Cases />
-        <AIArchitecture />
-        <FAQ />
-        <Contact />
+        <div className="relative z-10">
+          <Hero />
+          <Solutions />
+          <About />
+          <Process />
+          <Cases />
+          <AIArchitecture />
+          <FAQ />
+          <Contact />
+        </div>
       </main>
       <Footer />
       <WhatsAppButton />
