@@ -10,7 +10,7 @@ export function ContinuousBackground() {
       className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
     >
       {/* ======================================================== */}
-      {/* 1. HERO: PRIMEIRA IMAGEM ESTÁTICA COM TOTAL VISIBILIDADE  */}
+      {/* 1. HERO: APENAS A IMAGEM ORIGINAL PURA (SEM GRADIENTES)  */}
       {/* ======================================================== */}
       <div className="absolute top-0 left-0 right-0 h-[100dvh] min-h-[720px] overflow-hidden">
         {/* Imagem Desktop */}
@@ -21,7 +21,7 @@ export function ContinuousBackground() {
             fill
             priority
             quality={100}
-            className="object-cover object-center opacity-100"
+            className="object-cover object-center"
             sizes="100vw"
           />
         </div>
@@ -34,19 +34,10 @@ export function ContinuousBackground() {
             fill
             priority
             quality={95}
-            className="object-cover object-center opacity-100"
+            className="object-cover object-center"
             sizes="100vw"
           />
         </div>
-
-        {/* Máscara suave apenas à esquerda para garantir alto contraste do texto */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
-
-        {/* Brilho violeta de horizonte no rodapé da primeira dobra */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[350px] w-[900px] max-w-full rounded-full bg-iris/25 blur-[120px]" />
-
-        {/* Transição suave em degradê da imagem do Hero para o fundo das seções seguintes */}
-        <div className="absolute bottom-0 left-0 right-0 h-[260px] bg-gradient-to-b from-transparent via-[#000000]/80 to-[#000000]" />
       </div>
 
       {/* ======================================================== */}
