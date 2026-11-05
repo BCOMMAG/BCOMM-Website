@@ -7,36 +7,33 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PricingTabs } from "./PricingTabs";
 
 export const metadata: Metadata = {
-  title: "Tabela de Preços e Planos Transparentes | Websites & E-commerce | BCOMM",
+  title: "Planos e Soluções Sob Medida | Websites, E-commerce e Automação | BCOMM",
   description:
-    "Conheça os planos transparentes da BCOMM. Websites profissionais a partir de R$ 597 e Lojas Virtuais Sob Medida a partir de R$ 1.897 com gestão técnica especializada.",
+    "Soluções digitais sob medida da BCOMM: Websites com Link Bio integrado, Lojas Virtuais Personalizadas e Automação de Processos com Inteligência Artificial. Orçamentos transparentes.",
   keywords: [
-    "preços criação de sites",
-    "quanto custa um site",
-    "preço e-commerce",
-    "preço loja virtual",
-    "criar loja virtual sob medida",
-    "preço landing page",
-    "planos de manutenção de site",
-    "gestão e-commerce vps",
-    "link bio instagram preço",
-    "desenvolvimento web preços",
-    "bcomm preços",
+    "soluções websites sob medida",
+    "criar website profissional",
+    "e-commerce personalizado",
+    "loja virtual sob medida",
+    "automação com IA",
+    "agentes de IA atendimento",
+    "link bio instagram próprio",
+    "desenvolvimento web internacional",
+    "bcomm soluções",
   ],
   openGraph: {
-    title: "Tabela de Preços e Planos Transparentes | BCOMM",
+    title: "Planos e Soluções Sob Medida | BCOMM",
     description:
-      "Websites a partir de R$ 597 e E-commerce Sob Medida a partir de R$ 1.897. Transparência comercial e alta performance.",
+      "Websites com Link Bio, E-commerce Sob Medida e Automação com IA para empresas no Brasil e no exterior.",
   },
 };
 
 export default function PrecosPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "PriceSpecification",
-    name: "Tabela de Preços BCOMM",
-    description: "Estruturas de desenvolvimento digital, lojas virtuais sob medida e planos de gestão contínua da BCOMM.",
-    priceCurrency: "BRL",
+    "@type": "OfferCatalog",
+    name: "Soluções e Entregas BCOMM",
+    description: "Estruturas de desenvolvimento web, lojas virtuais sob medida e automação com inteligência artificial.",
     url: "https://agent-bcomm.space/precos",
   };
 
@@ -49,7 +46,7 @@ export default function PrecosPage() {
       <Header />
       <main className="min-h-screen bg-void-black pt-[120px] pb-[96px]">
         <div className="mx-auto max-w-[1280px] px-[20px] md:px-[40px] lg:px-[64px]">
-          <Breadcrumbs items={[{ label: "Preços & Planos" }]} />
+          <Breadcrumbs items={[{ label: "Soluções & Planos" }]} />
 
           {/* ======================================================== */}
           {/* HEADER DA PÁGINA COM PROPOSTA DE VALOR                   */}
@@ -58,16 +55,16 @@ export default function PrecosPage() {
             <div className="inline-flex items-center gap-[8px] rounded-full border border-iris/40 bg-iris/10 px-[14px] py-[5px]">
               <span className="h-[6px] w-[6px] rounded-full bg-iris animate-pulse" />
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-iris">
-                Transparência Comercial BCOMM
+                Escopos de Entrega BCOMM
               </p>
             </div>
 
             <h1 className="mt-[16px] text-[36px] font-normal leading-[1.15] tracking-[-0.05em] text-white sm:text-[46px] md:text-[58px]">
-              Escolha a estrutura ideal para sua presença e vendas online
+              Soluções sob medida para a presença e escala do seu negócio
             </h1>
 
             <p className="mt-[18px] text-[16px] leading-[1.65] text-ash sm:text-[18px]">
-              Planos objetivos e transparentes: selecione entre <strong>Websites Institucionais</strong> para autoridade de marca ou <strong>Lojas Virtuais Sob Medida</strong> para vender com catálogo próprio e controle total da sua operação.
+              Conheça nossas estruturas de entrega: <strong>Website com Link Bio</strong> para autoridade de marca, <strong>E-commerce Sob Medida</strong> para vender com catálogo próprio ou <strong>Sistemas Customizados com IA</strong> para máxima eficiência operacional.
             </p>
           </div>
 
@@ -76,7 +73,7 @@ export default function PrecosPage() {
               <div className="mt-16 flex justify-center">
                 <div className="inline-flex items-center gap-3 rounded-full border border-graphite bg-[#0e0e12] px-6 py-3 text-ash font-mono text-[13px]">
                   <span className="h-2 w-2 rounded-full bg-iris animate-ping" />
-                  Carregando planos e opções...
+                  Carregando soluções e escopos...
                 </div>
               </div>
             }

@@ -4,7 +4,6 @@ export const LINKTREE = {
   instagram: "https://www.instagram.com/bcomm.br",
   facebook: "https://www.facebook.com/bcommagent",
   website: "https://agent-bcomm.space",
-  email: "contato@agent-bcomm.space",
 } as const;
 
 export const linktreeLinks = [

@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "replace_frames.js",
+    "extract.mjs",
   ]),
 ]);
 

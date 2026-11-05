@@ -60,18 +60,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${base}/blog`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/blog/como-criar-landing-page-que-converte`,
-      lastModified: new Date("2026-08-15"),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
       url: `${base}/blog/e-commerce-que-vende-mais`,
       lastModified: new Date("2026-08-22"),
       changeFrequency: "monthly",

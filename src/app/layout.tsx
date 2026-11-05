@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/LenisProvider";
+import { LocaleProvider } from "@/context/LocaleContext";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -124,7 +125,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     telephone: "+554196398023",
     contactPoint: {
       "@type": "ContactPoint",
-      email: "contato@agent-bcomm.space",
+    email: "contato@agent-bcomm.space",
       telephone: "+554196398023",
       contactType: "customer service",
       availableLanguage: "Portuguese",
@@ -191,7 +192,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body>
-        <LenisProvider>{children}</LenisProvider>
+        <LocaleProvider>
+          <LenisProvider>{children}</LenisProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

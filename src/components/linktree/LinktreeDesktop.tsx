@@ -38,9 +38,11 @@ export function LinktreeDesktop() {
             />
           </div>
 
-          <img
+          <Image
             src="/logo.png"
             alt="BCOMM"
+            width={96}
+            height={32}
             className="mt-[12px] h-[32px] w-auto opacity-60"
           />
 

@@ -39,7 +39,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="mb-[12px] text-[20px] font-semibold text-white">1. Data collected</h2>
               <p>
-                When you fill out our contact form, we collect: name, email address, phone number, and the message sent. This data is used exclusively to respond to your inquiry.
+                When you contact us via our form or WhatsApp, we collect: your name and the message sent. This data is used exclusively to respond to your inquiry and scope your project.
               </p>
             </section>
 
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="mb-[12px] text-[20px] font-semibold text-white">5. Your rights</h2>
               <p>
-                Under the LGPD (Brazilian General Data Protection Law), you have the right to: access your data, correct incomplete or outdated data, request deletion of your data, and revoke consent for data use. To exercise these rights, contact us at contato@agent-bcomm.space.
+                Under the LGPD (Brazilian General Data Protection Law), you have the right to: access your data, correct incomplete or outdated data, request deletion of your data, and revoke consent for data use. To exercise these rights, contact us on WhatsApp at +55 41 96398-023.
               </p>
             </section>
 
@@ -84,8 +84,7 @@ export default function PrivacyPage() {
                 For questions about this policy or about the treatment of your data, contact us:
               </p>
               <ul className="mt-[8px] flex flex-col gap-[4px]">
-                <li>Email: <a href="mailto:contato@agent-bcomm.space" className="text-iris hover:text-iris-glow">contato@agent-bcomm.space</a></li>
-                <li>WhatsApp: <a href="https://wa.me/554196398023" target="_blank" rel="noopener noreferrer" className="text-iris hover:text-iris-glow">(41) 96398-023</a></li>
+                <li>WhatsApp: <a href="https://wa.me/554196398023" target="_blank" rel="noopener noreferrer" className="text-iris hover:text-iris-glow">+55 (41) 96398-023</a></li>
               </ul>
             </section>
           </div>

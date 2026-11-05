@@ -1,6 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useTranslation } from "@/context/LocaleContext";
 
 export function Footer() {
+  const { dict } = useTranslation();
+
   return (
     <footer className="border-t border-graphite bg-transparent px-[24px] py-[32px] md:px-[48px]">
       <div className="mx-auto max-w-[1200px]">
@@ -15,39 +21,36 @@ export function Footer() {
               aria-hidden="true"
             />
             <span className="text-[14px] font-normal text-ash">
-              © {new Date().getFullYear()} BCOMM Comunicação Inteligente
+              &copy; {new Date().getFullYear()} {dict.footer.copyright}
             </span>
           </div>
 
           <div className="flex flex-col gap-[16px] md:flex-row md:items-center md:gap-[32px]">
             <nav className="flex flex-wrap gap-[20px] md:gap-[24px]" aria-label="Serviços">
-              <a href="/servicos/websites" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
-                Websites
-              </a>
-              <a href="/servicos/ecommerce" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
-                E-commerce
-              </a>
-              <a href="/servicos/automacao" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
-                Automação
-              </a>
-              <a href="/servicos/link-bio" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
-                Link Bio
-              </a>
+              <Link href="/servicos/websites" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
+                {dict.footer.websites}
+              </Link>
+              <Link href="/servicos/ecommerce" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
+                {dict.footer.ecommerce}
+              </Link>
+              <Link href="/servicos/automacao" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
+                {dict.footer.automation}
+              </Link>
+              <Link href="/servicos/link-bio" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
+                {dict.footer.linkBio}
+              </Link>
             </nav>
 
             <div className="flex flex-wrap gap-[20px] md:gap-[24px]">
-              <a href="/precos" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
-                Preços
-              </a>
-              <a href="/links" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
-                Central de Links
-              </a>
-              <a href="/blog" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
-                Blog
-              </a>
-              <a href="/#contato" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
-                Contato
-              </a>
+              <Link href="/precos" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
+                {dict.footer.prices}
+              </Link>
+              <Link href="/links" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
+                {dict.footer.centralLinks}
+              </Link>
+              <Link href="/#contato" className="text-[14px] font-normal text-ash transition-colors hover:text-bone">
+                {dict.footer.contact}
+              </Link>
             </div>
           </div>
         </div>

@@ -11,7 +11,6 @@ const KNOWN_PATHS = [
   "/precos",
   "/proposta",
   "/cases",
-  "/blog",
   "/sobre",
   "/contato",
   "/politica-privacidade",
@@ -36,7 +35,6 @@ This URL does not exist on the BCOMM website.
 - [Link Bio Instagram](https://agent-bcomm.space/servicos/link-bio)
 - [Central de Links (Bio)](https://agent-bcomm.space/links)
 - [Cases](https://agent-bcomm.space/cases)
-- [Blog](https://agent-bcomm.space/blog)
 - [About](https://agent-bcomm.space/about)
 - [Contact](https://agent-bcomm.space/contact)
 
@@ -48,19 +46,36 @@ This URL does not exist on the BCOMM website.
 
 ## Contact
 
-- Email: contato@agent-bcomm.space
 - WhatsApp: https://wa.me/554196398023
+- Email: contato@agent-bcomm.space
 `;
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const response = NextResponse.next();
   response.headers.set("Vary", "Accept, Accept-Encoding");
+
+  // Detecção prévia inteligente de idioma do lead internacional
+  const localeCookie = request.cookies.get("NEXT_LOCALE")?.value;
+  if (!localeCookie) {
+    const acceptLang = (request.headers.get("accept-language") || "").toLowerCase();
+    let detected = "en";
+    if (acceptLang.startsWith("pt") || acceptLang.includes(",pt")) detected = "pt";
+    else if (acceptLang.startsWith("es") || acceptLang.includes(",es")) detected = "es";
+    else if (acceptLang.startsWith("fr") || acceptLang.includes(",fr")) detected = "fr";
+    else if (acceptLang.startsWith("en") || acceptLang.includes(",en")) detected = "en";
+
+    response.cookies.set("NEXT_LOCALE", detected, {
+      path: "/",
+      maxAge: 31536000,
+      sameSite: "lax",
+    });
+  }
 
   const accept = request.headers.get("accept") || "";
   const path = request.nextUrl.pathname;
 
   const isMarkdownRequest = accept.includes("text/markdown");
-  const isKnownPath = KNOWN_PATHS.includes(path) || path.startsWith("/blog/");
+  const isKnownPath = KNOWN_PATHS.includes(path);
 
   if (isMarkdownRequest && !isKnownPath) {
     return new NextResponse(NOT_FOUND_MD, {

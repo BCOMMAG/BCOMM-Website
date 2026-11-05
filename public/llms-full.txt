@@ -47,7 +47,7 @@ Lojas virtuais que crescem com o negócio. Do catálogo ao checkout, tudo integr
 - Integração com gateways de pagamento (Stripe, PagSeguro, Mercado Pago)
 - Gestão de estoque e pedidos em tempo real
 - Painel administrativo completo
-- Integração com WhatsApp e e-mail marketing
+- Integração com WhatsApp e CRM
 
 ### 4. Automação com IA
 Agentes inteligentes que automatizam tarefas repetitivas, reduzem erros e liberam o time para tarefas estratégicas.
@@ -88,7 +88,7 @@ Página de links personalizada para bio do Instagram e redes sociais. Design exc
 **O que inclui:**
 - Design personalizado com identidade visual
 - Links organizados por categoria
-- Integração com WhatsApp, Instagram, email
+- Integração com WhatsApp e Instagram
 - Analytics de cliques
 - Otimizado para mobile
 - SEO e schema para buscadores
@@ -165,4 +165,3 @@ Página de links personalizada para bio do Instagram e redes sociais. Design exc
 - **Scroll:** Lenis
 - **Ícones:** Lucide React
 - **Deploy:** Vercel
-- **Email:** Nodemailer

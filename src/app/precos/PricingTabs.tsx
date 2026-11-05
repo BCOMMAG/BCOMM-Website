@@ -1,18 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { useTranslation } from "@/context/LocaleContext";
 import {
-  developmentPlans,
-  managementPlans,
-  structureComparisonRows,
-  managementComparisonRows,
-  pricingFaq,
-  ecommercePlans,
-  ecommerceComparisonRows,
-  ecommerceFaq,
-  EcommerceBillingCycle,
+  solutionProducts,
+  scopeComparisonRows,
+  scopeFaq,
 } from "@/lib/pricingData";
 
 const WHATSAPP_NUMBER = "554196398023";
@@ -21,1166 +14,312 @@ function getWhatsappLink(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-function getEcommerceWhatsappMessage(
-  planName: string,
-  cycle: EcommerceBillingCycle,
-  monthlyPrice: string
-) {
-  const cycleText =
-    cycle === "mensal"
-      ? "no plano mensal sem fidelidade"
-      : cycle === "semestral"
-      ? "no plano semestral"
-      : "no plano anual";
-  return `Olá! Gostaria de contratar o ${planName} (R$ 1.897 + R$ ${monthlyPrice}/mês ${cycleText}) para a minha loja.`;
-}
-
 export function PricingTabs() {
-  const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState<"institutional" | "ecommerce">("institutional");
-  const [ecommerceCycle, setEcommerceCycle] = useState<EcommerceBillingCycle>("anual");
-
-  useEffect(() => {
-    const checkTab = () => {
-      const hash = window.location.hash.toLowerCase();
-      const tipo = searchParams.get("tipo")?.toLowerCase();
-
-      if (tipo === "ecommerce" || hash === "#ecommerce" || hash.includes("ecommerce")) {
-        setActiveTab("ecommerce");
-      } else if (
-        tipo === "institucional" ||
-        tipo === "websites" ||
-        hash === "#websites" ||
-        hash === "#institucional"
-      ) {
-        setActiveTab("institutional");
-      }
-    };
-
-    checkTab();
-    window.addEventListener("hashchange", checkTab);
-    window.addEventListener("popstate", checkTab);
-    return () => {
-      window.removeEventListener("hashchange", checkTab);
-      window.removeEventListener("popstate", checkTab);
-    };
-  }, [searchParams]);
-
-  const handleTabChange = (tab: "institutional" | "ecommerce") => {
-    setActiveTab(tab);
-    if (typeof window !== "undefined") {
-      const url = new URL(window.location.href);
-      if (tab === "ecommerce") {
-        url.searchParams.set("tipo", "ecommerce");
-      } else {
-        url.searchParams.delete("tipo");
-      }
-      url.hash = "";
-      window.history.replaceState(null, "", url.pathname + (url.search ? url.search : ""));
-    }
-  };
+  const { dict, locale } = useTranslation();
+  const pricingText = dict.pricingPage;
 
   return (
-    <div>
+    <div className="mt-12">
       {/* ======================================================== */}
-      {/* SELETOR DE ABAS (TABS / SWITCHER)                         */}
+      {/* 3 CARDS DE SOLUÇÕES PRINCIPAIS                            */}
       {/* ======================================================== */}
-      <div className="mt-[36px] flex justify-center">
-        <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-1.5 rounded-full border border-graphite bg-[#0e0e12]/95 p-1.5 shadow-2xl backdrop-blur-md">
-          <button
-            type="button"
-            onClick={() => handleTabChange("institutional")}
-            className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-medium transition-all duration-200 cursor-pointer ${
-              activeTab === "institutional"
-                ? "bg-[#181824] text-white border border-iris/60 shadow-[0_0_20px_rgba(146,129,247,0.18)]"
-                : "text-ash hover:text-white border border-transparent hover:bg-white/[0.04]"
-            }`}
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={activeTab === "institutional" ? "text-iris" : "text-neutral-500"}
-            >
-              <circle cx="12" cy="12" r="10" />
-              <line x1="2" y1="12" x2="22" y2="12" />
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-            </svg>
-            <span>Websites Institucionais</span>
-            <span
-              className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase font-bold tracking-wider ${
-                activeTab === "institutional"
-                  ? "bg-iris/20 text-iris"
-                  : "bg-neutral-800 text-neutral-400"
-              }`}
-            >
-              R$ 597+
-            </span>
-          </button>
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {solutionProducts.map((p) => {
+          const isHighlight = p.highlight;
+          const mailtoSubject = encodeURIComponent(
+            locale === "en"
+              ? `Quote Request BCOMM: ${p.name}`
+              : locale === "es"
+              ? `Presupuesto BCOMM: ${p.name}`
+              : locale === "fr"
+              ? `Devis BCOMM: ${p.name}`
+              : `Orçamento BCOMM: ${p.name}`
+          );
 
-          <button
-            type="button"
-            onClick={() => handleTabChange("ecommerce")}
-            className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-medium transition-all duration-200 cursor-pointer ${
-              activeTab === "ecommerce"
-                ? "bg-[#181824] text-white border border-iris/60 shadow-[0_0_20px_rgba(146,129,247,0.18)]"
-                : "text-ash hover:text-white border border-transparent hover:bg-white/[0.04]"
-            }`}
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={activeTab === "ecommerce" ? "text-iris" : "text-neutral-500"}
-            >
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <path d="M16 10a4 4 0 0 1-8 0" />
-            </svg>
-            <span>Lojas Virtuais &amp; E-commerce</span>
-            <span
-              className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase font-bold tracking-wider ${
-                activeTab === "ecommerce"
-                  ? "bg-iris text-black"
-                  : "bg-iris/20 text-iris"
+          const mailtoBody = encodeURIComponent(
+            locale === "en"
+              ? `Hello BCOMM Team!\n\nI would like to request a proposal for: ${p.name}.\n\nCompany / Country:\nProject details:\n`
+              : locale === "es"
+              ? `¡Hola equipo de BCOMM!\n\nMe gustaría solicitar una propuesta para: ${p.name}.\n\nEmpresa / País:\nDetalles del proyecto:\n`
+              : locale === "fr"
+              ? `Bonjour l'équipe BCOMM!\n\nJe souhaite obtenir un devis pour: ${p.name}.\n\nEntreprise / Pays:\nDétails du projet:\n`
+              : `Olá equipe BCOMM!\n\nGostaria de solicitar uma proposta comercial para a solução: ${p.name}.\n\nEmpresa / País:\nDetalhes da demanda:\n`
+          );
+
+          const mailtoLink = `mailto:contato@agent-bcomm.space?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+          return (
+            <div
+              key={p.id}
+              className={`relative flex flex-col justify-between rounded-[24px] border p-8 transition-all duration-300 md:p-10 ${
+                isHighlight
+                  ? "border-iris/60 bg-[#101018] shadow-[0_0_50px_rgba(146,129,247,0.12)] ring-1 ring-iris/40"
+                  : "border-graphite bg-[#0b0b0f] hover:border-iron hover:bg-[#0e0e14]"
               }`}
             >
-              Sob Medida
-            </span>
-          </button>
+              {/* Badge superior */}
+              {p.badge && (
+                <div className="absolute -top-3.5 left-8">
+                  <span
+                    className={`rounded-full px-3.5 py-1 font-mono text-[11px] font-semibold tracking-wider uppercase ${
+                      isHighlight
+                        ? "bg-iris text-white shadow-md"
+                        : "border border-graphite bg-[#16161e] text-ash"
+                    }`}
+                  >
+                    {isHighlight ? pricingText.cardBadgePopular : p.badge}
+                  </span>
+                </div>
+              )}
+
+              {/* Cabeçalho do Card */}
+              <div>
+                <div className="mt-2">
+                  <span className="font-mono text-[12px] uppercase tracking-wider text-iris">
+                    {p.tagline}
+                  </span>
+                  <h2 className="mt-2 text-[26px] font-medium leading-[1.25] text-white">
+                    {p.name}
+                  </h2>
+                </div>
+
+                <p className="mt-4 text-[14.5px] leading-[1.65] text-ash">
+                  {p.description}
+                </p>
+
+                {/* Bloco de Orçamento Sob Medida */}
+                <div className="mt-6 rounded-2xl border border-graphite/80 bg-black/40 p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[12px] uppercase text-ash">
+                      {pricingText.commercialModel}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[11px] font-medium text-emerald-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      {pricingText.immediateService}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-[22px] font-semibold text-white">
+                    {pricingText.customQuote}
+                  </p>
+                  <p className="mt-1 text-[12.5px] text-ash leading-relaxed">
+                    {pricingText.customQuoteDesc}
+                  </p>
+                </div>
+
+                {/* Checklist de Recursos */}
+                <div className="mt-8">
+                  <p className="font-mono text-[12px] font-semibold uppercase tracking-wider text-white">
+                    {pricingText.includedTitle}
+                  </p>
+                  <ul className="mt-4 space-y-3">
+                    {p.features.map((feat) => (
+                      <li key={feat} className="flex items-start gap-3 text-[14px] text-bone">
+                        <svg
+                          className="mt-0.5 h-4 w-4 shrink-0 text-iris"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path
+                            d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Box de Entregáveis */}
+                <div className="mt-8 rounded-xl border border-neutral-800/80 bg-neutral-900/40 p-4">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-iris font-semibold">
+                    {pricingText.deliverablesTitle}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {p.deliverables.map((del) => (
+                      <span
+                        key={del}
+                        className="rounded-lg border border-graphite/60 bg-[#14141c] px-2.5 py-1 font-mono text-[11.5px] text-ash"
+                      >
+                        {del}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Botões de Ação Duplo (WhatsApp + E-mail) */}
+              <div className="mt-8 pt-6 border-t border-graphite/70 flex flex-col gap-3">
+                <a
+                  href={getWhatsappLink(p.whatsappMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center justify-center gap-2.5 rounded-full py-3.5 px-6 font-medium text-[15px] transition-all duration-200 active:scale-98 ${
+                    isHighlight
+                      ? "bg-iris text-black hover:bg-iris-glow shadow-[0_0_20px_rgba(146,129,247,0.3)]"
+                      : "bg-white text-black hover:bg-neutral-200"
+                  }`}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  {pricingText.ctaWhatsapp}
+                </a>
+
+                <a
+                  href={mailtoLink}
+                  className="flex items-center justify-center gap-2 rounded-full py-2.5 px-4 text-[13px] font-mono text-ash transition-colors duration-150 hover:bg-white/[0.05] hover:text-white"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                  {pricingText.ctaEmail}
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* ======================================================== */}
+      {/* TABELA COMPARATIVA DE ESCOPOS                             */}
+      {/* ======================================================== */}
+      <div className="mt-24">
+        <div className="text-center max-w-2xl mx-auto">
+          <p className="font-mono text-[12px] uppercase tracking-wider text-iris">
+            {pricingText.tableTag}
+          </p>
+          <h2 className="mt-2 text-[30px] font-normal tracking-[-0.03em] text-white md:text-[38px]">
+            {pricingText.tableTitle}
+          </h2>
+          <p className="mt-3 text-[15px] text-ash">
+            {pricingText.tableSubtitle}
+          </p>
+        </div>
+
+        <div className="mt-10 overflow-x-auto rounded-2xl border border-graphite bg-[#0b0b0f]">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="border-b border-graphite bg-[#121218] text-[13px] font-mono text-ash uppercase">
+                <th className="py-4 px-6 font-semibold">{pricingText.tableCol1}</th>
+                <th className="py-4 px-6 font-semibold text-center">{pricingText.tableCol2}</th>
+                <th className="py-4 px-6 font-semibold text-center text-iris">{pricingText.tableCol3}</th>
+                <th className="py-4 px-6 font-semibold text-center">{pricingText.tableCol4}</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-graphite/60 text-[14px]">
+              {scopeComparisonRows.map((row) => (
+                <tr key={row.feature} className="hover:bg-white/[0.02] transition-colors">
+                  <td className="py-4 px-6 font-medium text-bone">{row.feature}</td>
+                  
+                  {/* Website */}
+                  <td className="py-4 px-6 text-center">
+                    {typeof row.website === "boolean" ? (
+                      row.website ? (
+                        <span className="inline-block text-emerald-400 font-bold">✓</span>
+                      ) : (
+                        <span className="inline-block text-neutral-600">—</span>
+                      )
+                    ) : (
+                      <span className="font-mono text-[12px] text-ash">{row.website}</span>
+                    )}
+                  </td>
+
+                  {/* E-commerce */}
+                  <td className="py-4 px-6 text-center bg-iris/[0.02]">
+                    {typeof row.ecommerce === "boolean" ? (
+                      row.ecommerce ? (
+                        <span className="inline-block text-emerald-400 font-bold">✓</span>
+                      ) : (
+                        <span className="inline-block text-neutral-600">—</span>
+                      )
+                    ) : (
+                      <span className="font-mono text-[12px] text-iris">{row.ecommerce}</span>
+                    )}
+                  </td>
+
+                  {/* Custom AI */}
+                  <td className="py-4 px-6 text-center">
+                    {typeof row.customAi === "boolean" ? (
+                      row.customAi ? (
+                        <span className="inline-block text-emerald-400 font-bold">✓</span>
+                      ) : (
+                        <span className="inline-block text-neutral-600">—</span>
+                      )
+                    ) : (
+                      <span className="font-mono text-[12px] text-ash">{row.customAi}</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
       {/* ======================================================== */}
-      {/* CONTEÚDO DA ABA 1: WEBSITES INSTITUCIONAIS               */}
+      {/* FAQ DA PÁGINA                                             */}
       {/* ======================================================== */}
-      {activeTab === "institutional" && (
-        <div>
-          {/* Atalhos Rápidos */}
-          <div className="mt-[28px] flex flex-wrap items-center justify-center gap-[12px]">
-            <a
-              href="#desenvolvimento"
-              className="inline-flex items-center gap-[6px] rounded-full border border-graphite bg-[#0e0e11] px-[18px] py-[10px] text-[13px] font-medium text-bone transition-colors hover:border-iris hover:text-white"
-            >
-              <span>1. Estrutura Inicial (R$ 597 a R$ 1.297)</span>
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-            <a
-              href="#gestao"
-              className="inline-flex items-center gap-[6px] rounded-full border border-graphite bg-[#0e0e11] px-[18px] py-[10px] text-[13px] font-medium text-bone transition-colors hover:border-iris hover:text-white"
-            >
-              <span>2. Gestão Pós-Entrega (R$ 0 a R$ 297/mês)</span>
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-          </div>
-
-          {/* FASE 1: PLANOS DE DESENVOLVIMENTO (ESTRUTURA INICIAL) */}
-          <section id="desenvolvimento" className="mt-[64px] md:mt-[80px] scroll-mt-28">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between border-b border-graphite pb-[24px]">
-              <div>
-                <span className="font-mono text-[12px] font-semibold text-iris uppercase tracking-wider">
-                  Etapa 01 {"//"} Escolha Inicial
-                </span>
-                <h2 className="mt-[8px] text-[28px] font-normal leading-[1.2] tracking-[-0.04em] text-white sm:text-[38px]">
-                  Planos de Desenvolvimento
-                </h2>
-                <p className="mt-[8px] text-[15px] text-ash">
-                  Investimento único para criação, arquitetura, design sob medida e publicação global.
-                </p>
-              </div>
-              <div className="mt-4 md:mt-0 font-mono text-[12px] text-neutral-400">
-                Sem mensalidade obrigatória
-              </div>
-            </div>
-
-            {/* Grid dos 3 Cards de Desenvolvimento */}
-            <div className="mt-[36px] grid grid-cols-1 gap-[24px] lg:grid-cols-3">
-              {developmentPlans.map((plan) => {
-                const isHighlighted = plan.highlight;
-                return (
-                  <div
-                    key={plan.id}
-                    className={`relative flex flex-col justify-between rounded-[24px] p-[32px] transition-all duration-300 ${
-                      isHighlighted
-                        ? "border-2 border-iris bg-[#0f0e18] shadow-[0_0_40px_rgba(146,129,247,0.22)] lg:-translate-y-2"
-                        : "border border-graphite bg-[#0b0b0c] hover:border-iron"
-                    }`}
-                  >
-                    {/* Badge de Destaque */}
-                    {plan.badge && (
-                      <div className="absolute -top-[13px] left-1/2 -translate-x-1/2 rounded-full bg-iris px-[14px] py-[3px] text-center font-mono text-[10px] font-bold uppercase tracking-wider text-black shadow-md">
-                        {plan.badge}
-                      </div>
-                    )}
-
-                    <div>
-                      {/* Topo do Card */}
-                      <div className="flex items-center justify-between">
-                        <span className="font-mono text-[12px] uppercase tracking-wider text-neutral-400">
-                          {plan.tagline}
-                        </span>
-                        {isHighlighted && (
-                          <span className="h-2 w-2 rounded-full bg-iris animate-pulse" />
-                        )}
-                      </div>
-
-                      <h3 className="mt-[12px] text-[26px] font-semibold text-white">
-                        {plan.name}
-                      </h3>
-
-                      <p className="mt-[8px] text-[13.5px] leading-[1.5] text-ash min-h-[42px]">
-                        {plan.description}
-                      </p>
-
-                      {/* Bloco de Preço */}
-                      <div className="mt-[24px] border-y border-graphite/70 py-[20px]">
-                        <div className="flex items-baseline gap-[6px]">
-                          <span className="text-[14px] font-normal text-neutral-400">R$</span>
-                          <span
-                            className={`font-mono text-[44px] font-bold leading-none tracking-tight ${
-                              isHighlighted ? "text-iris" : "text-white"
-                            }`}
-                          >
-                            {plan.price}
-                          </span>
-                        </div>
-                        <span className="mt-[4px] block font-mono text-[11px] text-neutral-400">
-                          Pagamento único no desenvolvimento
-                        </span>
-                      </div>
-
-                      {/* Lista de Recursos */}
-                      <div className="mt-[24px]">
-                        <p className="font-mono text-[11px] uppercase tracking-wider text-neutral-400 font-semibold mb-3">
-                          O que está incluído:
-                        </p>
-                        <ul className="flex flex-col gap-[10px]">
-                          {plan.features.map((feat) => (
-                            <li key={feat} className="flex items-start gap-[10px] text-[13.5px] text-bone">
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                className="shrink-0 mt-0.5 text-iris"
-                              >
-                                <path
-                                  d="M3 8L7 12L13 4"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                              <span>{feat}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* Itens que não fazem parte do plano */}
-                        {plan.notIncluded && plan.notIncluded.length > 0 && (
-                          <div className="mt-[18px] border-t border-graphite/40 pt-[14px]">
-                            <ul className="flex flex-col gap-[8px]">
-                              {plan.notIncluded.map((item) => (
-                                <li key={item} className="flex items-center gap-[10px] text-[12.5px] text-neutral-500">
-                                  <svg
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                    className="shrink-0 text-neutral-600"
-                                  >
-                                    <path
-                                      d="M4 4L12 12M12 4L4 12"
-                                      stroke="currentColor"
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                    />
-                                  </svg>
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Botão de Contratação */}
-                    <div className="mt-[32px]">
-                      <a
-                        href={getWhatsappLink(plan.whatsappMessage)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-full inline-flex items-center justify-center gap-[8px] rounded-full px-[24px] py-[13px] text-[14px] font-semibold transition-all duration-200 active:scale-98 cursor-pointer ${
-                          isHighlighted
-                            ? "bg-iris text-black hover:bg-white hover:text-black shadow-lg"
-                            : "border border-graphite bg-[#121216] text-white hover:border-iris hover:bg-iris hover:text-black"
-                        }`}
-                      >
-                        {plan.cta}
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                          <path
-                            d="M6 3L11 8L6 13"
-                            stroke="currentColor"
-                            strokeWidth="1.8"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Tabela Comparativa dos Planos de Desenvolvimento */}
-            <div className="mt-[48px] overflow-hidden rounded-[20px] border border-graphite bg-[#0b0b0c]">
-              <div className="p-[20px] border-b border-graphite bg-[#0e0e11] flex items-center justify-between">
-                <span className="font-mono text-[12px] font-semibold text-white uppercase tracking-wider">
-                  Comparativo Detalhado de Desenvolvimento
-                </span>
-                <span className="font-mono text-[11px] text-ash">3 Estruturas</span>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-[14px]">
-                  <thead>
-                    <tr className="border-b border-graphite/70 text-neutral-400 font-mono text-[11px] uppercase">
-                      <th className="p-[16px] md:p-[20px]">Recurso Incluso</th>
-                      <th className="p-[16px] text-center">Essential (R$ 597)</th>
-                      <th className="p-[16px] text-center text-iris font-semibold">Professional (R$ 897)</th>
-                      <th className="p-[16px] text-center">Presença Digital (R$ 1.297)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-graphite/40 text-bone">
-                    {structureComparisonRows.map((row) => (
-                      <tr key={row.feature} className="hover:bg-white/[0.02] transition-colors">
-                        <td className="p-[16px] md:p-[20px] text-ash font-medium">{row.feature}</td>
-                        <td className="p-[16px] text-center">
-                          {row.essential ? (
-                            <span className="inline-block text-emerald-400 font-bold">✓</span>
-                          ) : (
-                            <span className="inline-block text-neutral-600">—</span>
-                          )}
-                        </td>
-                        <td className="p-[16px] text-center bg-iris/[0.03]">
-                          {row.professional ? (
-                            <span className="inline-block text-iris font-bold">✓</span>
-                          ) : (
-                            <span className="inline-block text-neutral-600">—</span>
-                          )}
-                        </td>
-                        <td className="p-[16px] text-center">
-                          {row.presenca ? (
-                            <span className="inline-block text-emerald-400 font-bold">✓</span>
-                          ) : (
-                            <span className="inline-block text-neutral-600">—</span>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </section>
-
-          {/* BANNER INTERMEDIÁRIO: A LIBERDADE DE ESCOLHA */}
-          <div className="mt-[80px] md:mt-[100px] rounded-[28px] border border-graphite bg-gradient-to-r from-[#0b0b0c] via-[#12111d] to-[#0b0b0c] p-[32px] md:p-[52px] text-center shadow-lg">
-            <span className="font-mono text-[11px] font-semibold text-iris uppercase tracking-widest">
-              Transparência BCOMM
-            </span>
-            <h2 className="mt-[12px] text-[26px] font-semibold text-white sm:text-[34px]">
-              Após a entrega, você escolhe com total liberdade como quer manter seu site
-            </h2>
-            <p className="mt-[14px] mx-auto max-w-[720px] text-[15px] leading-[1.65] text-ash sm:text-[17px]">
-              Nada de ficar preso a contratos longos ou mensalidades forçadas. Você pode seguir sem gestão por <strong>R$ 0/mês</strong> ou contratar nossos planos de acompanhamento técnico contínuo para que nossa equipe cuide de tudo para você.
-            </p>
-          </div>
-
-          {/* FASE 2: PLANOS DE GESTÃO PÓS-ENTREGA */}
-          <section id="gestao" className="mt-[72px] md:mt-[96px] scroll-mt-28">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between border-b border-graphite pb-[24px]">
-              <div>
-                <span className="font-mono text-[12px] font-semibold text-iris uppercase tracking-wider">
-                  Etapa 02 {"//"} Manutenção Opcional
-                </span>
-                <h2 className="mt-[8px] text-[28px] font-normal leading-[1.2] tracking-[-0.04em] text-white sm:text-[38px]">
-                  Planos de Gestão Contínua
-                </h2>
-                <p className="mt-[8px] text-[15px] text-ash">
-                  Você decide como quer manter sua plataforma: de R$ 0 por conta própria a planos com suporte ativo.
-                </p>
-              </div>
-              <div className="mt-4 md:mt-0 font-mono text-[12px] text-emerald-400">
-                Cancele ou altere a qualquer momento
-              </div>
-            </div>
-
-            {/* Grid dos 4 Cards de Gestão */}
-            <div className="mt-[36px] grid grid-cols-1 gap-[24px] md:grid-cols-2 lg:grid-cols-4">
-              {managementPlans.map((plan) => {
-                const isHighlighted = plan.highlight;
-                return (
-                  <div
-                    key={plan.id}
-                    className={`relative flex flex-col justify-between rounded-[22px] p-[28px] transition-all duration-300 ${
-                      isHighlighted
-                        ? "border-2 border-iris bg-[#0f0e18] shadow-[0_0_35px_rgba(146,129,247,0.2)]"
-                        : "border border-graphite bg-[#0b0b0c] hover:border-iron"
-                    }`}
-                  >
-                    {/* Badge */}
-                    {plan.badge && (
-                      <div className="absolute -top-[12px] left-1/2 -translate-x-1/2 rounded-full bg-iris px-[12px] py-[2px] font-mono text-[9px] font-bold uppercase tracking-wider text-black shadow-md">
-                        {plan.badge}
-                      </div>
-                    )}
-
-                    <div>
-                      {/* Topo */}
-                      <div className="flex items-center justify-between">
-                        <span className="font-mono text-[11px] uppercase tracking-wider text-neutral-400">
-                          {`${plan.number} // ${plan.tagline}`}
-                        </span>
-                        {isHighlighted && (
-                          <span className="h-2 w-2 rounded-full bg-iris animate-pulse" />
-                        )}
-                      </div>
-
-                      <h3 className="mt-[10px] text-[22px] font-semibold text-white">
-                        {plan.name}
-                      </h3>
-
-                      <p className="mt-[8px] text-[13px] leading-[1.5] text-ash min-h-[40px]">
-                        {plan.description}
-                      </p>
-
-                      {/* Bloco de Mensalidade */}
-                      <div className="mt-[20px] border-y border-graphite/70 py-[16px]">
-                        <div className="flex items-baseline gap-[4px]">
-                          <span className="text-[13px] font-normal text-neutral-400">R$</span>
-                          <span
-                            className={`font-mono text-[38px] font-bold leading-none ${
-                              isHighlighted ? "text-iris" : "text-white"
-                            }`}
-                          >
-                            {plan.monthlyPrice}
-                          </span>
-                          <span className="text-[13px] font-normal text-neutral-400">/mês</span>
-                        </div>
-                        <span className="mt-[4px] block font-mono text-[10px] text-neutral-400">
-                          {plan.isPaid ? "Sem contrato de fidelidade" : "Sem mensalidade recorrente"}
-                        </span>
-                      </div>
-
-                      {/* Recursos da Gestão */}
-                      <div className="mt-[20px]">
-                        <ul className="flex flex-col gap-[9px]">
-                          {plan.features.map((feat) => (
-                            <li key={feat} className="flex items-start gap-[8px] text-[13px] text-bone">
-                              <svg
-                                width="14"
-                                height="14"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                className="shrink-0 mt-0.5 text-iris"
-                              >
-                                <path
-                                  d="M3 8L7 12L13 4"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                              <span>{feat}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* Caixa de Atenção do Domínio */}
-                        {plan.domainNote && (
-                          <div className="mt-[16px] rounded-[10px] border border-graphite/80 bg-[#141418] p-[12px] text-[11.5px] leading-[1.5] text-neutral-400">
-                            <span className="font-semibold text-bone block mb-1">
-                              {plan.isPaid ? "✦ Domínio Próprio Incluso" : "⚠️ Nota sobre Domínio"}
-                            </span>
-                            {plan.domainNote}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Botão de Ação */}
-                    <div className="mt-[28px]">
-                      <a
-                        href={getWhatsappLink(plan.whatsappMessage)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-full inline-flex items-center justify-center gap-[6px] rounded-full px-[18px] py-[11px] text-[13px] font-semibold transition-all duration-200 active:scale-98 cursor-pointer ${
-                          isHighlighted
-                            ? "bg-iris text-black hover:bg-white hover:text-black shadow-md"
-                            : "border border-graphite bg-[#121216] text-bone hover:border-iris hover:text-white"
-                        }`}
-                      >
-                        {plan.cta}
-                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                          <path
-                            d="M6 3L11 8L6 13"
-                            stroke="currentColor"
-                            strokeWidth="1.8"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Tabela Comparativa de Gestão */}
-            <div className="mt-[48px] overflow-hidden rounded-[20px] border border-graphite bg-[#0b0b0c]">
-              <div className="p-[20px] border-b border-graphite bg-[#0e0e11] flex items-center justify-between">
-                <span className="font-mono text-[12px] font-semibold text-white uppercase tracking-wider">
-                  Comparativo de Níveis de Gestão
-                </span>
-                <span className="font-mono text-[11px] text-ash">Escada de Serviços</span>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-[13.5px]">
-                  <thead>
-                    <tr className="border-b border-graphite/70 text-neutral-400 font-mono text-[11px] uppercase">
-                      <th className="p-[16px] md:p-[20px]">Serviço / Cobertura</th>
-                      <th className="p-[16px] text-center">Sem Gestão (R$ 0)</th>
-                      <th className="p-[16px] text-center">Essencial (R$ 97)</th>
-                      <th className="p-[16px] text-center text-iris font-semibold">Presença (R$ 197)</th>
-                      <th className="p-[16px] text-center">Crescimento (R$ 297)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-graphite/40 text-bone">
-                    {managementComparisonRows.map((row) => (
-                      <tr key={row.item} className="hover:bg-white/[0.02] transition-colors">
-                        <td className="p-[16px] md:p-[20px] text-ash font-medium">{row.item}</td>
-                        <td className="p-[16px] text-center text-neutral-400 font-mono text-[12px]">{row.semGestao}</td>
-                        <td className="p-[16px] text-center text-bone font-mono text-[12px]">{row.essencial}</td>
-                        <td className="p-[16px] text-center text-iris font-mono text-[12px] bg-iris/[0.03] font-semibold">{row.presenca}</td>
-                        <td className="p-[16px] text-center text-emerald-400 font-mono text-[12px]">{row.crescimento}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </section>
-
-          {/* SEÇÃO 3: COMO FUNCIONA O PROCESSO EM 3 ETAPAS */}
-          <section className="mt-[80px] md:mt-[110px]">
-            <div className="text-center max-w-[680px] mx-auto">
-              <span className="font-mono text-[12px] uppercase text-ash tracking-wider">
-                Simples &amp; Sem Burocracia
-              </span>
-              <h2 className="mt-[8px] text-[32px] font-normal leading-[1.2] tracking-[-0.04em] text-white sm:text-[42px]">
-                Como funciona a contratação
-              </h2>
-              <p className="mt-[12px] text-[15px] text-ash">
-                O fluxo completo do primeiro contato até o seu site gerando contatos e autoridade.
-              </p>
-            </div>
-
-            <div className="mt-[48px] grid grid-cols-1 gap-[24px] md:grid-cols-3">
-              <div className="rounded-[20px] border border-graphite bg-[#0b0b0c] p-[32px]">
-                <span className="font-mono text-[42px] font-normal text-graphite">01</span>
-                <h3 className="mt-[12px] text-[19px] font-semibold text-white">
-                  Escolha sua estrutura
-                </h3>
-                <p className="mt-[10px] text-[14px] leading-[1.6] text-ash">
-                  Você define o plano inicial ideal para sua empresa (R$ 597, R$ 897 ou R$ 1.297) de acordo com os canais que você precisa ativar.
-                </p>
-              </div>
-
-              <div className="rounded-[20px] border border-iris/40 bg-[#0e0d16] p-[32px] shadow-sm">
-                <span className="font-mono text-[42px] font-normal text-iris">02</span>
-                <h3 className="mt-[12px] text-[19px] font-semibold text-white">
-                  Desenvolvimento &amp; Validação
-                </h3>
-                <p className="mt-[10px] text-[14px] leading-[1.6] text-ash">
-                  Construímos o projeto com alta velocidade. Você testa, aprova cada detalhe no celular e recebe sua plataforma publicada no ar.
-                </p>
-              </div>
-
-              <div className="rounded-[20px] border border-graphite bg-[#0b0b0c] p-[32px]">
-                <span className="font-mono text-[42px] font-normal text-graphite">03</span>
-                <h3 className="mt-[12px] text-[19px] font-semibold text-white">
-                  Decida sobre a gestão
-                </h3>
-                <p className="mt-[10px] text-[14px] leading-[1.6] text-ash">
-                  Com o site pronto, você tem total liberdade para seguir sem mensalidade (R$ 0) ou contratar um plano de suporte técnico e presença ativa.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* SEÇÃO 4: DÚVIDAS FREQUENTES (FAQ) */}
-          <section className="mt-[80px] md:mt-[110px]">
-            <div className="text-center max-w-[680px] mx-auto">
-              <span className="font-mono text-[12px] uppercase text-ash tracking-wider">
-                Tire suas dúvidas
-              </span>
-              <h2 className="mt-[8px] text-[32px] font-normal leading-[1.2] tracking-[-0.04em] text-white sm:text-[42px]">
-                Perguntas Frequentes sobre Preços
-              </h2>
-            </div>
-
-            <div className="mt-[48px] max-w-[860px] mx-auto flex flex-col gap-[16px]">
-              {pricingFaq.map((faq, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-[16px] border border-graphite bg-[#0b0b0c] p-[24px] md:p-[28px]"
-                >
-                  <h3 className="text-[17px] font-semibold text-white">
-                    {faq.q}
-                  </h3>
-                  <p className="mt-[10px] text-[14.5px] leading-[1.65] text-ash">
-                    {faq.a}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </section>
+      <div className="mt-24 max-w-3xl mx-auto">
+        <div className="text-center">
+          <p className="font-mono text-[12px] uppercase tracking-wider text-iris">
+            {pricingText.faqTag}
+          </p>
+          <h2 className="mt-2 text-[28px] font-normal tracking-[-0.03em] text-white md:text-[34px]">
+            {pricingText.faqTitle}
+          </h2>
         </div>
-      )}
 
-      {/* ======================================================== */}
-      {/* CONTEÚDO DA ABA 2: LOJAS VIRTUAIS & E-COMMERCE            */}
-      {/* ======================================================== */}
-      {activeTab === "ecommerce" && (
-        <div>
-          {/* Atalhos Rápidos E-commerce */}
-          <div className="mt-[28px] flex flex-wrap items-center justify-center gap-[12px]">
-            <a
-              href="#ecommerce-planos"
-              className="inline-flex items-center gap-[6px] rounded-full border border-graphite bg-[#0e0e11] px-[18px] py-[10px] text-[13px] font-medium text-bone transition-colors hover:border-iris hover:text-white"
+        <div className="mt-10 space-y-4">
+          {scopeFaq.map((item) => (
+            <div
+              key={item.q}
+              className="rounded-2xl border border-graphite bg-[#0b0b0f] p-6 hover:border-iron transition-colors"
             >
-              <span>1. Planos de E-commerce (a partir de R$ 197/mês)</span>
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-            <a
-              href="#ecommerce-comparativo"
-              className="inline-flex items-center gap-[6px] rounded-full border border-graphite bg-[#0e0e11] px-[18px] py-[10px] text-[13px] font-medium text-bone transition-colors hover:border-iris hover:text-white"
-            >
-              <span>2. Tabela Comparativa de Recursos</span>
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-            <a
-              href="#ecommerce-faq"
-              className="inline-flex items-center gap-[6px] rounded-full border border-graphite bg-[#0e0e11] px-[18px] py-[10px] text-[13px] font-medium text-bone transition-colors hover:border-iris hover:text-white"
-            >
-              <span>3. Dúvidas Frequentes de E-commerce</span>
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-          </div>
-
-          {/* REGRAS DE NEGÓCIO E MODELO COMERCIAL DO E-COMMERCE */}
-          <div className="mt-[48px] rounded-[24px] border border-graphite bg-gradient-to-br from-[#0c0c10] via-[#100f1c] to-[#0c0c10] p-[28px] md:p-[40px] shadow-xl">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-graphite/80 pb-6">
-              <div>
-                <span className="font-mono text-[11px] font-semibold text-iris uppercase tracking-widest">
-                  Modelo Comercial Transparente {"//"} E-commerce BCOMM
-                </span>
-                <h2 className="mt-2 text-[24px] md:text-[30px] font-normal leading-tight text-white">
-                  Estrutura sob medida: Implantação única + Gestão Contínua
-                </h2>
-                <p className="mt-2 text-[14px] md:text-[15px] text-ash max-w-[720px] leading-relaxed">
-                  Lojas virtuais BCOMM não utilizam templates engessados ou plataformas compartilhadas lentas. Cada loja recebe desenvolvimento 100% exclusivo, banco de dados dedicado e hospedagem em VPS de alta velocidade.
-                </p>
-              </div>
-              <div className="shrink-0 flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-emerald-400 font-mono text-[12px]">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                Flexibilidade Total • Sem Fidelidade Obrigatória
-              </div>
+              <h3 className="text-[17px] font-medium text-white">{item.q}</h3>
+              <p className="mt-3 text-[14.5px] leading-relaxed text-ash">{item.a}</p>
             </div>
-
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Bloco 1: Taxa Única */}
-              <div className="rounded-[18px] border border-graphite/70 bg-[#0a0a0d] p-[24px]">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-iris/15 text-iris font-mono text-[14px] font-bold">
-                    01
-                  </span>
-                  <div>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-ash">Pagamento Único</span>
-                    <h3 className="text-[17px] font-semibold text-white">Taxa Única de Implantação Sob Medida</h3>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-baseline gap-2">
-                  <span className="text-[14px] text-neutral-400">R$</span>
-                  <span className="font-mono text-[36px] font-bold text-white">1.897</span>
-                  <span className="text-[12px] text-ash">pagamento único</span>
-                </div>
-                <p className="mt-2 text-[13px] leading-relaxed text-ash">
-                  Desenvolvimento do zero, arquitetura da loja, design exclusivo, estruturação de banco de dados, deploy em VPS dedicada de alta performance e homologação assistida.
-                </p>
-              </div>
-
-              {/* Bloco 2: Gestão Mensal */}
-              <div className="rounded-[18px] border border-iris/40 bg-[#0f0e1a] p-[24px]">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-iris text-black font-mono text-[14px] font-bold">
-                    02
-                  </span>
-                  <div>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-iris font-semibold">Assinatura Mensal</span>
-                    <h3 className="text-[17px] font-semibold text-white">Gestão Técnica &amp; Infraestrutura Dedicada</h3>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-baseline gap-2">
-                  <span className="text-[13px] text-neutral-400">a partir de</span>
-                  <span className="font-mono text-[36px] font-bold text-iris">R$ 197</span>
-                  <span className="text-[13px] text-neutral-400">/mês</span>
-                </div>
-                <p className="mt-2 text-[13px] leading-relaxed text-ash">
-                  Variável de acordo com o nível operacional da loja. Planos flexíveis: mensal sem fidelidade, semestral ou anual com desconto, incluindo VPS dedicada, SSL, rotinas de backup diário e suporte contínuo.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* GRID DOS 3 PLANOS DE E-COMMERCE */}
-          <section id="ecommerce-planos" className="mt-[64px] md:mt-[80px] scroll-mt-28">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between border-b border-graphite pb-[24px]">
-              <div>
-                <span className="font-mono text-[12px] font-semibold text-iris uppercase tracking-wider">
-                  Planos de E-commerce {"//"} 3 Níveis Operacionais
-                </span>
-                <h2 className="mt-[8px] text-[28px] font-normal leading-[1.2] tracking-[-0.04em] text-white sm:text-[38px]">
-                  Lojas Virtuais Sob Medida
-                </h2>
-                <p className="mt-[8px] text-[15px] text-ash">
-                  Escolha o nível ideal para o momento da sua marca, do catálogo humanizado à automação logística avançada.
-                </p>
-              </div>
-              <div className="mt-4 md:mt-0 font-mono text-[12px] text-emerald-400">
-                VPS Dedicada &amp; SSL Inclusos
-              </div>
-            </div>
-
-            {/* Seletor de Periodicidade / Ciclos de Cobrança */}
-            <div className="mt-[36px] flex flex-col items-center justify-center">
-              <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-1.5 rounded-full border border-graphite bg-[#0e0e12]/95 p-1.5 shadow-xl backdrop-blur-md">
-                <button
-                  type="button"
-                  onClick={() => setEcommerceCycle("mensal")}
-                  className={`flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition-all duration-200 cursor-pointer ${
-                    ecommerceCycle === "mensal"
-                      ? "bg-[#181824] text-white border border-iris/60 shadow-[0_0_20px_rgba(146,129,247,0.2)]"
-                      : "text-ash hover:text-white border border-transparent hover:bg-white/[0.04]"
-                  }`}
-                >
-                  <span>📅 Mensal (Sem Fidelidade)</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setEcommerceCycle("semestral")}
-                  className={`flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition-all duration-200 cursor-pointer ${
-                    ecommerceCycle === "semestral"
-                      ? "bg-[#181824] text-white border border-iris/60 shadow-[0_0_20px_rgba(146,129,247,0.2)]"
-                      : "text-ash hover:text-white border border-transparent hover:bg-white/[0.04]"
-                  }`}
-                >
-                  <span>🗓️ Semestral (6 meses)</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setEcommerceCycle("anual")}
-                  className={`flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition-all duration-200 cursor-pointer ${
-                    ecommerceCycle === "anual"
-                      ? "bg-[#181824] text-white border border-iris/60 shadow-[0_0_20px_rgba(146,129,247,0.2)]"
-                      : "text-ash hover:text-white border border-transparent hover:bg-white/[0.04]"
-                  }`}
-                >
-                  <span>💎 Anual (Mais Econômico)</span>
-                  <span className="rounded-full bg-emerald-500/20 text-emerald-400 px-2 py-0.5 font-mono text-[10px] font-bold tracking-wide">
-                    Economize até R$ 1.104/ano
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {/* Grid dos 3 Cards */}
-            <div className="mt-[36px] grid grid-cols-1 gap-[24px] lg:grid-cols-3">
-              {ecommercePlans.map((plan) => {
-                const isHighlighted = plan.highlight;
-                const currentPrice = plan.prices[ecommerceCycle];
-                return (
-                  <div
-                    key={plan.id}
-                    className={`relative flex flex-col justify-between rounded-[24px] p-[32px] transition-all duration-300 ${
-                      isHighlighted
-                        ? "border-2 border-iris bg-[#0f0e18] shadow-[0_0_40px_rgba(146,129,247,0.22)] lg:-translate-y-2"
-                        : "border border-graphite bg-[#0b0b0c] hover:border-iron"
-                    }`}
-                  >
-                    {/* Badge Superior Flutuante (MAIS ESCOLHIDO) */}
-                    {plan.subBadge && (
-                      <div className="absolute -top-[13px] left-1/2 -translate-x-1/2 rounded-full bg-iris px-[14px] py-[3px] text-center font-mono text-[10px] font-bold uppercase tracking-wider text-black shadow-md">
-                        {plan.subBadge}
-                      </div>
-                    )}
-
-                    <div>
-                      {/* Topo do Card */}
-                      <div className="flex items-center justify-between">
-                        <span className="font-mono text-[12px] uppercase tracking-wider text-iris font-semibold">
-                          {plan.badge}
-                        </span>
-                        {isHighlighted && (
-                          <span className="h-2 w-2 rounded-full bg-iris animate-pulse" />
-                        )}
-                      </div>
-
-                      <h3 className="mt-[12px] text-[26px] font-semibold text-white">
-                        {plan.name}
-                      </h3>
-
-                      <p className="mt-[8px] text-[13.5px] leading-[1.5] text-ash min-h-[42px]">
-                        {plan.subtitle}
-                      </p>
-
-                      {/* Bloco de Preços (Implantação + Mensalidade) */}
-                      <div className="mt-[24px] border-y border-graphite/70 py-[20px]">
-                        <div className="flex items-baseline gap-[6px]">
-                          <span className="text-[13px] font-normal text-neutral-400">Implantação:</span>
-                          <span className="text-[14px] font-normal text-neutral-400">R$</span>
-                          <span className="font-mono text-[32px] font-bold leading-none tracking-tight text-white">
-                            {plan.setupPrice}
-                          </span>
-                          <span className="text-[11px] font-mono text-neutral-400">(único)</span>
-                        </div>
-
-                        <div className="mt-[12px] flex items-baseline gap-[6px]">
-                          <span className="text-[13px] font-normal text-neutral-400">Mensalidade:</span>
-                          <span
-                            className={`font-mono text-[28px] font-bold leading-none tracking-tight ${
-                              isHighlighted ? "text-iris" : "text-white"
-                            }`}
-                          >
-                            + R$ {currentPrice.monthly}
-                          </span>
-                          <span className="text-[13px] font-normal text-neutral-400">/mês</span>
-                        </div>
-
-                        {currentPrice.savings && (
-                          <div className="mt-[8px] inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-emerald-400 font-mono text-[11px] font-semibold">
-                            <span>✦</span>
-                            <span>{currentPrice.savings}</span>
-                          </div>
-                        )}
-
-                        <span className="mt-[6px] block font-mono text-[11px] text-neutral-400">
-                          {ecommerceCycle === "mensal"
-                            ? "Sem fidelidade • Cancele quando quiser"
-                            : ecommerceCycle === "semestral"
-                            ? "Fidelidade de 6 meses"
-                            : "Fidelidade de 12 meses • Mais escolhido"}
-                        </span>
-                      </div>
-
-                      {/* Lista de Recursos Inclusos */}
-                      <div className="mt-[24px]">
-                        <p className="font-mono text-[11px] uppercase tracking-wider text-neutral-400 font-semibold mb-3">
-                          O que está incluído:
-                        </p>
-                        <ul className="flex flex-col gap-[11px]">
-                          {plan.features.map((feat, idx) => {
-                            const isCoreFeature =
-                              feat.startsWith("Tudo incluso") ||
-                              feat.includes("Cálculo automático") ||
-                              feat.includes("Linha do tempo") ||
-                              feat.includes("Baixa inteligente");
-                            return (
-                              <li key={idx} className="flex items-start gap-[10px] text-[13.5px] text-bone">
-                                <svg
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                  fill="none"
-                                  className="shrink-0 mt-0.5 text-iris"
-                                >
-                                  <path
-                                    d="M3 8L7 12L13 4"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                                <span className={isCoreFeature ? "font-semibold text-white" : ""}>
-                                  {feat}
-                                </span>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    </div>
-
-                    {/* Botão de Contratação CTA */}
-                    <div className="mt-[32px]">
-                      <a
-                        href={getWhatsappLink(
-                          getEcommerceWhatsappMessage(plan.name, ecommerceCycle, currentPrice.monthly)
-                        )}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-full inline-flex items-center justify-center gap-[8px] rounded-full px-[24px] py-[13px] text-[14px] font-semibold transition-all duration-200 active:scale-98 cursor-pointer ${
-                          isHighlighted
-                            ? "bg-iris text-black hover:bg-white hover:text-black shadow-lg"
-                            : "border border-graphite bg-[#121216] text-white hover:border-iris hover:bg-iris hover:text-black"
-                        }`}
-                      >
-                        {plan.cta}
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                          <path
-                            d="M6 3L11 8L6 13"
-                            stroke="currentColor"
-                            strokeWidth="1.8"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* TABELA COMPARATIVA DETALHADA DE E-COMMERCE */}
-            <div id="ecommerce-comparativo" className="mt-[56px] scroll-mt-28 overflow-hidden rounded-[20px] border border-graphite bg-[#0b0b0c]">
-              <div className="p-[20px] border-b border-graphite bg-[#0e0e11] flex items-center justify-between">
-                <div>
-                  <span className="font-mono text-[12px] font-semibold text-white uppercase tracking-wider block">
-                    Comparativo Detalhado de Recursos {"//"} E-commerce
-                  </span>
-                  <span className="text-[12px] text-ash">
-                    Veja exatamente o que cada nível operacional entrega para sua loja virtual
-                  </span>
-                </div>
-                <span className="hidden sm:inline-block font-mono text-[11px] text-iris">
-                  3 Níveis Operacionais
-                </span>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-[14px]">
-                  <thead>
-                    <tr className="border-b border-graphite/70 text-neutral-400 font-mono text-[11px] uppercase">
-                      <th className="p-[16px] md:p-[20px]">Recurso da Loja</th>
-                      <th className="p-[16px] text-center">Essencial (a partir de R$ 197/mês)</th>
-                      <th className="p-[16px] text-center text-iris font-semibold bg-iris/[0.04]">
-                        Gestão Pro (a partir de R$ 297/mês)
-                      </th>
-                      <th className="p-[16px] text-center">Automatizado (a partir de R$ 397/mês)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-graphite/40 text-bone">
-                    {ecommerceComparisonRows.map((row) => (
-                      <tr key={row.feature} className="hover:bg-white/[0.02] transition-colors">
-                        <td className="p-[16px] md:p-[20px] text-ash font-medium">{row.feature}</td>
-
-                        {/* Essencial */}
-                        <td className="p-[16px] text-center">
-                          {typeof row.essencial === "boolean" ? (
-                            row.essencial ? (
-                              <span className="inline-block text-emerald-400 font-bold">✓</span>
-                            ) : (
-                              <span className="inline-block text-neutral-600">—</span>
-                            )
-                          ) : (
-                            <span className="font-mono text-[12px] text-ash">{row.essencial}</span>
-                          )}
-                        </td>
-
-                        {/* Gestão Pro (Destaque) */}
-                        <td className="p-[16px] text-center bg-iris/[0.03]">
-                          {typeof row.pro === "boolean" ? (
-                            row.pro ? (
-                              <span className="inline-block text-iris font-bold">✓</span>
-                            ) : (
-                              <span className="inline-block text-neutral-600">—</span>
-                            )
-                          ) : (
-                            <span className="font-mono text-[12px] text-iris font-semibold">{row.pro}</span>
-                          )}
-                        </td>
-
-                        {/* Automatizado */}
-                        <td className="p-[16px] text-center">
-                          {typeof row.automatizado === "boolean" ? (
-                            row.automatizado ? (
-                              <span className="inline-block text-emerald-400 font-bold">✓</span>
-                            ) : (
-                              <span className="inline-block text-neutral-600">—</span>
-                            )
-                          ) : (
-                            <span className="font-mono text-[12px] text-emerald-400 font-semibold">{row.automatizado}</span>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </section>
-
-          {/* PROCESSO DE CONTRATAÇÃO DE E-COMMERCE EM 3 ETAPAS */}
-          <section id="ecommerce-processo" className="mt-[80px] md:mt-[110px] scroll-mt-28">
-            <div className="text-center max-w-[680px] mx-auto">
-              <span className="font-mono text-[12px] uppercase text-ash tracking-wider">
-                Fluxo de Implantação
-              </span>
-              <h2 className="mt-[8px] text-[32px] font-normal leading-[1.2] tracking-[-0.04em] text-white sm:text-[42px]">
-                Como funciona a implantação da sua loja
-              </h2>
-              <p className="mt-[12px] text-[15px] text-ash">
-                Do design exclusivo à sua primeira venda no ar com estabilidade e acompanhamento.
-              </p>
-            </div>
-
-            <div className="mt-[48px] grid grid-cols-1 gap-[24px] md:grid-cols-3">
-              <div className="rounded-[20px] border border-graphite bg-[#0b0b0c] p-[32px]">
-                <span className="font-mono text-[42px] font-normal text-graphite">01</span>
-                <h3 className="mt-[12px] text-[19px] font-semibold text-white">
-                  Implantação Sob Medida
-                </h3>
-                <p className="mt-[10px] text-[14px] leading-[1.6] text-ash">
-                  Desenvolvemos a identidade visual exclusiva da sua loja, o catálogo com variações completas, o carrinho otimizado e estruturamos o banco de dados dedicado na sua VPS.
-                </p>
-              </div>
-
-              <div className="rounded-[20px] border border-iris/40 bg-[#0e0d16] p-[32px] shadow-sm">
-                <span className="font-mono text-[42px] font-normal text-iris">02</span>
-                <h3 className="mt-[12px] text-[19px] font-semibold text-white">
-                  Homologação &amp; Treinamento
-                </h3>
-                <p className="mt-[10px] text-[14px] leading-[1.6] text-ash">
-                  Testamos todo o fluxo de pedidos no WhatsApp e na VPS em tempo real. Você aprende a gerenciar produtos, pedidos e estoque no painel de forma simples e intuitiva.
-                </p>
-              </div>
-
-              <div className="rounded-[20px] border border-graphite bg-[#0b0b0c] p-[32px]">
-                <span className="font-mono text-[42px] font-normal text-graphite">03</span>
-                <h3 className="mt-[12px] text-[19px] font-semibold text-white">
-                  Gestão &amp; Escala Contínua
-                </h3>
-                <p className="mt-[10px] text-[14px] leading-[1.6] text-ash">
-                  Sua loja opera 24/7 com alta velocidade, monitoramento proativo, rotinas de backup diário e suporte técnico direto para acompanhar o crescimento das suas vendas.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ ESPECÍFICO DE E-COMMERCE */}
-          <section id="ecommerce-faq" className="mt-[80px] md:mt-[110px] scroll-mt-28">
-            <div className="text-center max-w-[680px] mx-auto">
-              <span className="font-mono text-[12px] uppercase text-ash tracking-wider">
-                Dúvidas sobre Lojas Virtuais
-              </span>
-              <h2 className="mt-[8px] text-[32px] font-normal leading-[1.2] tracking-[-0.04em] text-white sm:text-[42px]">
-                Perguntas Frequentes sobre E-commerce
-              </h2>
-            </div>
-
-            <div className="mt-[48px] max-w-[860px] mx-auto flex flex-col gap-[16px]">
-              {ecommerceFaq.map((faq, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-[16px] border border-graphite bg-[#0b0b0c] p-[24px] md:p-[28px]"
-                >
-                  <h3 className="text-[17px] font-semibold text-white">
-                    {faq.q}
-                  </h3>
-                  <p className="mt-[10px] text-[14.5px] leading-[1.65] text-ash">
-                    {faq.a}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </section>
+          ))}
         </div>
-      )}
+      </div>
 
       {/* ======================================================== */}
-      {/* BANNER FINAL DE FECHAMENTO (COMPARTILHADO)                */}
+      {/* BANNER INFERIOR DE CONVERSÃO                              */}
       {/* ======================================================== */}
-      <div className="mt-[96px] rounded-[28px] border border-graphite bg-[#0b0b0c] p-[36px] text-center md:p-[60px]">
-        <h2 className="text-[28px] font-semibold text-white sm:text-[38px]">
-          Vamos colocar a presença digital da sua empresa em outro nível?
+      <div className="mt-24 rounded-3xl border border-iris/40 bg-gradient-to-b from-[#141424] to-[#0a0a10] p-10 text-center md:p-14 shadow-2xl">
+        <h2 className="text-[28px] font-normal text-white md:text-[36px]">
+          {pricingText.bannerTitle}
         </h2>
-        <p className="mt-[14px] mx-auto max-w-[580px] text-[16px] text-ash">
-          Fale diretamente com nossa equipe no WhatsApp. Analisamos sua necessidade e apresentamos o direcionamento exato para o seu negócio.
+        <p className="mt-4 text-[16px] text-ash max-w-xl mx-auto">
+          {pricingText.bannerDesc}
         </p>
-        <div className="mt-[32px] flex flex-wrap items-center justify-center gap-[14px]">
+
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={getWhatsappLink(
-              activeTab === "ecommerce"
-                ? "Olá! Gostaria de conversar com um especialista da BCOMM para tirar dúvidas sobre a implantação de uma Loja Virtual sob medida."
-                : "Olá! Gostaria de conversar com um especialista da BCOMM para tirar dúvidas e iniciar o projeto da minha empresa."
+              locale === "en"
+                ? "Hello BCOMM! I would like a technical analysis to determine the best solution for my business."
+                : locale === "es"
+                ? "¡Hola BCOMM! Me gustaría un análisis técnico para determinar la mejor solución para mi empresa."
+                : locale === "fr"
+                ? "Bonjour BCOMM! Je souhaite une analyse technique pour identifier la meilleure solution pour mon entreprise."
+                : "Olá! Gostaria de uma análise técnica para saber qual solução melhor atende a minha empresa."
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-slide inline-flex items-center gap-[8px] rounded-full border border-iris/50 bg-iris/10 px-[28px] py-[14px] text-[15px] font-semibold text-white transition-all duration-200 hover:border-iris hover:bg-iris hover:text-black cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-iris px-8 py-4 text-[15px] font-semibold text-black transition-all hover:bg-iris-glow shadow-[0_0_25px_rgba(146,129,247,0.35)]"
           >
-            Conversar pelo WhatsApp
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M6 3L11 8L6 13"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {pricingText.bannerCtaWhatsapp}
           </a>
           <Link
-            href="/servicos"
-            className="inline-flex items-center gap-[8px] rounded-full border border-graphite bg-transparent px-[24px] py-[14px] text-[15px] text-bone transition-all duration-200 hover:border-white hover:bg-white hover:text-black cursor-pointer"
+            href="/#contato"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-graphite px-8 py-4 text-[15px] font-normal text-white hover:border-white hover:bg-white/5 transition-all"
           >
-            Conhecer todos os serviços
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M6 3L11 8L6 13"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {pricingText.bannerCtaForm}
           </Link>
         </div>
       </div>

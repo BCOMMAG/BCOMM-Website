@@ -39,7 +39,7 @@ export default function PoliticaPage() {
             <section>
               <h2 className="mb-[12px] text-[20px] font-semibold text-white">1. Dados coletados</h2>
               <p>
-                Quando você preenche nosso formulário de contato, coletamos: nome, endereço de email, telefone e a mensagem enviada. Esses dados são usados exclusivamente para responder sua solicitação.
+                Quando você entra em contato conosco pelo formulário ou WhatsApp, coletamos: seu nome e a mensagem enviada. Esses dados são usados exclusivamente para responder sua solicitação e direcionar seu projeto.
               </p>
             </section>
 
@@ -67,7 +67,7 @@ export default function PoliticaPage() {
             <section>
               <h2 className="mb-[12px] text-[20px] font-semibold text-white">5. Seus direitos</h2>
               <p>
-                Conforme a LGPD (Lei Geral de Proteção de Dados), você tem direito a: acessar seus dados, corrigir dados incompletos ou desatualizados, solicitar a exclusão de seus dados, e revogar o consentimento para uso de dados. Para exercer esses direitos, entre em contato pelo email contato@agent-bcomm.space.
+                Conforme a LGPD (Lei Geral de Proteção de Dados), você tem direito a: acessar seus dados, corrigir dados incompletos ou desatualizados, solicitar a exclusão de seus dados, e revogar o consentimento para uso de dados. Para exercer esses direitos, entre em contato pelo WhatsApp (41) 96398-023.
               </p>
             </section>
 
@@ -84,7 +84,6 @@ export default function PoliticaPage() {
                 Para dúvidas sobre esta política ou sobre o tratamento de seus dados, entre em contato:
               </p>
               <ul className="mt-[8px] flex flex-col gap-[4px]">
-                <li>Email: <a href="mailto:contato@agent-bcomm.space" className="text-iris hover:text-iris-glow">contato@agent-bcomm.space</a></li>
                 <li>WhatsApp: <a href="https://wa.me/554196398023" target="_blank" rel="noopener noreferrer" className="text-iris hover:text-iris-glow">(41) 96398-023</a></li>
               </ul>
             </section>

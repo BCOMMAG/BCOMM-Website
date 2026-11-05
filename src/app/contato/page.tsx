@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Contato | Fale com a BCOMM",
   description:
-    "Entre em contato com a BCOMM Comunicação Inteligente. WhatsApp, email e formulário para projetos de websites, landing pages, e-commerce e automação com IA.",
+    "Entre em contato com a BCOMM Comunicação Inteligente diretamente pelo WhatsApp para projetos de websites, landing pages, e-commerce e automação com IA.",
   openGraph: {
     title: "Contato | Fale com a BCOMM",
     description: "Entre em contato com a BCOMM para projetos de tecnologia.",
@@ -45,20 +45,19 @@ export default function ContatoPage() {
                   <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
-            </section>
-
-            <section>
-              <h2 className="text-[24px] font-semibold text-white">Email</h2>
+            </section>            <section>
+              <h2 className="text-[24px] font-semibold text-white">E-mail Oficial</h2>
               <p className="mt-[8px] text-[16px] leading-[1.6] text-ash">
-                Para projetos, parcerias ou dúvidas gerais:
+                Para propostas comerciais, orçamentos formais e atendimento internacional:
               </p>
               <a
                 href="mailto:contato@agent-bcomm.space"
-                className="mt-[8px] text-[16px] text-iris hover:text-iris-glow"
+                className="mt-[8px] inline-block text-[16px] text-iris hover:text-iris-glow font-mono"
               >
                 contato@agent-bcomm.space
               </a>
             </section>
+
 
             <section>
               <h2 className="text-[24px] font-semibold text-white">Redes Sociais</h2>

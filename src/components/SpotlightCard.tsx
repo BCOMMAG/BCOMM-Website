@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 
 interface SpotlightCardProps {
@@ -17,7 +17,6 @@ export function SpotlightCard({
   const mouseX = useMotionValue(-500);
   const mouseY = useMotionValue(-500);
   const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     if (!cardRef.current) return;
@@ -30,9 +29,7 @@ export function SpotlightCard({
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
-        setIsHovered(false);
         mouseX.set(-500);
         mouseY.set(-500);
       }}

@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Contact | Get in Touch with BCOMM",
   description:
-    "Get in touch with BCOMM Comunicação Inteligente. WhatsApp, email and contact form for website, landing page, e-commerce and AI automation projects.",
+    "Get in touch with BCOMM Comunicação Inteligente directly via WhatsApp for website, landing page, e-commerce and AI automation projects.",
   openGraph: {
     title: "Contact | Get in Touch with BCOMM",
     description: "Get in touch with BCOMM for technology projects.",
@@ -45,20 +45,19 @@ export default function ContactPage() {
                   <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
-            </section>
-
-            <section>
-              <h2 className="text-[24px] font-semibold text-white">Email</h2>
+            </section>            <section>
+              <h2 className="text-[24px] font-semibold text-white">Official E-mail</h2>
               <p className="mt-[8px] text-[16px] leading-[1.6] text-ash">
-                For projects, partnerships or general inquiries:
+                For formal proposals, custom quotes, and international inquiries:
               </p>
               <a
                 href="mailto:contato@agent-bcomm.space"
-                className="mt-[8px] text-[16px] text-iris hover:text-iris-glow"
+                className="mt-[8px] inline-block text-[16px] text-iris hover:text-iris-glow font-mono"
               >
                 contato@agent-bcomm.space
               </a>
             </section>
+
 
             <section>
               <h2 className="text-[24px] font-semibold text-white">Social Media</h2>

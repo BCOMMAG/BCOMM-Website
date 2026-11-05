@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -54,8 +53,8 @@ export default function SobrePage() {
             <h2 className="text-[24px] font-semibold text-white">Contato</h2>
 
             <div className="flex flex-col gap-[8px]">
-              <p>Email: <a href="mailto:contato@agent-bcomm.space" className="text-iris hover:text-iris-glow">contato@agent-bcomm.space</a></p>
               <p>WhatsApp: <a href="https://wa.me/554196398023" target="_blank" rel="noopener noreferrer" className="text-iris hover:text-iris-glow">(41) 96398-023</a></p>
+              <p>Email: <a href="mailto:contato@agent-bcomm.space" className="text-iris hover:text-iris-glow font-mono">contato@agent-bcomm.space</a></p>
               <p>Localização: Curitiba, PR, Brasil</p>
               <p>Instagram: <a href="https://www.instagram.com/bcomm.br" target="_blank" rel="noopener noreferrer" className="text-iris hover:text-iris-glow">@bcomm.br</a></p>
               <p>Facebook: <a href="https://www.facebook.com/bcommagent" target="_blank" rel="noopener noreferrer" className="text-iris hover:text-iris-glow">/bcommagent</a></p>

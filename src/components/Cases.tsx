@@ -1,23 +1,28 @@
-import { cases } from "@/lib/constants";
+"use client";
+
+import { useTranslation } from "@/context/LocaleContext";
 import { AnimatedSection } from "./AnimatedSection";
 import { AnimatedCounter } from "./AnimatedCounter";
 import { SpotlightCard } from "./SpotlightCard";
 
 export function Cases() {
+  const { dict } = useTranslation();
+  const casesItems = dict.cases.items;
+
   return (
     <section id="cases" className="border-t border-graphite bg-transparent px-[24px] py-[96px] md:px-[48px] md:py-[120px] lg:px-[80px] lg:py-[144px]">
       <div className="mx-auto max-w-[1200px]">
         <AnimatedSection>
           <p className="font-mono text-[12px] uppercase tracking-[0.025em] text-ash">
-            Cases
+            {dict.cases.tag}
           </p>
           <h2 className="mt-[8px] text-[36px] font-normal leading-[1.2] tracking-[-0.05em] text-white sm:text-[44px] md:text-[56px]">
-            Resultados que falam por si
+            {dict.cases.title}
           </h2>
         </AnimatedSection>
 
         <div className="mt-[48px] grid grid-cols-1 gap-[16px] md:grid-cols-3">
-          {cases.slice(0, 3).map((c, i) => (
+          {casesItems.slice(0, 3).map((c, i) => (
             <AnimatedSection key={c.client} delay={i * 0.1} className="h-full">
               <SpotlightCard className="h-full transition-all duration-300 hover:-translate-y-1.5">
                 <div className="flex h-full flex-col justify-between p-[32px]">
@@ -55,7 +60,7 @@ export function Cases() {
             <div className="flex flex-col gap-[20px] md:flex-row md:items-center md:justify-between">
               <div className="max-w-[760px]">
                 <p className="font-playfair text-[20px] italic leading-[1.6] text-bone sm:text-[22px]">
-                  &ldquo;A transição para a plataforma desenvolvida pela BCOMM reduziu drasticamente nossos gargalos de suporte e dobrou a velocidade de fechamento das propostas comerciais. Foi o melhor investimento para modernizar nossa operação e aumentar o caixa da empresa.&rdquo;
+                  &ldquo;{dict.cases.subtitle}&rdquo;
                 </p>
                 <div className="mt-[16px] flex items-center gap-[12px]">
                   <div className="h-[36px] w-[36px] rounded-full border border-graphite bg-[#111418] flex items-center justify-center font-mono text-[12px] text-iris">
@@ -63,13 +68,13 @@ export function Cases() {
                   </div>
                   <div>
                     <p className="text-[14px] font-medium text-white">Diretoria de Operações</p>
-                    <p className="font-mono text-[12px] text-ash">LogTech &amp; Supply Chain PR</p>
+                    <p className="font-mono text-[12px] text-ash">LogTech &amp; Supply Chain Global</p>
                   </div>
                 </div>
               </div>
               <div className="shrink-0 border-t border-graphite pt-[16px] md:border-t-0 md:border-l md:pl-[32px] md:pt-0">
                 <span className="font-mono text-[32px] font-normal text-white">99.8%</span>
-                <p className="font-mono text-[11px] uppercase tracking-[0.05em] text-ash">Taxa de Retenção &amp; Uptime</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.05em] text-ash">Uptime &amp; SLA</p>
               </div>
             </div>
           </div>
@@ -81,7 +86,7 @@ export function Cases() {
               href="/cases"
               className="inline-flex items-center gap-[8px] rounded-[9999px] border border-graphite bg-transparent px-[24px] py-[12px] text-[16px] font-normal text-white transition-all duration-200 hover:border-white hover:bg-white hover:text-black"
             >
-              Ver todos os cases
+              {dict.nav.cases}
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

@@ -1,15 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslation } from "@/context/LocaleContext";
 import { AnimatedSection } from "./AnimatedSection";
-import { faqItems } from "@/lib/constants";
 
 export function FAQ() {
+  const { dict } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (i: number) => {
     setOpenIndex(openIndex === i ? null : i);
   };
+
+  const items = dict.faq.items;
 
   return (
     <section id="faq" className="border-t border-graphite bg-transparent px-[24px] py-[80px] md:px-[48px] md:py-[112px]">
@@ -17,19 +20,16 @@ export function FAQ() {
         <AnimatedSection>
           <div className="text-center">
             <p className="font-mono text-[12px] uppercase tracking-[0.05em] text-ash">
-              Dúvidas Frequentes
+              {dict.faq.tag}
             </p>
             <h2 className="mt-[8px] text-[32px] font-normal leading-[1.2] tracking-[-0.03em] text-white sm:text-[40px] md:text-[48px]">
-              Perguntas & Respostas
+              {dict.faq.title}
             </h2>
-            <p className="mt-[12px] text-[16px] text-ash">
-              Tudo o que você precisa saber sobre como trabalhamos e os resultados que entregamos.
-            </p>
           </div>
         </AnimatedSection>
 
         <div className="mt-[48px] flex flex-col gap-[12px]">
-          {faqItems.map((item, idx) => {
+          {items.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
               <AnimatedSection key={item.question} delay={idx * 0.05}>
